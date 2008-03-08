@@ -14,7 +14,7 @@ NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
 NSError *theError = NULL;
 NSString *theXML = @"<root attribute='bad'><anchor><node attribute='good'/></anchor></root>";
-id theXMLDocument = [[[NSXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+id theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
 NSLog(@"%@", theXMLDocument);
 
 NSArray *theNodes = NULL;

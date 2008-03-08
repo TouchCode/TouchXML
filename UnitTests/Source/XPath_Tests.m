@@ -22,7 +22,7 @@ STAssertNotNil(theXMLDocument, NULL);
 
 NSArray *theNodes = NULL;
 
-theNodes = [theXMLDocument nodesForXPath:@"*/@attribute" error:&theError];
+theNodes = [theXMLDocument nodesForXPath:@"//@attribute" error:&theError];
 STAssertTrue([theNodes count] == 2, NULL);
 }
 
