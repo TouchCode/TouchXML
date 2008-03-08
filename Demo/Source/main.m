@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Test
+//  TouchXML
 //
 //  Created by Jonathan Wight on 03/07/08.
 //  Copyright Toxic Software 2008. All rights reserved.

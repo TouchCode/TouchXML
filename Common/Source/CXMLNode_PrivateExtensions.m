@@ -1,6 +1,6 @@
 //
 //  CXMLNode_PrivateExtensions.m
-//  Test
+//  TouchXML
 //
 //  Created by Jonathan Wight on 03/07/08.
 //  Copyright 2008 Toxic Software. All rights reserved.

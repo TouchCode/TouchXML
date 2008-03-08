@@ -28,6 +28,14 @@
 		457940F50D82214700EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
 		457940F60D82214700EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
 		457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		457941220D8222CD00EB2D22 /* BasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457941210D8222CD00EB2D22 /* BasicTests.m */; };
+		457941270D82245700EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
+		457941280D82245800EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
+		457941290D82245800EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
+		4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		457941410D8224A000EB2D22 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457941400D8224A000EB2D22 /* SenTestingKit.framework */; };
+		457941590D8225FC00EB2D22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 457941580D8225FC00EB2D22 /* Info.plist */; };
+		457941650D82264700EB2D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,14 +43,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 456A848A0D81DB06000E29C9 /* TouchXML_Demo */;
+			remoteGlobalIDString = 456A848A0D81DB06000E29C9;
 			remoteInfo = TouchXML_Demo;
 		};
 		457941090D8221A100EB2D22 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 457940FE0D82217800EB2D22 /* TouchXML_UnitTests */;
+			remoteGlobalIDString = 457940FE0D82217800EB2D22;
 			remoteInfo = TouchXML_UnitTests;
 		};
 /* End PBXContainerItemProxy section */
@@ -59,8 +67,11 @@
 		457940F00D82214700EB2D22 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode.m; sourceTree = "<group>"; };
 		457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
 		457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
-		457940FF0D82217800EB2D22 /* TouchXML_UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = TouchXML_UnitTests.octest; path = /Users/schwa/Developer/Products/Debug/TouchXML_UnitTests.octest; sourceTree = "<absolute>"; };
-		457941000D82217800EB2D22 /* TouchXML_UnitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TouchXML_UnitTests-Info.plist"; sourceTree = "<group>"; };
+		457940FF0D82217800EB2D22 /* TouchXML_UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchXML_UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		457941200D8222CD00EB2D22 /* BasicTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTests.h; sourceTree = "<group>"; };
+		457941210D8222CD00EB2D22 /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTests.m; sourceTree = "<group>"; };
+		457941400D8224A000EB2D22 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = ../../../../../Developer/Library/Frameworks/SenTestingKit.framework; sourceTree = "<group>"; };
+		457941580D8225FC00EB2D22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457941410D8224A000EB2D22 /* SenTestingKit.framework in Frameworks */,
+				457941650D82264700EB2D22 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				457941400D8224A000EB2D22 /* SenTestingKit.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -113,7 +127,6 @@
 				457940E90D82214700EB2D22 /* Common */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				457941000D82217800EB2D22 /* TouchXML_UnitTests-Info.plist */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				457940E80D82214700EB2D22 /* Source */,
+				457941570D8225FC00EB2D22 /* Resources */,
 			);
 			path = UnitTests;
 			sourceTree = "<group>";
@@ -155,6 +169,8 @@
 		457940E80D82214700EB2D22 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				457941200D8222CD00EB2D22 /* BasicTests.h */,
+				457941210D8222CD00EB2D22 /* BasicTests.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -180,6 +196,14 @@
 				457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		457941570D8225FC00EB2D22 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				457941580D8225FC00EB2D22 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457941590D8225FC00EB2D22 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457941220D8222CD00EB2D22 /* BasicTests.m in Sources */,
+				457941270D82245700EB2D22 /* CXMLDocument.m in Sources */,
+				457941280D82245800EB2D22 /* CXMLElement.m in Sources */,
+				457941290D82245800EB2D22 /* CXMLNode.m in Sources */,
+				4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,14 +381,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "TouchXML_UnitTests-Info.plist";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
+				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_UnitTests;
 				WRAPPER_EXTENSION = octest;
@@ -378,14 +404,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "TouchXML_UnitTests-Info.plist";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Cocoa,
-					"-framework",
-					SenTestingKit,
-				);
+				OTHER_LDFLAGS = "-lxml2";
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_UnitTests;
 				WRAPPER_EXTENSION = octest;
