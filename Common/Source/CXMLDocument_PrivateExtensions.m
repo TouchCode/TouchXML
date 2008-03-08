@@ -19,4 +19,14 @@ xmlParseDocument(inContext);
 }
 */
 
+- (NSMutableSet *)nodePool
+{
+if (nodePool == NULL)
+	{
+	nodePool = [[NSMutableSet alloc] init];
+	}
+return(nodePool);
+}
+
+
 @end

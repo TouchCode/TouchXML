@@ -37,6 +37,8 @@
 		457941590D8225FC00EB2D22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 457941580D8225FC00EB2D22 /* Info.plist */; };
 		457941650D82264700EB2D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
+		457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
+		457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457943940D8248DC00EB2D22 /* XPath_Tests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		457941580D8225FC00EB2D22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		457942360D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_PrivateExtensions.h; sourceTree = "<group>"; };
 		457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
+		457943930D8248DC00EB2D22 /* XPath_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPath_Tests.h; sourceTree = "<group>"; };
+		457943940D8248DC00EB2D22 /* XPath_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPath_Tests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +178,8 @@
 			children = (
 				457941200D8222CD00EB2D22 /* BasicTests.h */,
 				457941210D8222CD00EB2D22 /* BasicTests.m */,
+				457943930D8248DC00EB2D22 /* XPath_Tests.h */,
+				457943940D8248DC00EB2D22 /* XPath_Tests.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				457940F50D82214700EB2D22 /* CXMLElement.m in Sources */,
 				457940F60D82214700EB2D22 /* CXMLNode.m in Sources */,
 				457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
+				457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +323,7 @@
 				457941290D82245800EB2D22 /* CXMLNode.m in Sources */,
 				4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
 				457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,13 +15,26 @@
 
 @implementation CXMLNode
 
+- (void)dealloc
+{
+if (_node)
+	{
+	_node->_private = NULL;
+	_node = NULL;
+	}
+//
+[super dealloc];
+}
+
 - (CXMLNodeKind)kind
 {
+NSAssert(_node != NULL, @"TODO");
 return(_node->type); // TODO this isn't 100% accurate!
 }
 
 - (NSString *)name
 {
+NSAssert(_node != NULL, @"TODO");
 // TODO use xmlCheckUTF8 to check name
 if (_node->name == NULL)
 	return(NULL);
@@ -31,6 +44,8 @@ else
 
 - (NSString *)stringValue
 {
+NSAssert(_node != NULL, @"TODO");
+
 xmlChar *theXMLString = xmlNodeListGetString(_node->doc, _node->children, YES);
 
 NSString *theStringValue = NULL;
@@ -45,6 +60,8 @@ return(theStringValue);
 
 - (NSUInteger)index
 {
+NSAssert(_node != NULL, @"TODO");
+
 xmlNodePtr theCurrentNode = _node->prev;
 NSUInteger N;
 for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->prev)
@@ -54,6 +71,8 @@ return(N);
 
 - (NSUInteger)level
 {
+NSAssert(_node != NULL, @"TODO");
+
 xmlNodePtr theCurrentNode = _node->parent;
 NSUInteger N;
 for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->parent)
@@ -63,11 +82,15 @@ return(N);
 
 - (CXMLDocument *)rootDocument
 {
+NSAssert(_node != NULL, @"TODO");
+
 return(_node->doc->_private);
 }
 
 - (CXMLNode *)parent
 {
+NSAssert(_node != NULL, @"TODO");
+
 if (_node->parent == NULL)
 	return(NULL);
 else
@@ -76,6 +99,8 @@ else
 
 - (NSUInteger)childCount
 {
+NSAssert(_node != NULL, @"TODO");
+
 xmlNodePtr theCurrentNode = _node->children;
 NSUInteger N;
 for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->next)
@@ -85,6 +110,8 @@ return(N);
 
 - (NSArray *)children
 {
+NSAssert(_node != NULL, @"TODO");
+
 NSMutableArray *theChildren = [NSMutableArray array];
 xmlNodePtr theCurrentNode = _node->children;
 while (theCurrentNode != NULL)
@@ -98,6 +125,8 @@ return(theChildren);
 
 - (CXMLNode *)childAtIndex:(NSUInteger)index
 {
+NSAssert(_node != NULL, @"TODO");
+
 xmlNodePtr theCurrentNode = _node->children;
 NSUInteger N;
 for (N = 0; theCurrentNode != NULL && N != index; ++N, theCurrentNode = theCurrentNode->next)
@@ -109,6 +138,8 @@ return(NULL);
 
 - (CXMLNode *)previousSibling
 {
+NSAssert(_node != NULL, @"TODO");
+
 if (_node->prev == NULL)
 	return(NULL);
 else
@@ -117,6 +148,8 @@ else
 
 - (CXMLNode *)nextSibling
 {
+NSAssert(_node != NULL, @"TODO");
+
 if (_node->next == NULL)
 	return(NULL);
 else
@@ -135,6 +168,8 @@ else
 
 - (NSString *)description
 {
+NSAssert(_node != NULL, @"TODO");
+
 return([NSString stringWithFormat:@"<%@ %p %@ %@>", NSStringFromClass([self class]), self, [self name], [self stringValue]]);
 }
 
@@ -144,6 +179,8 @@ return([NSString stringWithFormat:@"<%@ %p %@ %@>", NSStringFromClass([self clas
 
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error
 {
+NSAssert(_node != NULL, @"TODO");
+
 NSArray *theResult = NULL;
 
 CXMLNode *theRootDocument = [self rootDocument];

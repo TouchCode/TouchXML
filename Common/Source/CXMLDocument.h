@@ -11,6 +11,7 @@
 @class CXMLElement;
 
 @interface CXMLDocument : CXMLNode {
+	NSMutableSet *nodePool;
 }
 
 - (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;

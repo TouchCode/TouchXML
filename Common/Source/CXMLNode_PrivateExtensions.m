@@ -9,6 +9,7 @@
 #import "CXMLNode_PrivateExtensions.h"
 
 #import "CXMLElement.h"
+#import "CXMLDocument_PrivateExtensions.h"
 
 @implementation CXMLNode (CXMLNode_PrivateExtensions)
 
@@ -27,30 +28,29 @@ return(self);
 if (inLibXMLNode->_private)
 	return(inLibXMLNode->_private);
 
-CXMLNode *theNode = NULL;
+Class theClass = [CXMLNode class];
 switch (inLibXMLNode->type)
 	{
 	case XML_ELEMENT_NODE:
-		{
-		theNode = [[[CXMLElement alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
-		}
+		theClass = [CXMLElement class];
 		break;
 	case XML_ATTRIBUTE_NODE:
-		{
-		theNode = [[[CXMLNode alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
-		}
-		break;
 	case XML_TEXT_NODE:
-		{
-		theNode = [[[CXMLNode alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
-		}
 		break;
 	default:
 		NSAssert1(NO, @"TODO Unhandled type (%d).", inLibXMLNode->type);
 		return(NULL);
 	}
-	
-theNode->_node->_private = [theNode retain]; // TODO think more about potention retain cycles
+
+CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
+
+
+CXMLDocument *theXMLDocument = inLibXMLNode->doc->_private;
+NSAssert(theXMLDocument != NULL, @"TODO");
+
+[[theXMLDocument nodePool] addObject:theNode];
+
+theNode->_node->_private = theNode;
 return(theNode);
 }
 

@@ -57,6 +57,18 @@ if ((self = [super init]) != NULL)
 return(self);
 }
 
+- (void)dealloc
+{
+xmlFreeDoc((xmlDocPtr)_node);
+_node = NULL;
+//
+
+[nodePool autorelease];
+nodePool = NULL;
+//
+[super dealloc];
+}
+
 //- (NSString *)characterEncoding;
 //- (NSString *)version;
 //- (BOOL)isStandalone;
