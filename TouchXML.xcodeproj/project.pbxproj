@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		457940860D8215E600EB2D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940780D8215E600EB2D22 /* main.m */; };
-		457940870D8215E600EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4579407F0D8215E600EB2D22 /* CXMLDocument.m */; };
-		457940880D8215E600EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940810D8215E600EB2D22 /* CXMLElement.m */; };
-		457940890D8215E600EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940830D8215E600EB2D22 /* CXMLNode.m */; };
-		4579408A0D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940850D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		457940F30D82214700EB2D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940E50D82214700EB2D22 /* main.m */; };
+		457940F40D82214700EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
+		457940F50D82214700EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
+		457940F60D82214700EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
+		457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		457940780D8215E600EB2D22 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		457940790D8215E600EB2D22 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Demo/Source/Prefix.pch; sourceTree = "<absolute>"; };
-		4579407E0D8215E600EB2D22 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLDocument.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLDocument.h; sourceTree = "<absolute>"; };
-		4579407F0D8215E600EB2D22 /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLDocument.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLDocument.m; sourceTree = "<absolute>"; };
-		457940800D8215E600EB2D22 /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLElement.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLElement.h; sourceTree = "<absolute>"; };
-		457940810D8215E600EB2D22 /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLElement.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLElement.m; sourceTree = "<absolute>"; };
-		457940820D8215E600EB2D22 /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode.h; sourceTree = "<absolute>"; };
-		457940830D8215E600EB2D22 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode.m; sourceTree = "<absolute>"; };
-		457940840D8215E600EB2D22 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode_PrivateExtensions.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode_PrivateExtensions.h; sourceTree = "<absolute>"; };
-		457940850D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode_PrivateExtensions.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode_PrivateExtensions.m; sourceTree = "<absolute>"; };
+		457940E50D82214700EB2D22 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		457940E60D82214700EB2D22 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		457940EB0D82214700EB2D22 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument.h; sourceTree = "<group>"; };
+		457940EC0D82214700EB2D22 /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument.m; sourceTree = "<group>"; };
+		457940ED0D82214700EB2D22 /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement.h; sourceTree = "<group>"; };
+		457940EE0D82214700EB2D22 /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement.m; sourceTree = "<group>"; };
+		457940EF0D82214700EB2D22 /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode.h; sourceTree = "<group>"; };
+		457940F00D82214700EB2D22 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode.m; sourceTree = "<group>"; };
+		457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
+		457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +66,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				457940760D8215E600EB2D22 /* Demo */,
-				4579407A0D8215E600EB2D22 /* UnitTests */,
-				4579407C0D8215E600EB2D22 /* Common */,
+				457940E30D82214700EB2D22 /* Demo */,
+				457940E70D82214700EB2D22 /* UnitTests */,
+				457940E90D82214700EB2D22 /* Common */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -84,66 +84,60 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		457940760D8215E600EB2D22 /* Demo */ = {
+		457940E30D82214700EB2D22 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				457940770D8215E600EB2D22 /* Source */,
+				457940E40D82214700EB2D22 /* Source */,
 			);
-			name = Demo;
-			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Demo;
-			sourceTree = "<absolute>";
+			path = Demo;
+			sourceTree = "<group>";
 		};
-		457940770D8215E600EB2D22 /* Source */ = {
+		457940E40D82214700EB2D22 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				457940780D8215E600EB2D22 /* main.m */,
-				457940790D8215E600EB2D22 /* Prefix.pch */,
+				457940E50D82214700EB2D22 /* main.m */,
+				457940E60D82214700EB2D22 /* Prefix.pch */,
 			);
-			name = Source;
-			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Demo/Source;
-			sourceTree = "<absolute>";
+			path = Source;
+			sourceTree = "<group>";
 		};
-		4579407A0D8215E600EB2D22 /* UnitTests */ = {
+		457940E70D82214700EB2D22 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				4579407B0D8215E600EB2D22 /* Source */,
+				457940E80D82214700EB2D22 /* Source */,
 			);
-			name = UnitTests;
-			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/UnitTests;
-			sourceTree = "<absolute>";
+			path = UnitTests;
+			sourceTree = "<group>";
 		};
-		4579407B0D8215E600EB2D22 /* Source */ = {
+		457940E80D82214700EB2D22 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Source;
-			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/UnitTests/Source;
-			sourceTree = "<absolute>";
+			path = Source;
+			sourceTree = "<group>";
 		};
-		4579407C0D8215E600EB2D22 /* Common */ = {
+		457940E90D82214700EB2D22 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				4579407D0D8215E600EB2D22 /* Source */,
+				457940EA0D82214700EB2D22 /* Source */,
 			);
-			name = Common;
-			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common;
-			sourceTree = "<absolute>";
+			path = Common;
+			sourceTree = "<group>";
 		};
-		4579407D0D8215E600EB2D22 /* Source */ = {
+		457940EA0D82214700EB2D22 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				4579407E0D8215E600EB2D22 /* CXMLDocument.h */,
-				4579407F0D8215E600EB2D22 /* CXMLDocument.m */,
-				457940800D8215E600EB2D22 /* CXMLElement.h */,
-				457940810D8215E600EB2D22 /* CXMLElement.m */,
-				457940820D8215E600EB2D22 /* CXMLNode.h */,
-				457940830D8215E600EB2D22 /* CXMLNode.m */,
-				457940840D8215E600EB2D22 /* CXMLNode_PrivateExtensions.h */,
-				457940850D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m */,
+				457940EB0D82214700EB2D22 /* CXMLDocument.h */,
+				457940EC0D82214700EB2D22 /* CXMLDocument.m */,
+				457940ED0D82214700EB2D22 /* CXMLElement.h */,
+				457940EE0D82214700EB2D22 /* CXMLElement.m */,
+				457940EF0D82214700EB2D22 /* CXMLNode.h */,
+				457940F00D82214700EB2D22 /* CXMLNode.m */,
+				457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */,
+				457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */,
 			);
-			name = Source;
-			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source;
-			sourceTree = "<absolute>";
+			path = Source;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -185,11 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457940860D8215E600EB2D22 /* main.m in Sources */,
-				457940870D8215E600EB2D22 /* CXMLDocument.m in Sources */,
-				457940880D8215E600EB2D22 /* CXMLElement.m in Sources */,
-				457940890D8215E600EB2D22 /* CXMLNode.m in Sources */,
-				4579408A0D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
+				457940F30D82214700EB2D22 /* main.m in Sources */,
+				457940F40D82214700EB2D22 /* CXMLDocument.m in Sources */,
+				457940F50D82214700EB2D22 /* CXMLElement.m in Sources */,
+				457940F60D82214700EB2D22 /* CXMLNode.m in Sources */,
+				457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
