@@ -36,6 +36,7 @@
 		457941410D8224A000EB2D22 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 457941400D8224A000EB2D22 /* SenTestingKit.framework */; };
 		457941590D8225FC00EB2D22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 457941580D8225FC00EB2D22 /* Info.plist */; };
 		457941650D82264700EB2D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,8 @@
 		457941210D8222CD00EB2D22 /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTests.m; sourceTree = "<group>"; };
 		457941400D8224A000EB2D22 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = ../../../../../Developer/Library/Frameworks/SenTestingKit.framework; sourceTree = "<group>"; };
 		457941580D8225FC00EB2D22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		457942360D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_PrivateExtensions.h; sourceTree = "<group>"; };
+		457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 			children = (
 				457940EB0D82214700EB2D22 /* CXMLDocument.h */,
 				457940EC0D82214700EB2D22 /* CXMLDocument.m */,
+				457942360D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.h */,
+				457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */,
 				457940ED0D82214700EB2D22 /* CXMLElement.h */,
 				457940EE0D82214700EB2D22 /* CXMLElement.m */,
 				457940EF0D82214700EB2D22 /* CXMLNode.h */,
@@ -310,6 +315,7 @@
 				457941280D82245800EB2D22 /* CXMLElement.m in Sources */,
 				457941290D82245800EB2D22 /* CXMLNode.m in Sources */,
 				4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
+				457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +380,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -399,6 +406,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;

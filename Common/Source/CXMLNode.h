@@ -34,15 +34,15 @@ typedef enum {
 - (CXMLNodeKind)kind;
 - (NSString *)name;
 - (NSString *)stringValue;
-//- (NSUInteger)index;
-//- (NSUInteger)level;
+- (NSUInteger)index;
+- (NSUInteger)level;
 - (CXMLDocument *)rootDocument;
 - (CXMLNode *)parent;
-//- (NSUInteger)childCount;
+- (NSUInteger)childCount;
 - (NSArray *)children;
-//- (CXMLNode *)childAtIndex:(NSUInteger)index;
-//- (CXMLNode *)previousSibling;
-//- (CXMLNode *)nextSibling;
+- (CXMLNode *)childAtIndex:(NSUInteger)index;
+- (CXMLNode *)previousSibling;
+- (CXMLNode *)nextSibling;
 //- (CXMLNode *)previousNode;
 //- (CXMLNode *)nextNode;
 //- (NSString *)XPath;
@@ -57,7 +57,5 @@ typedef enum {
 //- (NSString *)XMLStringWithOptions:(NSUInteger)options;
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error;
-//- (NSArray *)objectsForXQuery:(NSString *)xquery constants:(NSDictionary *)constants error:(NSError **)error;
-//- (NSArray *)objectsForXQuery:(NSString *)xquery error:(NSError **)error;
 
 @end

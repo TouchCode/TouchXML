@@ -30,6 +30,7 @@ for (id theNode in [[theDocument rootElement] children])
 	NSLog(@"%@", [theNode parent]);
 	NSLog(@"%@", [[theNode parent] parent]);
 	NSLog(@"%@", [theNode rootDocument]);
+	NSLog(@"%d", [theNode index]);
 	}
 
 [pool release];

@@ -15,6 +15,27 @@
 
 @implementation CXMLDocument
 
+- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
+{
+if ((self = [super init]) != NULL)
+	{
+	xmlDocPtr theDoc = xmlParseDoc((xmlChar *)[inString UTF8String]);
+	
+	if (theDoc != NULL)
+		{
+		_node = (xmlNodePtr)theDoc;
+		_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+		}
+	else
+		{
+		if (outError)
+			*outError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:NULL];
+		self = NULL;
+		}
+	}
+return(self);
+}
+
 - (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
 {
 if ((self = [super init]) != NULL)
@@ -36,11 +57,25 @@ if ((self = [super init]) != NULL)
 return(self);
 }
 
+//- (NSString *)characterEncoding;
+//- (NSString *)version;
+//- (BOOL)isStandalone;
+//- (CXMLDocumentContentKind)documentContentKind;
+//- (NSString *)MIMEType;
+//- (CXMLDTD *)DTD;
+
 - (CXMLElement *)rootElement
 {
 xmlNodePtr theLibXMLNode = xmlDocGetRootElement((xmlDocPtr)_node);
 	
 return([CXMLNode nodeWithLibXMLNode:theLibXMLNode]);
 }
+
+//- (NSData *)XMLData;
+//- (NSData *)XMLDataWithOptions:(NSUInteger)options;
+
+//- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
+//- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
+//- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
 
 @end

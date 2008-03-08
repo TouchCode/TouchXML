@@ -13,7 +13,6 @@
 
 #include <libxml/xpath.h>
 
-
 @implementation CXMLNode
 
 - (CXMLNodeKind)kind
@@ -44,8 +43,23 @@ if (theXMLString != NULL)
 return(theStringValue);
 }
 
-//- (NSUInteger)index;
-//- (NSUInteger)level;
+- (NSUInteger)index
+{
+xmlNodePtr theCurrentNode = _node->prev;
+NSUInteger N;
+for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->prev)
+	;
+return(N);
+}
+
+- (NSUInteger)level
+{
+xmlNodePtr theCurrentNode = _node->parent;
+NSUInteger N;
+for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->parent)
+	;
+return(N);
+}
 
 - (CXMLDocument *)rootDocument
 {
@@ -60,12 +74,19 @@ else
 	return (_node->parent->_private);
 }
 
-//- (NSUInteger)childCount;
+- (NSUInteger)childCount
+{
+xmlNodePtr theCurrentNode = _node->children;
+NSUInteger N;
+for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->next)
+	;
+return(N);
+}
 
 - (NSArray *)children
 {
 NSMutableArray *theChildren = [NSMutableArray array];
-xmlNodePtr theCurrentNode = _node->xmlChildrenNode;
+xmlNodePtr theCurrentNode = _node->children;
 while (theCurrentNode != NULL)
 	{
 	CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode];
@@ -75,9 +96,33 @@ while (theCurrentNode != NULL)
 return(theChildren);      
 }
 
-//- (CXMLNode *)childAtIndex:(NSUInteger)index;
-//- (CXMLNode *)previousSibling;
-//- (CXMLNode *)nextSibling;
+- (CXMLNode *)childAtIndex:(NSUInteger)index
+{
+xmlNodePtr theCurrentNode = _node->children;
+NSUInteger N;
+for (N = 0; theCurrentNode != NULL && N != index; ++N, theCurrentNode = theCurrentNode->next)
+	;
+if (theCurrentNode)
+	return([CXMLNode nodeWithLibXMLNode:theCurrentNode]);
+return(NULL);
+}
+
+- (CXMLNode *)previousSibling
+{
+if (_node->prev == NULL)
+	return(NULL);
+else
+	return([CXMLNode nodeWithLibXMLNode:_node->prev]);
+}
+
+- (CXMLNode *)nextSibling
+{
+if (_node->next == NULL)
+	return(NULL);
+else
+	return([CXMLNode nodeWithLibXMLNode:_node->next]);
+}
+
 //- (CXMLNode *)previousNode;
 //- (CXMLNode *)nextNode;
 //- (NSString *)XPath;
