@@ -1,0 +1,285 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		457940860D8215E600EB2D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940780D8215E600EB2D22 /* main.m */; };
+		457940870D8215E600EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4579407F0D8215E600EB2D22 /* CXMLDocument.m */; };
+		457940880D8215E600EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940810D8215E600EB2D22 /* CXMLElement.m */; };
+		457940890D8215E600EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940830D8215E600EB2D22 /* CXMLNode.m */; };
+		4579408A0D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940850D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		457940780D8215E600EB2D22 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		457940790D8215E600EB2D22 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Demo/Source/Prefix.pch; sourceTree = "<absolute>"; };
+		4579407E0D8215E600EB2D22 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLDocument.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLDocument.h; sourceTree = "<absolute>"; };
+		4579407F0D8215E600EB2D22 /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLDocument.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLDocument.m; sourceTree = "<absolute>"; };
+		457940800D8215E600EB2D22 /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLElement.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLElement.h; sourceTree = "<absolute>"; };
+		457940810D8215E600EB2D22 /* CXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLElement.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLElement.m; sourceTree = "<absolute>"; };
+		457940820D8215E600EB2D22 /* CXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode.h; sourceTree = "<absolute>"; };
+		457940830D8215E600EB2D22 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode.m; sourceTree = "<absolute>"; };
+		457940840D8215E600EB2D22 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CXMLNode_PrivateExtensions.h; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode_PrivateExtensions.h; sourceTree = "<absolute>"; };
+		457940850D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CXMLNode_PrivateExtensions.m; path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source/CXMLNode_PrivateExtensions.m; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		456A84890D81DB06000E29C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				457940760D8215E600EB2D22 /* Demo */,
+				4579407A0D8215E600EB2D22 /* UnitTests */,
+				4579407C0D8215E600EB2D22 /* Common */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		457940760D8215E600EB2D22 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				457940770D8215E600EB2D22 /* Source */,
+			);
+			name = Demo;
+			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Demo;
+			sourceTree = "<absolute>";
+		};
+		457940770D8215E600EB2D22 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				457940780D8215E600EB2D22 /* main.m */,
+				457940790D8215E600EB2D22 /* Prefix.pch */,
+			);
+			name = Source;
+			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Demo/Source;
+			sourceTree = "<absolute>";
+		};
+		4579407A0D8215E600EB2D22 /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				4579407B0D8215E600EB2D22 /* Source */,
+			);
+			name = UnitTests;
+			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/UnitTests;
+			sourceTree = "<absolute>";
+		};
+		4579407B0D8215E600EB2D22 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Source;
+			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/UnitTests/Source;
+			sourceTree = "<absolute>";
+		};
+		4579407C0D8215E600EB2D22 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4579407D0D8215E600EB2D22 /* Source */,
+			);
+			name = Common;
+			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common;
+			sourceTree = "<absolute>";
+		};
+		4579407D0D8215E600EB2D22 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4579407E0D8215E600EB2D22 /* CXMLDocument.h */,
+				4579407F0D8215E600EB2D22 /* CXMLDocument.m */,
+				457940800D8215E600EB2D22 /* CXMLElement.h */,
+				457940810D8215E600EB2D22 /* CXMLElement.m */,
+				457940820D8215E600EB2D22 /* CXMLNode.h */,
+				457940830D8215E600EB2D22 /* CXMLNode.m */,
+				457940840D8215E600EB2D22 /* CXMLNode_PrivateExtensions.h */,
+				457940850D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m */,
+			);
+			name = Source;
+			path = /Users/schwa/Developer/Mercurial/Repositories/scratch/TouchXML/Common/Source;
+			sourceTree = "<absolute>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		456A848A0D81DB06000E29C9 /* TouchXML_Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXML_Demo" */;
+			buildPhases = (
+				456A84880D81DB06000E29C9 /* Sources */,
+				456A84890D81DB06000E29C9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchXML_Demo;
+			productName = "Mac OS X";
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TouchXML" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				456A848A0D81DB06000E29C9 /* TouchXML_Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		456A84880D81DB06000E29C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				457940860D8215E600EB2D22 /* main.m in Sources */,
+				457940870D8215E600EB2D22 /* CXMLDocument.m in Sources */,
+				457940880D8215E600EB2D22 /* CXMLElement.m in Sources */,
+				457940890D8215E600EB2D22 /* CXMLNode.m in Sources */,
+				4579408A0D8215E600EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		456A848B0D81DB06000E29C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				PRODUCT_NAME = TouchXML_Demo;
+			};
+			name = Debug;
+		};
+		456A848C0D81DB06000E29C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				PRODUCT_NAME = TouchXML_Demo;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXML_Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				456A848B0D81DB06000E29C9 /* Debug */,
+				456A848C0D81DB06000E29C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TouchXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
