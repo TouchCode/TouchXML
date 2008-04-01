@@ -36,11 +36,31 @@ if ((self = [super init]) != NULL)
 return(self);
 }
 
+- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError
+{
+NSData *theData = [NSData dataWithContentsOfURL:inURL options:NSUncachedRead error:outError];
+if (theData)
+	{
+	self = [self initWithData:theData options:inOptions error:outError];
+	}
+else
+	{
+	
+	self = NULL;
+	}
+	
+return(self);
+}
+
 - (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
 {
 if ((self = [super init]) != NULL)
 	{
-	xmlDocPtr theDoc = xmlParseMemory([inData bytes], [inData length]);
+	xmlDocPtr theDoc = NULL;
+	if (inData && inData.length > 0)
+		{
+		theDoc = xmlParseMemory([inData bytes], [inData length]);
+		}
 	
 	if (theDoc != NULL)
 		{

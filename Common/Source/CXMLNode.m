@@ -10,8 +10,10 @@
 
 #import "CXMLNode_PrivateExtensions.h"
 #import "CXMLDocument.h"
+#import "CXMLElement.h"
 
 #include <libxml/xpath.h>
+#include <libxml/xpathInternals.h>
 
 @implementation CXMLNode
 
