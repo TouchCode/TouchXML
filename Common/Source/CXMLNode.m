@@ -21,7 +21,8 @@
 {
 if (_node)
 	{
-	_node->_private = NULL;
+	if (_node->_private == self)
+		_node->_private = NULL;
 	_node = NULL;
 	}
 //

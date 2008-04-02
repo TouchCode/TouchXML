@@ -24,6 +24,7 @@ if ((self = [super init]) != NULL)
 	if (theDoc != NULL)
 		{
 		_node = (xmlNodePtr)theDoc;
+		NSAssert(_node->_private == NULL, @"TODO");
 		_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
 		}
 	else
@@ -83,7 +84,7 @@ xmlFreeDoc((xmlDocPtr)_node);
 _node = NULL;
 //
 
-[nodePool autorelease];
+[nodePool release];
 nodePool = NULL;
 //
 [super dealloc];
