@@ -1,0 +1,81 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/Common/Source/CXMLElement.m
+        -:    0:Graph:CXMLElement.gcno
+        -:    0:Data:CXMLElement.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  CXMLElement.m
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 Toxic Software. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "CXMLElement.h"
+        -:   10:
+        -:   11:#import "CXMLNode_PrivateExtensions.h"
+        -:   12:
+        -:   13:@implementation CXMLElement
+        -:   14:
+        -:   15:- (NSArray *)elementsForName:(NSString *)name
+       30:   16:{
+       30:   17:NSMutableArray *theElements = [NSMutableArray array];
+        -:   18:
+        -:   19:// TODO -- native xml api?
+       30:   20:const xmlChar *theName = (const xmlChar *)[name UTF8String];
+        -:   21:
+       30:   22:xmlNodePtr theCurrentNode = _node->children;
+      150:   23:while (theCurrentNode != NULL)
+        -:   24:	{
+       90:   25:	if (theCurrentNode->type == XML_ELEMENT_NODE && xmlStrcmp(theName, theCurrentNode->name) == 0)
+        -:   26:		{
+       30:   27:		CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode];
+       30:   28:		[theElements addObject:theNode];
+        -:   29:		}
+       90:   30:	theCurrentNode = theCurrentNode->next;
+        -:   31:	}
+       30:   32:return(theElements);
+        -:   33:}
+        -:   34:
+        -:   35://- (NSArray *)elementsForLocalName:(NSString *)localName URI:(NSString *)URI;
+        -:   36:
+        -:   37:- (NSArray *)attributes
+       90:   38:{
+       90:   39:NSMutableArray *theAttributes = [NSMutableArray array];
+       90:   40:xmlAttrPtr theCurrentNode = _node->properties;
+      290:   41:while (theCurrentNode != NULL)
+        -:   42:	{
+      110:   43:	CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode];
+      110:   44:	[theAttributes addObject:theAttribute];
+      110:   45:	theCurrentNode = theCurrentNode->next;
+        -:   46:	}
+       90:   47:return(theAttributes);
+        -:   48:}
+        -:   49:
+        -:   50:- (CXMLNode *)attributeForName:(NSString *)name
+       60:   51:{
+        -:   52:// TODO -- look for native libxml2 function for finding a named attribute (like xmlGetProp)
+       60:   53:const xmlChar *theName = (const xmlChar *)[name UTF8String];
+        -:   54:
+       60:   55:xmlAttrPtr theCurrentNode = _node->properties;
+      140:   56:while (theCurrentNode != NULL)
+        -:   57:	{
+       80:   58:	if (xmlStrcmp(theName, theCurrentNode->name) == 0)
+        -:   59:		{
+       60:   60:		CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode];
+       60:   61:		return(theAttribute);
+        -:   62:		}
+       20:   63:	theCurrentNode = theCurrentNode->next;
+        -:   64:	}
+    #####:   65:return(NULL);
+        -:   66:}
+        -:   67:
+        -:   68://- (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI;
+        -:   69:
+        -:   70://- (NSArray *)namespaces; //primitive
+        -:   71://- (CXMLNode *)namespaceForPrefix:(NSString *)name;
+        -:   72://- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
+        -:   73://- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;
+        -:   74:
+        -:   75:
+        -:   76:@end

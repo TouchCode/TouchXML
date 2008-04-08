@@ -39,6 +39,8 @@
 		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457943940D8248DC00EB2D22 /* XPath_Tests.m */; };
+		45AA86A60DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
+		45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
 		457943930D8248DC00EB2D22 /* XPath_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPath_Tests.h; sourceTree = "<group>"; };
 		457943940D8248DC00EB2D22 /* XPath_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPath_Tests.m; sourceTree = "<group>"; };
+		45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
+		45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,8 @@
 				457940F00D82214700EB2D22 /* CXMLNode.m */,
 				457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */,
 				457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */,
+				45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */,
+				45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -295,7 +301,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n\n # Run gcov on the framework getting tested\nif [ \"${CONFIGURATION}\" = 'Coverage' ]; then\n\techo '##########################################################################'\n\tCOVERAGE_OUTPUT_DIR=${SRCROOT}/Coverage\n\techo \"${COVERAGE_OUTPUT_DIR}\"\n\tmkdir -p \"${COVERAGE_OUTPUT_DIR}\"\n\tpushd \"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}\"\n\tpwd\n\tfind . -name '*.gcda' -exec gcov {} \\;\n\tfind . -name '*.gcov' -exec mv {} \"${COVERAGE_OUTPUT_DIR}\" \\;\n\tpopd\n\techo '##########################################################################'\nfi \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -310,6 +316,7 @@
 				457940F60D82214700EB2D22 /* CXMLNode.m in Sources */,
 				457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
 				457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +331,7 @@
 				4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
 				457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */,
+				45AA86A60DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +351,81 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		4533AB090DA4203C0028B909 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lgcov";
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Coverage;
+		};
+		4533AB0A0DA4203C0028B909 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Coverage;
+		};
+		4533AB0B0DA4203C0028B909 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = "-lxml2";
+				PREBINDING = NO;
+				PRODUCT_NAME = TouchXML_Demo;
+			};
+			name = Coverage;
+		};
+		4533AB0C0DA4203C0028B909 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(NATIVE_ARCH)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-lgcov",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = TouchXML_UnitTests;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Coverage;
+		};
 		456A848B0D81DB06000E29C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,36 +567,40 @@
 			buildConfigurations = (
 				456A848B0D81DB06000E29C9 /* Debug */,
 				456A848C0D81DB06000E29C9 /* Release */,
+				4533AB0B0DA4203C0028B909 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		457941030D82217800EB2D22 /* Build configuration list for PBXNativeTarget "TouchXML_UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				457941010D82217800EB2D22 /* Debug */,
 				457941020D82217800EB2D22 /* Release */,
+				4533AB0C0DA4203C0028B909 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		4579410B0D8221C000EB2D22 /* Build configuration list for PBXAggregateTarget "All" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				457941050D82219400EB2D22 /* Debug */,
 				457941060D82219400EB2D22 /* Release */,
+				4533AB0A0DA4203C0028B909 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TouchXML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				4533AB090DA4203C0028B909 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

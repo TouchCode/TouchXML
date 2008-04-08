@@ -24,6 +24,7 @@ NSArray *theResult = NULL;
 
 CXMLNode *theRootDocument = [self rootDocument];
 xmlXPathContextPtr theXPathContext = xmlXPathNewContext((xmlDocPtr)theRootDocument->_node);
+theXPathContext->node = _node;
 
 for (NSString *thePrefix in inNamespaceMappings)
 	{

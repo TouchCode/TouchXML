@@ -13,14 +13,18 @@ int main(int argc, char *argv[])
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
 NSError *theError = NULL;
-NSString *theXML = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><FindItemsResponse xmlns=\"urn:ebay:apis:eBLBaseComponents\"><Timestamp>2008-03-26T23:23:13.175Z</Timestamp></FindItemsResponse>";
+NSString *theXML = @"<root attribute='bad'><mid><node attribute='good'/></mid></root>";
 
 CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
 
 NSArray *theNodes = NULL;
 
-theNodes = [theXMLDocument nodesForXPath:@"//Timestamp" error:&theError];
-NSLog(@"%@", theNodes);
+theNodes = [theXMLDocument nodesForXPath:@"//mid" error:&theError];
+for (CXMLElement *theElement in theNodes)
+	{
+	theNodes = [theElement nodesForXPath:@"./node" error:NULL];
+	NSLog(@"%@", theNodes);
+	}
 
 [pool release];
 return 0;

@@ -188,6 +188,7 @@ NSArray *theResult = NULL;
 
 CXMLNode *theRootDocument = [self rootDocument];
 xmlXPathContextPtr theXPathContext = xmlXPathNewContext((xmlDocPtr)theRootDocument->_node);
+theXPathContext->node = _node;
 
 // TODO considering putting xmlChar <-> UTF8 into a NSString category
 xmlXPathObjectPtr theXPathObject = xmlXPathEvalExpression((const xmlChar *)[xpath UTF8String], theXPathContext);

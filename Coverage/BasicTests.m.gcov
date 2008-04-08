@@ -1,0 +1,119 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/UnitTests/Source/BasicTests.m
+        -:    0:Graph:BasicTests.gcno
+        -:    0:Data:BasicTests.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  BasicTests.m
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 __MyCompanyName__. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "BasicTests.h"
+        -:   10:
+        -:   11:#import "CXMLDocument.h"
+        -:   12:#import "CXMLElement.h"
+        -:   13:
+        -:   14:@implementation BasicTests
+        -:   15:
+        -:   16:- (void)test_basicXMLTest
+       10:   17:{
+       10:   18:NSError *theError = NULL;
+       10:   19:CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<foo/>" options:0 error:&theError] autorelease];
+       10:   20:STAssertNotNil(theXMLDocument, NULL);
+       10:   21:STAssertNil(theError, NULL);
+       10:   22:STAssertNotNil([theXMLDocument rootElement], NULL);
+       10:   23:STAssertEquals([theXMLDocument rootElement], [theXMLDocument rootElement], NULL);
+       10:   24:STAssertEqualObjects([[theXMLDocument rootElement] name], @"foo", NULL);
+        -:   25:}
+        -:   26:
+        -:   27:- (void)test_badXMLTest
+       10:   28:{
+       10:   29:NSError *theError = NULL;
+       10:   30:CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"This is invalid XML." options:0 error:&theError] autorelease];
+       10:   31:STAssertNil(theXMLDocument, NULL);
+       10:   32:STAssertNotNil(theError, NULL);
+        -:   33:}
+        -:   34:
+        -:   35:- (void)test_nodeNavigation
+       10:   36:{
+       10:   37:NSError *theError = NULL;
+       10:   38:NSString *theXML = @"<root><node_1/><node_2/><node_3/></root>";
+       10:   39:CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+       10:   40:STAssertNotNil(theXMLDocument, NULL);
+        -:   41:
+       10:   42:STAssertTrue([[theXMLDocument rootElement] childCount] == 3, NULL);
+        -:   43:
+       10:   44:NSArray *theArray = [theXMLDocument nodesForXPath:@"/root/*" error:&theError];
+       10:   45:STAssertNotNil(theArray, NULL);
+       10:   46:STAssertTrue([theArray count] == 3, NULL);
+       40:   47:for (CXMLNode *theNode in theArray)
+        -:   48:	{
+       30:   49:	STAssertEquals([theNode index], [theArray indexOfObject:theNode], NULL);
+       30:   50:	STAssertEquals((int)[theNode level], 2, NULL);
+        -:   51:	}
+        -:   52:	
+       10:   53:STAssertEquals([[theXMLDocument rootElement] childAtIndex:0], [theArray objectAtIndex:0], NULL);
+       10:   54:STAssertEquals([[theXMLDocument rootElement] childAtIndex:1], [theArray objectAtIndex:1], NULL);
+       10:   55:STAssertEquals([[theXMLDocument rootElement] childAtIndex:2], [theArray objectAtIndex:2], NULL);
+        -:   56:
+       10:   57:STAssertEqualObjects([[theArray objectAtIndex:0] name], @"node_1", NULL);
+       10:   58:STAssertEqualObjects([[theArray objectAtIndex:1] name], @"node_2", NULL);
+       10:   59:STAssertEqualObjects([[theArray objectAtIndex:2] name], @"node_3", NULL);
+        -:   60:
+       10:   61:STAssertEquals([[theArray objectAtIndex:0] nextSibling], [theArray objectAtIndex:1], NULL);
+       10:   62:STAssertEquals([[theArray objectAtIndex:1] nextSibling], [theArray objectAtIndex:2], NULL);
+       10:   63:STAssertNil([[theArray objectAtIndex:2] nextSibling], NULL);
+        -:   64:
+       10:   65:STAssertNil([[theArray objectAtIndex:0] previousSibling], NULL);
+       10:   66:STAssertEquals([[theArray objectAtIndex:1] previousSibling], [theArray objectAtIndex:0], NULL);
+       10:   67:STAssertEquals([[theArray objectAtIndex:2] previousSibling], [theArray objectAtIndex:1], NULL);
+        -:   68:}
+        -:   69:
+        -:   70:- (void)test_valid_and_invalid_Xpaths
+       10:   71:{
+        -:   72:
+        -:   73:}
+        -:   74:
+        -:   75:- (void)test_attributes
+       10:   76:{
+       10:   77:NSError *theError = NULL;
+       10:   78:NSString *theXML = @"<root><node_1/><node_2 attribute_1='value_1' /><node_3 attribute_1='value_1' attribute_2='value_2' /></root>";
+       10:   79:CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+       10:   80:STAssertNotNil(theXMLDocument, NULL);
+        -:   81:
+       10:   82:NSArray *theNodes = NULL;
+       10:   83:CXMLElement *theElement = NULL;
+        -:   84:
+       10:   85:theNodes = [[theXMLDocument rootElement] elementsForName:@"node_1"];
+       10:   86:STAssertTrue([theNodes count] == 1, NULL);
+       10:   87:theElement = [theNodes lastObject];
+       10:   88:STAssertTrue([theElement isKindOfClass:[CXMLElement class]], NULL);
+       10:   89:STAssertNotNil([theElement attributes], NULL);
+       10:   90:STAssertTrue([[theElement attributes] count] == 0, NULL);
+        -:   91:
+       10:   92:theNodes = [[theXMLDocument rootElement] elementsForName:@"node_2"];
+       10:   93:STAssertTrue([theNodes count] == 1, NULL);
+       10:   94:theElement = [theNodes lastObject];
+       10:   95:STAssertTrue([theElement isKindOfClass:[CXMLElement class]], NULL);
+       10:   96:STAssertNotNil([theElement attributes], NULL);
+       10:   97:STAssertTrue([[theElement attributes] count] == 1, NULL);
+       10:   98:STAssertEqualObjects([[theElement attributes] objectAtIndex:0], [theElement attributeForName:@"attribute_1"], NULL);
+       10:   99:STAssertEqualObjects([[theElement attributeForName:@"attribute_1"] stringValue], @"value_1", NULL);
+        -:  100:
+       10:  101:theNodes = [[theXMLDocument rootElement] elementsForName:@"node_3"];
+       10:  102:STAssertTrue([theNodes count] == 1, NULL);
+       10:  103:theElement = [theNodes lastObject];
+       10:  104:STAssertTrue([theElement isKindOfClass:[CXMLElement class]], NULL);
+       10:  105:STAssertNotNil([theElement attributes], NULL);
+       10:  106:STAssertTrue([[theElement attributes] count] == 2, NULL);
+       10:  107:STAssertEqualObjects([[theElement attributes] objectAtIndex:0], [theElement attributeForName:@"attribute_1"], NULL);
+       10:  108:STAssertEqualObjects([[theElement attributes] objectAtIndex:1], [theElement attributeForName:@"attribute_2"], NULL);
+       10:  109:STAssertEqualObjects([[theElement attributeForName:@"attribute_1"] stringValue], @"value_1", NULL);
+       10:  110:STAssertEqualObjects([[theElement attributeForName:@"attribute_2"] stringValue], @"value_2", NULL);
+        -:  111:
+        -:  112:}
+        -:  113:
+        -:  114:@end

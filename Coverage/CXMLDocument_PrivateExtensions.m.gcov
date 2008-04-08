@@ -1,0 +1,37 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/Common/Source/CXMLDocument_PrivateExtensions.m
+        -:    0:Graph:CXMLDocument_PrivateExtensions.gcno
+        -:    0:Data:CXMLDocument_PrivateExtensions.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  CXMLDocument_PrivateExtensions.m
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 __MyCompanyName__. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "CXMLDocument_PrivateExtensions.h"
+        -:   10:
+        -:   11:@implementation CXMLDocument (CXMLDocument_PrivateExtensions)
+        -:   12:
+        -:   13:/*
+        -:   14:- (id)initWithLibXmlParserContext:(xmlParserCtxtPtr)inContext options:(NSUInteger)inOptions error:(NSError **)outError
+        -:   15:{
+        -:   16:
+        -:   17:xmlParseDocument(inContext);
+        -:   18:
+        -:   19:}
+        -:   20:*/
+        -:   21:
+        -:   22:- (NSMutableSet *)nodePool
+      140:   23:{
+      140:   24:if (nodePool == NULL)
+        -:   25:	{
+       40:   26:	nodePool = [[NSMutableSet alloc] init];
+        -:   27:	}
+      140:   28:return(nodePool);
+        -:   29:}
+        -:   30:
+        -:   31:
+        -:   32:@end

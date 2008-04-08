@@ -1,0 +1,50 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/UnitTests/Source/XPath_Tests.m
+        -:    0:Graph:XPath_Tests.gcno
+        -:    0:Data:XPath_Tests.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  XPath_Tests.m
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 __MyCompanyName__. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "XPath_Tests.h"
+        -:   10:
+        -:   11:#import "CXMLDocument.h"
+        -:   12:#import "CXMLElement.h"
+        -:   13:
+        -:   14:@implementation XPath_Tests
+        -:   15:
+        -:   16:- (void)test_nodeNavigation
+       10:   17:{
+       10:   18:NSError *theError = NULL;
+       10:   19:NSString *theXML = @"<root attribute='bad'><anchor><node attribute='good'/></anchor></root>";
+       10:   20:CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+       10:   21:STAssertNotNil(theXMLDocument, NULL);
+        -:   22:
+       10:   23:NSArray *theNodes = NULL;
+        -:   24:
+       10:   25:theNodes = [theXMLDocument nodesForXPath:@"//@attribute" error:&theError];
+       10:   26:STAssertTrue([theNodes count] == 2, NULL);
+        -:   27:}
+        -:   28:
+        -:   29:/* THIS FAILS
+        -:   30:- (void)test_xmlns
+        -:   31:{
+        -:   32:NSError *theError = NULL;
+        -:   33:NSString *theXML = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><FindItemsResponse xmlns=\"urn:ebay:apis:eBLBaseComponents\"><Timestamp>2008-03-26T23:23:13.175Z</Timestamp></FindItemsResponse>";
+        -:   34:
+        -:   35:CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+        -:   36:STAssertNotNil(theXMLDocument, NULL);
+        -:   37:
+        -:   38:NSArray *theNodes = NULL;
+        -:   39:
+        -:   40:theNodes = [theXMLDocument nodesForXPath:@"//Timestamp" error:&theError];
+        -:   41:STAssertTrue([theNodes count] == 1, NULL);
+        -:   42:}
+        -:   43:*/
+        -:   44:
+        -:   45:@end

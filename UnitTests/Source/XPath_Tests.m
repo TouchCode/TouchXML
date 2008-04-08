@@ -42,4 +42,25 @@ STAssertTrue([theNodes count] == 1, NULL);
 }
 */
 
+- (void)test_relative_paths
+{
+NSError *theError = NULL;
+NSString *theXML = @"<root attribute='bad'><mid><node attribute='good'/></mid></root>";
+
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+STAssertNotNil(theXMLDocument, NULL);
+
+NSArray *theNodes = NULL;
+
+theNodes = [theXMLDocument nodesForXPath:@"//mid" error:&theError];
+STAssertTrue([theNodes count] == 1, NULL);
+for (CXMLElement *theElement in theNodes)
+	{
+	theNodes = [theElement nodesForXPath:@"./node" error:NULL];
+	STAssertTrue([theNodes count] == 1, NULL);
+	
+	}
+}
+
+
 @end

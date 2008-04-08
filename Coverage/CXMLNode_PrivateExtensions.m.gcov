@@ -1,0 +1,63 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/Common/Source/CXMLNode_PrivateExtensions.m
+        -:    0:Graph:CXMLNode_PrivateExtensions.gcno
+        -:    0:Data:CXMLNode_PrivateExtensions.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  CXMLNode_PrivateExtensions.m
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 Toxic Software. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "CXMLNode_PrivateExtensions.h"
+        -:   10:
+        -:   11:#import "CXMLElement.h"
+        -:   12:#import "CXMLDocument_PrivateExtensions.h"
+        -:   13:
+        -:   14:@implementation CXMLNode (CXMLNode_PrivateExtensions)
+        -:   15:
+      140:   16:- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode;
+        -:   17:{
+      140:   18:if ((self = [super init]) != NULL)
+        -:   19:	{
+      140:   20:	_node = inLibXMLNode;
+        -:   21:	}
+      140:   22:return(self);
+        -:   23:}
+        -:   24:
+        -:   25:+ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode
+      430:   26:{
+        -:   27:// TODO more checking.
+      430:   28:if (inLibXMLNode->_private)
+      290:   29:	return(inLibXMLNode->_private);
+        -:   30:
+      140:   31:Class theClass = [CXMLNode class];
+      140:   32:switch (inLibXMLNode->type)
+        -:   33:	{
+        -:   34:	case XML_ELEMENT_NODE:
+       90:   35:		theClass = [CXMLElement class];
+       90:   36:		break;
+        -:   37:	case XML_ATTRIBUTE_NODE:
+        -:   38:	case XML_TEXT_NODE:
+        -:   39:		break;
+        -:   40:	default:
+    #####:   41:		NSAssert1(NO, @"TODO Unhandled type (%d).", inLibXMLNode->type);
+    #####:   42:		return(NULL);
+        -:   43:	}
+        -:   44:
+      140:   45:CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
+        -:   46:
+        -:   47:
+      140:   48:CXMLDocument *theXMLDocument = inLibXMLNode->doc->_private;
+      140:   49:NSAssert(theXMLDocument != NULL, @"TODO");
+      140:   50:NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
+        -:   51:
+      140:   52:[[theXMLDocument nodePool] addObject:theNode];
+        -:   53:
+      140:   54:theNode->_node->_private = theNode;
+      140:   55:return(theNode);
+        -:   56:}
+        -:   57:
+        -:   58:@end

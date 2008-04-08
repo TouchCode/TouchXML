@@ -1,0 +1,222 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/Common/Source/CXMLNode.m
+        -:    0:Graph:CXMLNode.gcno
+        -:    0:Data:CXMLNode.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  CXMLNode.m
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 Toxic Software. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "CXMLNode.h"
+        -:   10:
+        -:   11:#import "CXMLNode_PrivateExtensions.h"
+        -:   12:#import "CXMLDocument.h"
+        -:   13:#import "CXMLElement.h"
+        -:   14:
+        -:   15:#include <libxml/xpath.h>
+        -:   16:#include <libxml/xpathInternals.h>
+        -:   17:
+        -:   18:@implementation CXMLNode
+        -:   19:
+        -:   20:- (void)dealloc
+      180:   21:{
+      180:   22:if (_node)
+        -:   23:	{
+      140:   24:	if (_node->_private == self)
+    #####:   25:		_node->_private = NULL;
+      140:   26:	_node = NULL;
+        -:   27:	}
+        -:   28://
+      180:   29:[super dealloc];
+        -:   30:}
+        -:   31:
+        -:   32:- (CXMLNodeKind)kind
+    #####:   33:{
+    #####:   34:NSAssert(_node != NULL, @"TODO");
+    #####:   35:return(_node->type); // TODO this isn't 100% accurate!
+        -:   36:}
+        -:   37:
+        -:   38:- (NSString *)name
+       40:   39:{
+       40:   40:NSAssert(_node != NULL, @"TODO");
+        -:   41:// TODO use xmlCheckUTF8 to check name
+       40:   42:if (_node->name == NULL)
+    #####:   43:	return(NULL);
+        -:   44:else
+       40:   45:	return([NSString stringWithUTF8String:(const char *)_node->name]);
+        -:   46:}
+        -:   47:
+        -:   48:- (NSString *)stringValue
+       30:   49:{
+       30:   50:NSAssert(_node != NULL, @"TODO");
+        -:   51:
+       30:   52:xmlChar *theXMLString = xmlNodeListGetString(_node->doc, _node->children, YES);
+        -:   53:
+       30:   54:NSString *theStringValue = NULL;
+       30:   55:if (theXMLString != NULL)
+        -:   56:	{
+       30:   57:	theStringValue = [NSString stringWithUTF8String:(const char *)theXMLString];
+       30:   58:	xmlFree(theXMLString);
+        -:   59:	}
+        -:   60:
+       30:   61:return(theStringValue);
+        -:   62:}
+        -:   63:
+        -:   64:- (NSUInteger)index
+       30:   65:{
+       30:   66:NSAssert(_node != NULL, @"TODO");
+        -:   67:
+       30:   68:xmlNodePtr theCurrentNode = _node->prev;
+        -:   69:NSUInteger N;
+       30:   70:for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->prev)
+        -:   71:	;
+       30:   72:return(N);
+        -:   73:}
+        -:   74:
+        -:   75:- (NSUInteger)level
+       30:   76:{
+       30:   77:NSAssert(_node != NULL, @"TODO");
+        -:   78:
+       30:   79:xmlNodePtr theCurrentNode = _node->parent;
+        -:   80:NSUInteger N;
+       30:   81:for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->parent)
+        -:   82:	;
+       30:   83:return(N);
+        -:   84:}
+        -:   85:
+        -:   86:- (CXMLDocument *)rootDocument
+       20:   87:{
+       20:   88:NSAssert(_node != NULL, @"TODO");
+        -:   89:
+       20:   90:return(_node->doc->_private);
+        -:   91:}
+        -:   92:
+        -:   93:- (CXMLNode *)parent
+    #####:   94:{
+    #####:   95:NSAssert(_node != NULL, @"TODO");
+        -:   96:
+    #####:   97:if (_node->parent == NULL)
+    #####:   98:	return(NULL);
+        -:   99:else
+    #####:  100:	return (_node->parent->_private);
+        -:  101:}
+        -:  102:
+        -:  103:- (NSUInteger)childCount
+       10:  104:{
+       10:  105:NSAssert(_node != NULL, @"TODO");
+        -:  106:
+       10:  107:xmlNodePtr theCurrentNode = _node->children;
+        -:  108:NSUInteger N;
+       10:  109:for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->next)
+        -:  110:	;
+       10:  111:return(N);
+        -:  112:}
+        -:  113:
+        -:  114:- (NSArray *)children
+    #####:  115:{
+    #####:  116:NSAssert(_node != NULL, @"TODO");
+        -:  117:
+    #####:  118:NSMutableArray *theChildren = [NSMutableArray array];
+    #####:  119:xmlNodePtr theCurrentNode = _node->children;
+    #####:  120:while (theCurrentNode != NULL)
+        -:  121:	{
+    #####:  122:	CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode];
+    #####:  123:	[theChildren addObject:theNode];
+    #####:  124:	theCurrentNode = theCurrentNode->next;
+        -:  125:	}
+    #####:  126:return(theChildren);      
+        -:  127:}
+        -:  128:
+        -:  129:- (CXMLNode *)childAtIndex:(NSUInteger)index
+       30:  130:{
+       30:  131:NSAssert(_node != NULL, @"TODO");
+        -:  132:
+       30:  133:xmlNodePtr theCurrentNode = _node->children;
+        -:  134:NSUInteger N;
+       30:  135:for (N = 0; theCurrentNode != NULL && N != index; ++N, theCurrentNode = theCurrentNode->next)
+        -:  136:	;
+       30:  137:if (theCurrentNode)
+       30:  138:	return([CXMLNode nodeWithLibXMLNode:theCurrentNode]);
+    #####:  139:return(NULL);
+        -:  140:}
+        -:  141:
+        -:  142:- (CXMLNode *)previousSibling
+       30:  143:{
+       30:  144:NSAssert(_node != NULL, @"TODO");
+        -:  145:
+       30:  146:if (_node->prev == NULL)
+       10:  147:	return(NULL);
+        -:  148:else
+       20:  149:	return([CXMLNode nodeWithLibXMLNode:_node->prev]);
+        -:  150:}
+        -:  151:
+        -:  152:- (CXMLNode *)nextSibling
+       30:  153:{
+       30:  154:NSAssert(_node != NULL, @"TODO");
+        -:  155:
+       30:  156:if (_node->next == NULL)
+       10:  157:	return(NULL);
+        -:  158:else
+       20:  159:	return([CXMLNode nodeWithLibXMLNode:_node->next]);
+        -:  160:}
+        -:  161:
+        -:  162://- (CXMLNode *)previousNode;
+        -:  163://- (CXMLNode *)nextNode;
+        -:  164://- (NSString *)XPath;
+        -:  165://- (NSString *)localName;
+        -:  166://- (NSString *)prefix;
+        -:  167://- (NSString *)URI;
+        -:  168://+ (NSString *)localNameForName:(NSString *)name;
+        -:  169://+ (NSString *)prefixForName:(NSString *)name;
+        -:  170://+ (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name;
+        -:  171:
+        -:  172:- (NSString *)description
+    #####:  173:{
+    #####:  174:NSAssert(_node != NULL, @"TODO");
+        -:  175:
+    #####:  176:return([NSString stringWithFormat:@"<%@ %p %@ %@>", NSStringFromClass([self class]), self, [self name], [self stringValue]]);
+        -:  177:}
+        -:  178:
+        -:  179://- (NSString *)XMLString;
+        -:  180://- (NSString *)XMLStringWithOptions:(NSUInteger)options;
+        -:  181://- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
+        -:  182:
+        -:  183:- (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error
+       20:  184:{
+       20:  185:NSAssert(_node != NULL, @"TODO");
+        -:  186:
+       20:  187:NSArray *theResult = NULL;
+        -:  188:
+       20:  189:CXMLNode *theRootDocument = [self rootDocument];
+       20:  190:xmlXPathContextPtr theXPathContext = xmlXPathNewContext((xmlDocPtr)theRootDocument->_node);
+        -:  191:
+        -:  192:// TODO considering putting xmlChar <-> UTF8 into a NSString category
+       20:  193:xmlXPathObjectPtr theXPathObject = xmlXPathEvalExpression((const xmlChar *)[xpath UTF8String], theXPathContext);
+       20:  194:if (xmlXPathNodeSetIsEmpty(theXPathObject->nodesetval))
+    #####:  195:	theResult = [NSArray array]; // TODO better to return NULL?
+        -:  196:else
+        -:  197:	{
+       20:  198:	NSMutableArray *theArray = [NSMutableArray array];
+        -:  199:	int N;
+       70:  200:	for (N = 0; N < theXPathObject->nodesetval->nodeNr; N++)
+        -:  201:		{
+       50:  202:		xmlNodePtr theNode = theXPathObject->nodesetval->nodeTab[N];
+       50:  203:		[theArray addObject:[CXMLNode nodeWithLibXMLNode:theNode]];
+        -:  204:		}
+        -:  205:		
+       20:  206:	theResult = theArray;
+        -:  207:	}
+        -:  208:
+       20:  209:xmlXPathFreeContext(theXPathContext);
+       20:  210:return(theResult);
+        -:  211:}
+        -:  212:
+        -:  213://- (NSArray *)objectsForXQuery:(NSString *)xquery constants:(NSDictionary *)constants error:(NSError **)error;
+        -:  214://- (NSArray *)objectsForXQuery:(NSString *)xquery error:(NSError **)error;
+        -:  215:
+        -:  216:
+        -:  217:@end

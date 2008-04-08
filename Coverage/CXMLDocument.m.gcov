@@ -1,0 +1,119 @@
+        -:    0:Source:/Users/schwa/Development/Subversion/WorkingDirectories/touchcode/TouchXML/Common/Source/CXMLDocument.m
+        -:    0:Graph:CXMLDocument.gcno
+        -:    0:Data:CXMLDocument.gcda
+        -:    0:Runs:10
+        -:    0:Programs:1
+        -:    1://
+        -:    2://  CXMLDocument
+        -:    3://  TouchXML
+        -:    4://
+        -:    5://  Created by Jonathan Wight on 03/07/08.
+        -:    6://  Copyright 2008 Toxic Software. All rights reserved.
+        -:    7://
+        -:    8:
+        -:    9:#import "CXMLDocument.h"
+        -:   10:
+        -:   11:#include <libxml/parser.h>
+        -:   12:
+        -:   13:#import "CXMLNode_PrivateExtensions.h"
+        -:   14:#import "CXMLElement.h"
+        -:   15:
+        -:   16:@implementation CXMLDocument
+        -:   17:
+        -:   18:- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
+       50:   19:{
+       50:   20:if ((self = [super init]) != NULL)
+        -:   21:	{
+       50:   22:	xmlDocPtr theDoc = xmlParseDoc((xmlChar *)[inString UTF8String]);
+        -:   23:	
+       50:   24:	if (theDoc != NULL)
+        -:   25:		{
+       40:   26:		_node = (xmlNodePtr)theDoc;
+       40:   27:		NSAssert(_node->_private == NULL, @"TODO");
+       40:   28:		_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+        -:   29:		}
+        -:   30:	else
+        -:   31:		{
+       10:   32:		if (outError)
+       10:   33:			*outError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:NULL];
+       10:   34:		self = NULL;
+        -:   35:		}
+        -:   36:	}
+       50:   37:return(self);
+        -:   38:}
+        -:   39:
+        -:   40:- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError
+    #####:   41:{
+    #####:   42:NSData *theData = [NSData dataWithContentsOfURL:inURL options:NSUncachedRead error:outError];
+    #####:   43:if (theData)
+        -:   44:	{
+    #####:   45:	self = [self initWithData:theData options:inOptions error:outError];
+        -:   46:	}
+        -:   47:else
+        -:   48:	{
+        -:   49:	
+    #####:   50:	self = NULL;
+        -:   51:	}
+        -:   52:	
+    #####:   53:return(self);
+        -:   54:}
+        -:   55:
+        -:   56:- (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
+    #####:   57:{
+    #####:   58:if ((self = [super init]) != NULL)
+        -:   59:	{
+    #####:   60:	xmlDocPtr theDoc = NULL;
+    #####:   61:	if (inData && inData.length > 0)
+        -:   62:		{
+    #####:   63:		theDoc = xmlParseMemory([inData bytes], [inData length]);
+        -:   64:		}
+        -:   65:	
+    #####:   66:	if (theDoc != NULL)
+        -:   67:		{
+    #####:   68:		_node = (xmlNodePtr)theDoc;
+    #####:   69:		_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+        -:   70:		}
+        -:   71:	else
+        -:   72:		{
+    #####:   73:		if (outError)
+    #####:   74:			*outError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:NULL];
+    #####:   75:		self = NULL;
+        -:   76:		}
+        -:   77:	}
+    #####:   78:return(self);
+        -:   79:}
+        -:   80:
+        -:   81:- (void)dealloc
+       40:   82:{
+       40:   83:xmlFreeDoc((xmlDocPtr)_node);
+       40:   84:_node = NULL;
+        -:   85://
+        -:   86:
+       40:   87:[nodePool release];
+       40:   88:nodePool = NULL;
+        -:   89://
+       40:   90:[super dealloc];
+        -:   91:}
+        -:   92:
+        -:   93://- (NSString *)characterEncoding;
+        -:   94://- (NSString *)version;
+        -:   95://- (BOOL)isStandalone;
+        -:   96://- (CXMLDocumentContentKind)documentContentKind;
+        -:   97://- (NSString *)MIMEType;
+        -:   98://- (CXMLDTD *)DTD;
+        -:   99:
+        -:  100:- (CXMLElement *)rootElement
+      110:  101:{
+      110:  102:xmlNodePtr theLibXMLNode = xmlDocGetRootElement((xmlDocPtr)_node);
+        -:  103:	
+      110:  104:return([CXMLNode nodeWithLibXMLNode:theLibXMLNode]);
+        -:  105:}
+        -:  106:
+        -:  107://- (NSData *)XMLData;
+        -:  108://- (NSData *)XMLDataWithOptions:(NSUInteger)options;
+        -:  109:
+        -:  110://- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
+        -:  111://- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
+        -:  112://- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
+        -:  113:
+        -:  114:@end
