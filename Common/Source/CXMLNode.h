@@ -12,6 +12,7 @@
 
 typedef enum {
 	CXMLInvalidKind = 0,
+	CXMLElementKind = XML_ELEMENT_NODE,
 	CXMLAttributeKind = XML_ATTRIBUTE_NODE,
 	CXMLTextKind = XML_TEXT_NODE,
 	CXMLProcessingInstructionKind = XML_PI_NODE,
@@ -53,9 +54,10 @@ typedef enum {
 //+ (NSString *)prefixForName:(NSString *)name;
 //+ (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name;
 - (NSString *)description;
-//- (NSString *)XMLString;
-//- (NSString *)XMLStringWithOptions:(NSUInteger)options;
+- (NSString *)XMLString;
+- (NSString *)XMLStringWithOptions:(NSUInteger)options;
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error;
 
+- (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str;
 @end

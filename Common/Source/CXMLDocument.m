@@ -9,18 +9,60 @@
 #import "CXMLDocument.h"
 
 #include <libxml/parser.h>
+#include <libxml/HTMLparser.h>
+#include <libxml/HTMLtree.h>
 
 #import "CXMLNode_PrivateExtensions.h"
 #import "CXMLElement.h"
 
 @implementation CXMLDocument
 
+static void htmlparser_error(void *ctx, const char *msg, ...)
+{
+	va_list args;
+	va_start(args, msg);
+	va_end(args);
+}
+
+static void htmlparser_warning(void *ctx, const char *msg, ...)
+{
+	va_list args;
+	va_start(args, msg);
+	va_end(args);
+}
+
 - (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
 {
 if ((self = [super init]) != NULL)
 	{
-	xmlDocPtr theDoc = xmlParseDoc((xmlChar *)[inString UTF8String]);
-	
+	xmlDocPtr theDoc;
+	if ( inOptions & CXMLDocumentTidyHTML )
+		{
+		const char *htmlString = (const char*) [inString UTF8String];
+		int length = xmlStrlen( (const xmlChar*)htmlString );
+		htmlParserCtxtPtr ctx = htmlCreateMemoryParserCtxt(htmlString, length);
+
+		if (! ctx ) {
+			return 0;
+		}	
+		
+		ctx->vctxt.error = htmlparser_error;
+		ctx->vctxt.warning = htmlparser_warning;
+		if (ctx->sax != NULL)
+			{
+			ctx->sax->error = htmlparser_error;
+			ctx->sax->warning = htmlparser_warning;
+			}
+		htmlParseDocument(ctx);
+		theDoc = ctx->myDoc;
+		htmlFreeParserCtxt(ctx);
+		}
+	else
+		{
+		theDoc = xmlParseDoc((xmlChar *)[inString UTF8String]);
+		}
+
+
 	if (theDoc != NULL)
 		{
 		_node = (xmlNodePtr)theDoc;
@@ -58,6 +100,7 @@ return(self);
 if ((self = [super init]) != NULL)
 	{
 	xmlDocPtr theDoc = NULL;
+
 	if (inData && inData.length > 0)
 		{
 		theDoc = xmlParseMemory([inData bytes], [inData length]);
@@ -110,5 +153,12 @@ return([CXMLNode nodeWithLibXMLNode:theLibXMLNode]);
 //- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
 //- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
 //- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
+- (id)XMLStringWithOptions:(NSUInteger)options
+{
+id root = [self rootElement];
+NSMutableString* xmlString = [NSMutableString stringWithString:@""];
+[root _XMLStringWithOptions:options appendingToString:xmlString];
+return xmlString;
+}
 
 @end

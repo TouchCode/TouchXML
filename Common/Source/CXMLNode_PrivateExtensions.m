@@ -37,6 +37,7 @@ switch (inLibXMLNode->type)
 	case XML_ATTRIBUTE_NODE:
 	case XML_TEXT_NODE:
 	case XML_CDATA_SECTION_NODE:
+	case XML_COMMENT_NODE:
 		break;
 	default:
 		NSAssert1(NO, @"TODO Unhandled type (%d).", inLibXMLNode->type);

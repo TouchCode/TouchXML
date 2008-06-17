@@ -25,4 +25,5 @@
 //- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
 //- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;
 
+- (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str;
 @end

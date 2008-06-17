@@ -72,5 +72,45 @@ return(NULL);
 //- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
 //- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;
 
+- (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str
+{
+NSString* name = [self name];
+[str appendString:[NSString stringWithFormat:@"<%@", name]];
+
+for (id attribute in [self attributes] )
+	{
+	[attribute _XMLStringWithOptions:options appendingToString:str];
+	}
+
+if ( ! _node->children )
+	{
+	bool isEmpty = NO;
+	NSArray *emptyTags = [NSArray arrayWithObjects: @"br", @"area", @"link", @"img", @"param", @"hr", @"input", @"col", @"base", @"meta", nil ];
+	for (id s in emptyTags)
+		{
+		if ( [s isEqualToString:@"base"] )
+			{
+			isEmpty = YES;
+			NSLog(@"%@", s);
+			break;
+			}
+		}
+	if ( isEmpty )
+		{
+		[str appendString:@"/>"];
+		return str;
+		}
+	}
+
+[str appendString:@">"];
+	
+if ( _node->children )
+	{
+	for (id child in [self children])
+		[child _XMLStringWithOptions:options appendingToString:str];
+	}
+[str appendString:[NSString stringWithFormat:@"</%@>", name]];
+return str;
+}
 
 @end
