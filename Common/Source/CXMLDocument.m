@@ -156,7 +156,7 @@ return([CXMLNode nodeWithLibXMLNode:theLibXMLNode]);
 - (id)XMLStringWithOptions:(NSUInteger)options
 {
 id root = [self rootElement];
-NSMutableString* xmlString = [NSMutableString stringWithString:@""];
+NSMutableString* xmlString = [NSMutableString string];
 [root _XMLStringWithOptions:options appendingToString:xmlString];
 return xmlString;
 }

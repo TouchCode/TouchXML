@@ -47,6 +47,8 @@ else
 		
 	theResult = theArray;
 	}
+	
+xmlXPathFreeObject(theXPathObject);
 
 xmlXPathFreeContext(theXPathContext);
 return(theResult);
