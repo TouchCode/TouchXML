@@ -34,7 +34,6 @@
 		457941280D82245800EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
 		457941290D82245800EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
 		4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
-		457941590D8225FC00EB2D22 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 457941580D8225FC00EB2D22 /* Info.plist */; };
 		457941650D82264700EB2D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
@@ -81,6 +80,7 @@
 		457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
 		457943930D8248DC00EB2D22 /* XPath_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPath_Tests.h; sourceTree = "<group>"; };
 		457943940D8248DC00EB2D22 /* XPath_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPath_Tests.m; sourceTree = "<group>"; };
+		45AA24120E280F9700E12B55 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
 		45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +199,7 @@
 		457940EA0D82214700EB2D22 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				45AA24120E280F9700E12B55 /* TouchXML.h */,
 				457940EB0D82214700EB2D22 /* CXMLDocument.h */,
 				457940EC0D82214700EB2D22 /* CXMLDocument.m */,
 				457942360D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.h */,
@@ -283,7 +284,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457941590D8225FC00EB2D22 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
