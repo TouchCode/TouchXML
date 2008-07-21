@@ -194,7 +194,7 @@ switch([self kind])
 	case CXMLAttributeKind:
 		value = [NSMutableString stringWithString:[self stringValue]];
 		[value replaceOccurrencesOfString:@"\"" withString:@"&quot;" options:0 range:NSMakeRange(0, [value length])];
-		[str appendString:[NSString stringWithFormat:@" %@=\"%@\"", [self name], value]];
+		[str appendFormat:@" %@=\"%@\"", [self name], value];
 		break;
 	case CXMLTextKind:
 		[str appendString:[self stringValue]];
@@ -211,7 +211,7 @@ return str;
 
 - (NSString *)XMLStringWithOptions:(NSUInteger)options
 {
-return [self _XMLStringWithOptions:options appendingToString:@""];
+return [self _XMLStringWithOptions:options appendingToString:[NSMutableString string]];
 }
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 
