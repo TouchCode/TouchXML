@@ -108,7 +108,13 @@ STAssertEqualObjects([[theElement attributes] objectAtIndex:0], [theElement attr
 STAssertEqualObjects([[theElement attributes] objectAtIndex:1], [theElement attributeForName:@"attribute_2"], NULL);
 STAssertEqualObjects([[theElement attributeForName:@"attribute_1"] stringValue], @"value_1", NULL);
 STAssertEqualObjects([[theElement attributeForName:@"attribute_2"] stringValue], @"value_2", NULL);
+}
 
+- (void)test_brokenEntity
+{
+NSError *theError = NULL;
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<foo>http://website.com?foo=1&bar=2</foo>" options:0 error:&theError] autorelease];
+STAssertNil(theXMLDocument, NULL);
 }
 
 @end
