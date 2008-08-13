@@ -177,7 +177,7 @@ else
 {
 NSAssert(_node != NULL, @"TODO");
 
-return([NSString stringWithFormat:@"<%@ %p %@ %@>", NSStringFromClass([self class]), self, [self name], [self stringValue]]);
+	return([NSString stringWithFormat:@"<%@ %p [%p] %@ %@>", NSStringFromClass([self class]), self, self->_node, [self name], [self XMLStringWithOptions:0]]);
 }
 
 - (NSString *)XMLString

@@ -161,4 +161,20 @@ NSMutableString* xmlString = [NSMutableString string];
 return xmlString;
 }
 
+- (NSString *)description
+{
+	NSAssert(_node != NULL, @"TODO");
+
+	NSMutableString *result = [NSMutableString stringWithFormat:@"<%@ %p [%p]> ", NSStringFromClass([self class]), self, self->_node];
+	xmlChar *xmlbuff;
+	int buffersize;
+
+	xmlDocDumpFormatMemory((xmlDocPtr)(self->_node), &xmlbuff, &buffersize, 1);
+	NSString *dump = [[[NSString alloc] initWithBytes:xmlbuff length:buffersize encoding:NSUTF8StringEncoding] autorelease];
+	xmlFree(xmlbuff);
+							   
+	[result appendString:dump];
+	return result;
+}
+
 @end

@@ -113,4 +113,11 @@ if ( _node->children )
 return str;
 }
 
+- (NSString *)description
+{
+	NSAssert(_node != NULL, @"TODO");
+	
+	return([NSString stringWithFormat:@"<%@ %p [%p] %@ %@>", NSStringFromClass([self class]), self, self->_node, [self name], [self XMLStringWithOptions:0]]);
+}
+
 @end
