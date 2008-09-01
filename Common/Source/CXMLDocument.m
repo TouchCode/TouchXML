@@ -35,6 +35,9 @@ static void htmlparser_warning(void *ctx, const char *msg, ...)
 {
 if ((self = [super init]) != NULL)
 	{
+	if (outError)
+		*outError = NULL;
+	
 	xmlDocPtr theDoc;
 	if ( inOptions & CXMLDocumentTidyHTML )
 		{
@@ -81,6 +84,9 @@ return(self);
 
 - (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError
 {
+if (outError)
+	*outError = NULL;
+
 NSData *theData = [NSData dataWithContentsOfURL:inURL options:NSUncachedRead error:outError];
 if (theData)
 	{
