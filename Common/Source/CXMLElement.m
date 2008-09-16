@@ -112,8 +112,6 @@ if ( ! _node->children )
 		if ( [s isEqualToString:@"base"] )
 			{
 			isEmpty = YES;
-			NSLog(@"%@", s);
-			// TODO who wrote this and what does it do????
 			break;
 			}
 		}
