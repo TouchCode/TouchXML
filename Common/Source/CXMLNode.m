@@ -188,8 +188,22 @@ else
 //- (CXMLNode *)nextNode;
 //- (NSString *)XPath;
 //- (NSString *)localName;
-//- (NSString *)prefix;
-//- (NSString *)URI;
+- (NSString *)prefix
+{
+if (_node->ns)
+	return([NSString stringWithUTF8String:(const char *)_node->ns->prefix]);
+else
+	return(NULL);
+}
+
+- (NSString *)URI
+{
+if (_node->ns)
+	return([NSString stringWithUTF8String:(const char *)_node->ns->href]);
+else
+	return(NULL);
+}
+
 //+ (NSString *)localNameForName:(NSString *)name;
 //+ (NSString *)prefixForName:(NSString *)name;
 //+ (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name;
@@ -198,18 +212,17 @@ else
 {
 NSAssert(_node != NULL, @"TODO");
 
-	return([NSString stringWithFormat:@"<%@ %p [%p] %@ %@>", NSStringFromClass([self class]), self, self->_node, [self name], [self XMLStringWithOptions:0]]);
+return([NSString stringWithFormat:@"<%@ %p [%p] %@ %@>", NSStringFromClass([self class]), self, self->_node, [self name], [self XMLStringWithOptions:0]]);
 }
 
 - (NSString *)XMLString
 {
-return [self XMLStringWithOptions:0];
+return([self XMLStringWithOptions:0]);
 }
-
 
 - (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str
 {
-id value;
+id value = NULL;
 switch([self kind])
 	{
 	case CXMLAttributeKind:
@@ -242,8 +255,7 @@ NSAssert(_node != NULL, @"TODO");
 
 NSArray *theResult = NULL;
 
-CXMLNode *theRootDocument = [self rootDocument];
-xmlXPathContextPtr theXPathContext = xmlXPathNewContext((xmlDocPtr)theRootDocument->_node);
+xmlXPathContextPtr theXPathContext = xmlXPathNewContext(_node->doc);
 theXPathContext->node = _node;
 
 // TODO considering putting xmlChar <-> UTF8 into a NSString category

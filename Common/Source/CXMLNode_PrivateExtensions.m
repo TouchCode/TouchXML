@@ -69,12 +69,14 @@ CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode] autorele
 
 
 CXMLDocument *theXMLDocument = inLibXMLNode->doc->_private;
-NSAssert(theXMLDocument != NULL, @"TODO");
-NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
+if (theXMLDocument != NULL)
+	{
+	NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
 
-[[theXMLDocument nodePool] addObject:theNode];
+	[[theXMLDocument nodePool] addObject:theNode];
 
-theNode->_node->_private = theNode;
+	theNode->_node->_private = theNode;
+	}
 return(theNode);
 }
 

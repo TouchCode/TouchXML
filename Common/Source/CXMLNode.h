@@ -69,8 +69,8 @@ typedef enum {
 //- (CXMLNode *)nextNode;
 //- (NSString *)XPath;
 //- (NSString *)localName;
-//- (NSString *)prefix;
-//- (NSString *)URI;
+- (NSString *)prefix;
+- (NSString *)URI;
 //+ (NSString *)localNameForName:(NSString *)name;
 //+ (NSString *)prefixForName:(NSString *)name;
 //+ (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name;

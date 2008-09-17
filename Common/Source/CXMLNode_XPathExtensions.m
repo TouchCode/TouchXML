@@ -43,8 +43,7 @@ NSAssert(_node != NULL, @"TODO");
 
 NSArray *theResult = NULL;
 
-CXMLNode *theRootDocument = [self rootDocument];
-xmlXPathContextPtr theXPathContext = xmlXPathNewContext((xmlDocPtr)theRootDocument->_node);
+xmlXPathContextPtr theXPathContext = xmlXPathNewContext(_node->doc);
 theXPathContext->node = _node;
 
 for (NSString *thePrefix in inNamespaceMappings)
