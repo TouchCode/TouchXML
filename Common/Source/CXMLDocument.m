@@ -130,7 +130,7 @@ if ((self = [super init]) != NULL)
 
 	if (inData && inData.length > 0)
 		{
-		theDoc = xmlParseMemory([inData bytes], [inData length]);
+		theDoc = xmlRecoverMemory([inData bytes], [inData length]);
 		}
 	
 	if (theDoc != NULL)
@@ -142,6 +142,8 @@ if ((self = [super init]) != NULL)
 		{
 		if (outError)
 			*outError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:NULL];
+
+		[self release];
 		self = NULL;
 		}
 	}
