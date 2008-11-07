@@ -39,6 +39,8 @@
 
 - (NSArray *)nodesForXPath:(NSString *)xpath namespaceMappings:(NSDictionary *)inNamespaceMappings error:(NSError **)error;
 {
+#pragma unused (error)
+
 NSAssert(_node != NULL, @"TODO");
 
 NSArray *theResult = NULL;

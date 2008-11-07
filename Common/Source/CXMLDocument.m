@@ -40,16 +40,20 @@
 
 static void htmlparser_error(void *ctx, const char *msg, ...)
 {
-	va_list args;
-	va_start(args, msg);
-	va_end(args);
+#pragma unused (ctx)
+
+va_list args;
+va_start(args, msg);
+va_end(args);
 }
 
 static void htmlparser_warning(void *ctx, const char *msg, ...)
 {
-	va_list args;
-	va_start(args, msg);
-	va_end(args);
+#pragma unused (ctx)
+
+va_list args;
+va_start(args, msg);
+va_end(args);
 }
 
 - (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
@@ -124,6 +128,8 @@ return(self);
 
 - (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
 {
+#pragma unused (inOptions)
+
 if ((self = [super init]) != NULL)
 	{
 	xmlDocPtr theDoc = NULL;

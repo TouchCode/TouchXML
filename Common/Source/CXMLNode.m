@@ -222,6 +222,8 @@ return([self XMLStringWithOptions:0]);
 
 - (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str
 {
+#pragma unused (options)
+
 id value = NULL;
 switch([self kind])
 	{
@@ -251,6 +253,8 @@ return [self _XMLStringWithOptions:options appendingToString:[NSMutableString st
 
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error
 {
+#pragma unused (error)
+
 NSAssert(_node != NULL, @"TODO");
 
 NSArray *theResult = NULL;
