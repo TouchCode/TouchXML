@@ -158,12 +158,17 @@ return(self);
 
 - (void)dealloc
 {
-xmlFreeDoc((xmlDocPtr)_node);
-_node = NULL;
-//
+// Fix for #35 http://code.google.com/p/touchcode/issues/detail?id=35 -- clear up the node objects first (inside a pool so I _know_ they're cleared) and then freeing the document
+
+NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
 
 [nodePool release];
 nodePool = NULL;
+
+[thePool release];
+//
+xmlFreeDoc((xmlDocPtr)_node);
+_node = NULL;
 //
 [super dealloc];
 }
