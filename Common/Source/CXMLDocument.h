@@ -59,6 +59,6 @@ enum {
 //- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
 //- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
 
-//- (id)XMLStringWithOptions:(NSUInteger)options;
+- (id)XMLStringWithOptions:(NSUInteger)options;
 
 @end

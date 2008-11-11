@@ -34,6 +34,10 @@
 
 @implementation CXMLNode (CXMLNode_PrivateExtensions)
 
+@dynamic node;
+
+
+
 - (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode;
 {
 if ((self = [super init]) != NULL)
@@ -78,6 +82,11 @@ if (theXMLDocument != NULL)
 	theNode->_node->_private = theNode;
 	}
 return(theNode);
+}
+
+- (xmlNodePtr)node
+{
+return(_node);
 }
 
 @end

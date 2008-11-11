@@ -31,6 +31,8 @@
 
 @interface CXMLNode (CXMLNode_PrivateExtensions)
 
+@property (readonly, nonatomic, assign) xmlNodePtr node;
+
 - (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode;
 
 + (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode;
