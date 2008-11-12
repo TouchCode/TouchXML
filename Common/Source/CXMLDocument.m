@@ -120,7 +120,7 @@ if ((self = [super init]) != NULL)
 
 	if (inData && inData.length > 0)
 		{
-		theDoc = xmlRecoverMemory([inData bytes], [inData length]);
+		theDoc = xmlReadMemory([inData bytes], [inData length], NULL, NULL, XML_PARSE_RECOVER | XML_PARSE_NOWARNING);
 		}
 	
 	if (theDoc != NULL)
@@ -171,8 +171,23 @@ xmlNodePtr theLibXMLNode = xmlDocGetRootElement((xmlDocPtr)_node);
 return([CXMLNode nodeWithLibXMLNode:theLibXMLNode]);
 }
 
-//- (NSData *)XMLData;
-//- (NSData *)XMLDataWithOptions:(NSUInteger)options;
+- (NSData *)XMLData
+{
+return([self XMLDataWithOptions:0]);
+}
+
+- (NSData *)XMLDataWithOptions:(NSUInteger)options
+{
+xmlChar *theBuffer = NULL;
+int theBufferSize = 0;
+xmlDocDumpMemory((xmlDocPtr)self->_node, &theBuffer, &theBufferSize);
+
+NSData *theData = [NSData dataWithBytes:theBuffer length:theBufferSize];
+
+xmlFree(theBuffer);
+
+return(theData);
+}
 
 //- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
 //- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;

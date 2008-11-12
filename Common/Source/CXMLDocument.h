@@ -52,8 +52,8 @@ enum {
 
 - (CXMLElement *)rootElement;
 
-//- (NSData *)XMLData;
-//- (NSData *)XMLDataWithOptions:(NSUInteger)options;
+- (NSData *)XMLData;
+- (NSData *)XMLDataWithOptions:(NSUInteger)options;
 
 //- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
 //- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;

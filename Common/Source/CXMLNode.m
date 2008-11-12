@@ -196,7 +196,6 @@ if (_node->name == NULL)
 	return(NULL);
 else
 	return([NSString stringWithUTF8String:(const char *)_node->name]); // TODO this is the same as name. What's up with thaat?
-
 }
 
 - (NSString *)prefix
