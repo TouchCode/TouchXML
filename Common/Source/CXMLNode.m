@@ -187,7 +187,18 @@ else
 //- (CXMLNode *)previousNode;
 //- (CXMLNode *)nextNode;
 //- (NSString *)XPath;
-//- (NSString *)localName;
+
+- (NSString *)localName
+{
+NSAssert(_node != NULL, @"TODO");
+// TODO use xmlCheckUTF8 to check name
+if (_node->name == NULL)
+	return(NULL);
+else
+	return([NSString stringWithUTF8String:(const char *)_node->name]); // TODO this is the same as name. What's up with thaat?
+
+}
+
 - (NSString *)prefix
 {
 if (_node->ns)

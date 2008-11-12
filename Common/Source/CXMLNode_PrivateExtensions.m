@@ -59,6 +59,9 @@ switch (inLibXMLNode->type)
 	case XML_ELEMENT_NODE:
 		theClass = [CXMLElement class];
 		break;
+	case XML_DOCUMENT_NODE:
+		theClass = [CXMLDocument class];
+		break;
 	case XML_ATTRIBUTE_NODE:
 	case XML_TEXT_NODE:
 	case XML_CDATA_SECTION_NODE:

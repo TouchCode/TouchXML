@@ -27,25 +27,31 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CXMLDocument.h"
+#import "TouchXML.h"
+#import "CXMLNode_Debugging.h"
 
 int main(int argc, char *argv[])
 {
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-NSError *theError = NULL;
-NSString *theXML = @"<root attribute='bad'><mid><node attribute='good'/></mid></root>";
+CXMLElement *theElement = [CXMLNode elementWithName:@"foo" URI:@"http:foo"];
 
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
 
-NSArray *theNodes = NULL;
+[theElement addChild:[CXMLNode elementWithName:@"bar" URI:@"http:foo"]];
 
-theNodes = [theXMLDocument nodesForXPath:@"//mid" error:&theError];
-for (CXMLElement *theElement in theNodes)
-	{
-	theNodes = [theElement nodesForXPath:@"./node" error:NULL];
-	NSLog(@"%@", theNodes);
-	}
+CXMLNode *theNamespace = [CXMLNode namespaceWithName:NULL stringValue:@"http:foo"];
+
+CXMLDocument *theDocument = [CXMLNode documentWithRootElement:theElement];
+[theDocument addNamespace:theNamespace];
+[theDocument dump];
+NSLog(@"%@", theDocument);
+
+NSLog(@"##################################################################################################");
+
+theDocument = [[[CXMLDocument alloc] initWithXMLString:@"<foo xmlns=\"http:foo\"><bar x=\"y\"/></foo>" options:0 error:NULL] autorelease];
+[theDocument dump];
+NSLog(@"%@", theDocument);
+
 
 [pool release];
 return 0;
