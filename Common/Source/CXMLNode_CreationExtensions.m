@@ -33,6 +33,13 @@ CXMLDocument *theDocument = [[[CXMLDocument alloc] initWithLibXMLNode:(xmlNodePt
 return(theDocument);
 }
 
++ (id)elementWithName:(NSString *)name
+{
+xmlNodePtr theElementNode = xmlNewNode(NULL, (const xmlChar *)[name UTF8String]);
+CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode] autorelease];
+return(theElement);
+}
+
 + (id)elementWithName:(NSString *)name URI:(NSString *)URI
 {
 xmlNodePtr theElementNode = xmlNewNode(NULL, (const xmlChar *)[name UTF8String]);
@@ -40,6 +47,14 @@ xmlNsPtr theNSNode = xmlNewNs(theElementNode, (const xmlChar *)[URI UTF8String],
 theElementNode->ns = theNSNode;
 
 CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode] autorelease];
+return(theElement);
+}
+
++ (id)elementWithName:(NSString *)name stringValue:(NSString *)string
+{
+xmlNodePtr theElementNode = xmlNewNode(NULL, (const xmlChar *)[name UTF8String]);
+CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode] autorelease];
+theElement.stringValue = string;
 return(theElement);
 }
 

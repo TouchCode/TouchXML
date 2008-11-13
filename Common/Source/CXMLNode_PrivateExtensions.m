@@ -75,14 +75,17 @@ switch (inLibXMLNode->type)
 CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
 
 
-CXMLDocument *theXMLDocument = inLibXMLNode->doc->_private;
-if (theXMLDocument != NULL)
+if (inLibXMLNode->doc != NULL)
 	{
-	NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
+	CXMLDocument *theXMLDocument = inLibXMLNode->doc->_private;
+	if (theXMLDocument != NULL)
+		{
+		NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
 
-	[[theXMLDocument nodePool] addObject:theNode];
+		[[theXMLDocument nodePool] addObject:theNode];
 
-	theNode->_node->_private = theNode;
+		theNode->_node->_private = theNode;
+		}
 	}
 return(theNode);
 }
