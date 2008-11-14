@@ -12,6 +12,7 @@
 
 - (void)addChild:(CXMLNode *)inNode
 {
+NSAssert(inNode->_node->doc == NULL, @"Cannot addChild with a node that already is part of a document. Copy it first!");
 NSAssert(self->_node != NULL, @"_node should not be null");
 NSAssert(inNode->_node != NULL, @"_node should not be null");
 xmlAddChild(self->_node, inNode->_node);

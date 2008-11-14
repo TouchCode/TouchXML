@@ -42,7 +42,7 @@ CXMLElement *theElement = [CXMLNode elementWithName:@"foo" URI:@"http:foo"];
 CXMLNode *theNamespace = [CXMLNode namespaceWithName:NULL stringValue:@"http:foo"];
 
 CXMLDocument *theDocument = [CXMLNode documentWithRootElement:theElement];
-[theDocument addNamespace:theNamespace];
+[theDocument.rootElement addNamespace:theNamespace];
 [theDocument dump];
 NSLog(@"%@", theDocument);
 

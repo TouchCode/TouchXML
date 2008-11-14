@@ -54,6 +54,7 @@ if (_node)
 {
 xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
 CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode];
+theNewNode->_private = theNode;
 return(theNode);
 }
 
