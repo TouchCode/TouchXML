@@ -17,6 +17,11 @@ NSAssert(inNode->_node != NULL, @"_node should not be null");
 xmlAddChild(self->_node, inNode->_node);
 }
 
+- (void)addNamespace:(CXMLNode *)inNamespace
+{
+xmlSetNs(self->_node, (xmlNsPtr)inNamespace->_node);
+}
+
 - (void)setStringValue:(NSString *)inStringValue
 {
 NSAssert(inStringValue != NULL, @"CXMLElement setStringValue should not be null");

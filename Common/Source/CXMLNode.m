@@ -50,6 +50,15 @@ if (_node)
 [super dealloc];
 }
 
+- (id)copyWithZone:(NSZone *)zone;
+{
+xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
+CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode];
+return(theNode);
+}
+
+#pragma mark -
+
 - (CXMLNodeKind)kind
 {
 NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");

@@ -12,4 +12,6 @@
 
 - (void)addChild:(CXMLNode *)inNode;
 
+- (void)addNamespace:(CXMLNode *)inNamespace;
+
 @end

@@ -23,7 +23,7 @@
 //+ (id)attributeWithName:(NSString *)name stringValue:(NSString *)stringValue;
 //+ (id)attributeWithName:(NSString *)name URI:(NSString *)URI stringValue:(NSString *)stringValue;
 + (id)namespaceWithName:(NSString *)name stringValue:(NSString *)stringValue;
-//+ (id)processingInstructionWithName:(NSString *)name stringValue:(NSString *)stringValue;
++ (id)processingInstructionWithName:(NSString *)name stringValue:(NSString *)stringValue;
 //+ (id)commentWithStringValue:(NSString *)stringValue;
 //+ (id)textWithStringValue:(NSString *)stringValue;
 //+ (id)DTDNodeWithXMLString:(NSString *)string;

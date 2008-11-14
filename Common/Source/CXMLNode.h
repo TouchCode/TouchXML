@@ -49,7 +49,7 @@ typedef enum {
 @class CXMLDocument;
 
 // NSXMLNode
-@interface CXMLNode : NSObject {
+@interface CXMLNode : NSObject <NSCopying> {
 	xmlNodePtr _node;
 }
 

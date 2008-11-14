@@ -66,6 +66,14 @@ CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:(xmlNodePtr)theN
 return(theNodeObject);
 }
 
++ (id)processingInstructionWithName:(NSString *)name stringValue:(NSString *)stringValue;
+{
+xmlNodePtr theNode = xmlNewPI((const xmlChar *)[name UTF8String], (const xmlChar *)[stringValue UTF8String]);
+NSAssert(theNode != NULL, @"xmlNewPI failed");
+CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:theNode] autorelease];
+return(theNodeObject);
+}
+
 - (void)setStringValue:(NSString *)inStringValue
 {
 NSAssert(NO, @"TODO");
