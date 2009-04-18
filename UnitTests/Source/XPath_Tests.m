@@ -79,7 +79,6 @@ for (CXMLElement *theElement in theNodes)
 	{
 	theNodes = [theElement nodesForXPath:@"./node" error:NULL];
 	STAssertTrue([theNodes count] == 1, NULL);
-	
 	}
 }
 

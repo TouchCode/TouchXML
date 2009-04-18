@@ -34,23 +34,13 @@ int main(int argc, char *argv[])
 {
 NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
-CXMLElement *theElement = [CXMLNode elementWithName:@"foo" URI:@"http:foo"];
 
-
-[theElement addChild:[CXMLNode elementWithName:@"bar" URI:@"http:foo"]];
-
-CXMLNode *theNamespace = [CXMLNode namespaceWithName:NULL stringValue:@"http:foo"];
-
-CXMLDocument *theDocument = [CXMLNode documentWithRootElement:theElement];
-[theDocument.rootElement addNamespace:theNamespace];
-[theDocument dump];
-NSLog(@"%@", theDocument);
-
-NSLog(@"##################################################################################################");
-
-theDocument = [[[CXMLDocument alloc] initWithXMLString:@"<foo xmlns=\"http:foo\"><bar x=\"y\"/></foo>" options:0 error:NULL] autorelease];
-[theDocument dump];
-NSLog(@"%@", theDocument);
+NSError *theError = NULL;
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<x>test</x>" options:0 error:&theError] autorelease];
+CXMLElement *theElement = [theXMLDocument rootElement];
+NSLog(@"%@", [theElement stringValue]);
+CXMLNode *theNode = [[theElement children] objectAtIndex:0];
+NSLog(@"%@", [theNode stringValue]);
 
 
 [pool release];

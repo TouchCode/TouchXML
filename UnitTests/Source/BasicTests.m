@@ -45,6 +45,26 @@ STAssertEquals([theXMLDocument rootElement], [theXMLDocument rootElement], NULL)
 STAssertEqualObjects([[theXMLDocument rootElement] name], @"foo", NULL);
 }
 
+- (void)test_strings
+{
+NSError *theError = NULL;
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<x>test</x>" options:0 error:&theError] autorelease];
+CXMLElement *theElement = [theXMLDocument rootElement];
+STAssertEqualObjects([theElement stringValue], @"test", NULL);
+CXMLNode *theNode = [[theElement children] objectAtIndex:0];
+STAssertEqualObjects([theNode stringValue], @"test", NULL);
+}
+
+- (void)test_cdata
+{
+NSError *theError = NULL;
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<x><![CDATA[test]]></x>" options:0 error:&theError] autorelease];
+CXMLElement *theElement = [theXMLDocument rootElement];
+STAssertEqualObjects([theElement stringValue], @"test", NULL);
+CXMLNode *theNode = [[theElement children] objectAtIndex:0];
+STAssertEqualObjects([theNode stringValue], @"test", NULL);
+}
+
 - (void)test_badXMLTest
 {
 NSError *theError = NULL;
