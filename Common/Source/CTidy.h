@@ -1,5 +1,5 @@
 //
-//  CXMLDocument.h
+//  CTidy.h
 //  TouchXML
 //
 //  Created by Jonathan Wight on 03/07/08.
@@ -27,39 +27,23 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CXMLNode.h"
+#import <Foundation/Foundation.h>
 
-enum {
-	CXMLDocumentTidyHTML, // Based on NSXMLDocumentTidyHTML
-	CXMLDocumentTidyXML, // Based on NSXMLDocumentTidyXML
-};
+#include "tidy.h"
+#include "buffio.h"
 
-@class CXMLElement;
+typedef enum {
+	TidyFormat_HTML,
+	TidyFormat_XML,
+	TidyFormat_XHTML,
+} CTidyFormat;
 
-@interface CXMLDocument : CXMLNode {
-	NSMutableSet *nodePool;
+@interface CTidy : NSObject {
 }
 
-- (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError;
++ (CTidy *)tidy;
 
-//- (NSString *)characterEncoding;
-//- (NSString *)version;
-//- (BOOL)isStandalone;
-//- (CXMLDocumentContentKind)documentContentKind;
-//- (NSString *)MIMEType;
-//- (CXMLDTD *)DTD;
-
-- (CXMLElement *)rootElement;
-
-- (NSData *)XMLData;
-- (NSData *)XMLDataWithOptions:(NSUInteger)options;
-
-//- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
-//- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
-//- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
-
-- (id)XMLStringWithOptions:(NSUInteger)options;
+- (NSData *)tidyData:(NSData *)inData inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat diagnostics:(NSString **)outDiagnostics error:(NSError **)outError;
+- (NSString *)tidyString:(NSString *)inString inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat diagnostics:(NSString **)outDiagnostics error:(NSError **)outError;
 
 @end

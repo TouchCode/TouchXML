@@ -1,5 +1,5 @@
 //
-//  CXMLDocument.h
+//  TidyTests.m
 //  TouchXML
 //
 //  Created by Jonathan Wight on 03/07/08.
@@ -27,39 +27,21 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CXMLNode.h"
+#import "TidyTests.h"
 
-enum {
-	CXMLDocumentTidyHTML, // Based on NSXMLDocumentTidyHTML
-	CXMLDocumentTidyXML, // Based on NSXMLDocumentTidyXML
-};
+#import "TouchXML.h"
 
-@class CXMLElement;
+@implementation TidyTests
 
-@interface CXMLDocument : CXMLNode {
-	NSMutableSet *nodePool;
+- (void)test_basicXMLTest
+{
+NSError *theError = NULL;
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<foo></bar>" options:CXMLDocumentTidyXML error:&theError] autorelease];
+STAssertNotNil(theXMLDocument, NULL);
+STAssertNil(theError, NULL);
+STAssertNotNil([theXMLDocument rootElement], NULL);
+STAssertEquals([theXMLDocument rootElement], [theXMLDocument rootElement], NULL);
+STAssertEqualObjects([[theXMLDocument rootElement] name], @"foo", NULL);
 }
-
-- (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError;
-
-//- (NSString *)characterEncoding;
-//- (NSString *)version;
-//- (BOOL)isStandalone;
-//- (CXMLDocumentContentKind)documentContentKind;
-//- (NSString *)MIMEType;
-//- (CXMLDTD *)DTD;
-
-- (CXMLElement *)rootElement;
-
-- (NSData *)XMLData;
-- (NSData *)XMLDataWithOptions:(NSUInteger)options;
-
-//- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
-//- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
-//- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
-
-- (id)XMLStringWithOptions:(NSUInteger)options;
 
 @end

@@ -38,6 +38,9 @@
 		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457943940D8248DC00EB2D22 /* XPath_Tests.m */; };
+		458CE8FB0F9C0BE4009EF591 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE8820F9C05D2009EF591 /* CTidy.m */; };
+		458CE9050F9C0C82009EF591 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE8820F9C05D2009EF591 /* CTidy.m */; };
+		458CE91B0F9C0CE6009EF591 /* TidyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE91A0F9C0CE6009EF591 /* TidyTests.m */; };
 		45AA86A60DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
 		45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
 		45D113830EC9E906005193F9 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D1137F0EC9E906005193F9 /* CXMLNode_CreationExtensions.m */; };
@@ -88,6 +91,11 @@
 		457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_PrivateExtensions.m; sourceTree = "<group>"; };
 		457943930D8248DC00EB2D22 /* XPath_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPath_Tests.h; sourceTree = "<group>"; };
 		457943940D8248DC00EB2D22 /* XPath_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPath_Tests.m; sourceTree = "<group>"; };
+		458CE8820F9C05D2009EF591 /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
+		458CE8830F9C05D2009EF591 /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
+		458CE9010F9C0C3D009EF591 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
+		458CE9190F9C0CE6009EF591 /* TidyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TidyTests.h; sourceTree = "<group>"; };
+		458CE91A0F9C0CE6009EF591 /* TidyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TidyTests.m; sourceTree = "<group>"; };
 		45AA24120E280F9700E12B55 /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_XPathExtensions.h; sourceTree = "<group>"; };
 		45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
@@ -200,6 +208,9 @@
 			children = (
 				457941200D8222CD00EB2D22 /* BasicTests.h */,
 				457941210D8222CD00EB2D22 /* BasicTests.m */,
+				458CE9190F9C0CE6009EF591 /* TidyTests.h */,
+				458CE91A0F9C0CE6009EF591 /* TidyTests.m */,
+				458CE9010F9C0C3D009EF591 /* Prefix.pch */,
 				457943930D8248DC00EB2D22 /* XPath_Tests.h */,
 				457943940D8248DC00EB2D22 /* XPath_Tests.m */,
 			);
@@ -236,6 +247,8 @@
 				457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */,
 				45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */,
 				45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */,
+				458CE8830F9C05D2009EF591 /* CTidy.h */,
+				458CE8820F9C05D2009EF591 /* CTidy.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -345,6 +358,7 @@
 				45D113860EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */,
 				45D1142F0EC9F329005193F9 /* CXMLDocument_CreationExtensions.m in Sources */,
 				45D114E40EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */,
+				458CE8FB0F9C0BE4009EF591 /* CTidy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +378,8 @@
 				45D113840EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */,
 				45D114300EC9F329005193F9 /* CXMLDocument_CreationExtensions.m in Sources */,
 				45D114E50EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */,
+				458CE9050F9C0C82009EF591 /* CTidy.m in Sources */,
+				458CE91B0F9C0CE6009EF591 /* TidyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,9 +438,16 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
 				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_Demo;
 			};
@@ -444,13 +467,16 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
 					"-lxml2",
-					"-lgcov",
+					"-ltidy",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_UnitTests;
@@ -469,9 +495,16 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
 				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_Demo;
 			};
@@ -487,9 +520,16 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
 				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_Demo;
 				ZERO_LINK = NO;
@@ -510,11 +550,17 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_UnitTests;
 				WRAPPER_EXTENSION = octest;
@@ -534,11 +580,17 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
 				PREBINDING = NO;
 				PRODUCT_NAME = TouchXML_UnitTests;
 				WRAPPER_EXTENSION = octest;
