@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4526F4B40FBB52C200781DD8 /* EncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4526F4B30FBB52C200781DD8 /* EncodingTests.m */; };
 		456A5ED10D9F4E4800D1D9CE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */; };
 		456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		457940F30D82214700EB2D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940E50D82214700EB2D22 /* main.m */; };
@@ -72,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4526F4B20FBB52C200781DD8 /* EncodingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingTests.h; sourceTree = "<group>"; };
+		4526F4B30FBB52C200781DD8 /* EncodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingTests.m; sourceTree = "<group>"; };
 		456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		457940E50D82214700EB2D22 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		457940E60D82214700EB2D22 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
@@ -213,6 +216,8 @@
 				458CE9010F9C0C3D009EF591 /* Prefix.pch */,
 				457943930D8248DC00EB2D22 /* XPath_Tests.h */,
 				457943940D8248DC00EB2D22 /* XPath_Tests.m */,
+				4526F4B20FBB52C200781DD8 /* EncodingTests.h */,
+				4526F4B30FBB52C200781DD8 /* EncodingTests.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -396,6 +401,7 @@
 				458CE9CC0F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m in Sources */,
 				458CE9CD0F9C12BB009EF591 /* CXMLNode_CreationExtensions.m in Sources */,
 				458CE9CE0F9C12BB009EF591 /* CTidy.m in Sources */,
+				4526F4B40FBB52C200781DD8 /* EncodingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -83,6 +83,11 @@ return(self);
 
 - (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError
 {
+	return [self initWithData:inData encoding:NSUTF8StringEncoding options:inOptions error:outError];	 
+}
+
+- (id)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
+{
 if ((self = [super init]) != NULL)
 	{
 	NSError *theError = NULL;
@@ -103,7 +108,10 @@ if ((self = [super init]) != NULL)
 		xmlDocPtr theDoc = NULL;
 		if (inData && inData.length > 0)
 			{
-			theDoc = xmlReadMemory([inData bytes], [inData length], NULL, NULL, XML_PARSE_RECOVER | XML_PARSE_NOWARNING);
+			CFStringEncoding cfenc = CFStringConvertNSStringEncodingToEncoding(encoding);
+			CFStringRef cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc);
+			const char *enc = CFStringGetCStringPtr(cfencstr, 0);
+			theDoc = xmlReadMemory([inData bytes], [inData length], NULL, enc, XML_PARSE_RECOVER | XML_PARSE_NOWARNING);
 			}
 		
 		if (theDoc != NULL)
