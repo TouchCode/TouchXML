@@ -27,6 +27,8 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#ifdef TOUCHXMLUSETIDY
+
 #import <Foundation/Foundation.h>
 
 #include "tidy.h"
@@ -47,3 +49,5 @@ typedef enum {
 - (NSString *)tidyString:(NSString *)inString inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat diagnostics:(NSString **)outDiagnostics error:(NSError **)outError;
 
 @end
+
+#endif /* TOUCHXMLUSETIDY */
