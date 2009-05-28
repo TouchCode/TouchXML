@@ -1,10 +1,10 @@
 //
 //  EncodingTests.m
-//  TouchXML
+//  TouchCode
 //
 //  Created by Jorge Pedroso on 5/10/09.
 //  Copyright 2009 Unsolicited Feedback. All rights reserved.
-
+//
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
 //  files (the "Software"), to deal in the Software without
