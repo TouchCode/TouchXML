@@ -188,7 +188,6 @@ if (theResultCode < 0)
 	return(NO);
 	}
 
-
 // Repair the data
 theResultCode = tidyCleanAndRepair(theTidyDocument);
 if (theResultCode < 0)
@@ -207,7 +206,7 @@ NSMutableData *theOutputBuffer = [NSMutableData dataWithLength:theBufferLength];
 
 theResultCode = tidySaveString(theTidyDocument, [theOutputBuffer mutableBytes], &theBufferLength);
 
-NSString *theString = [NSString stringWithUTF8String:[theOutputBuffer bytes]];
+NSString *theString = [[[NSString alloc] initWithData:theOutputBuffer encoding:NSUTF8StringEncoding] autorelease];
 
 // 
 if (outDiagnostics && theErrorBuffer.bp != NULL)
@@ -223,9 +222,6 @@ tidyRelease(theTidyDocument);
 
 return(theString);
 }
-
-
-
 
 @end
 
