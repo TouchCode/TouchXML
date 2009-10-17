@@ -139,13 +139,18 @@ return(self);
 
 - (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError
 {
+	return [self initWithContentsOfURL:inURL encoding:NSUTF8StringEncoding options:inOptions error:outError];
+}
+
+- (id)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
+{
 if (outError)
 	*outError = NULL;
 
 NSData *theData = [NSData dataWithContentsOfURL:inURL options:NSUncachedRead error:outError];
 if (theData)
 	{
-	self = [self initWithData:theData options:inOptions error:outError];
+	self = [self initWithData:theData encoding:encoding options:inOptions error:outError];
 	}
 else
 	{
