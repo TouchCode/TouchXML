@@ -76,4 +76,9 @@ xmlXPathFreeContext(theXPathContext);
 return(theResult);
 }
 
+- (CXMLNode *)nodeForXPath:(NSString *)xpath error:(NSError **)outError
+{
+return([[self nodesForXPath:xpath error:outError] lastObject]);
+}
+
 @end

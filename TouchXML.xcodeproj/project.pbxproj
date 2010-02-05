@@ -25,7 +25,6 @@
 		4526F4B40FBB52C200781DD8 /* EncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4526F4B30FBB52C200781DD8 /* EncodingTests.m */; };
 		456A5ED10D9F4E4800D1D9CE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */; };
 		456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		457940F30D82214700EB2D22 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940E50D82214700EB2D22 /* main.m */; };
 		457940F40D82214700EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
 		457940F50D82214700EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
 		457940F60D82214700EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
@@ -52,6 +51,7 @@
 		45D113860EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
 		45D114E40EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D114E30EC9F658005193F9 /* CXMLNode_Debugging.m */; };
 		45D114E50EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D114E30EC9F658005193F9 /* CXMLNode_Debugging.m */; };
+		45E8A1981111E080009C150D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940E50D82214700EB2D22 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -368,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457940F30D82214700EB2D22 /* main.m in Sources */,
 				457940F40D82214700EB2D22 /* CXMLDocument.m in Sources */,
 				457940F50D82214700EB2D22 /* CXMLElement.m in Sources */,
 				457940F60D82214700EB2D22 /* CXMLNode.m in Sources */,
@@ -380,6 +379,7 @@
 				458CE9D10F9C12CD009EF591 /* CTidy.m in Sources */,
 				458CE9D20F9C12CE009EF591 /* CXMLNode_CreationExtensions.m in Sources */,
 				458CE9D30F9C12CE009EF591 /* CXMLDocument_CreationExtensions.m in Sources */,
+				45E8A1981111E080009C150D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

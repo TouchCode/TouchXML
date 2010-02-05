@@ -36,10 +36,12 @@ NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
 
 NSError *theError = NULL;
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<x>test</x>" options:0 error:&theError] autorelease];
-CXMLElement *theElement = [theXMLDocument rootElement];
-NSLog(@"%@", [theElement stringValue]);
-CXMLNode *theNode = [[theElement children] objectAtIndex:0];
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<xml><![CDATA[<sender>John Smith</sender>]]></xml>" options:0 error:&theError] autorelease];
+NSLog(@"%@", theXMLDocument);
+CXMLElement *theRootElement = [theXMLDocument rootElement];
+NSLog(@"%@", [theRootElement name]);
+NSLog(@"%@", [theRootElement stringValue]);
+CXMLNode *theNode = [[theRootElement children] lastObject];
 NSLog(@"%@", [theNode stringValue]);
 
 
