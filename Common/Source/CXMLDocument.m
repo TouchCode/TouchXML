@@ -66,7 +66,16 @@ if ((self = [super init]) != NULL)
 		}
 	else
 		{
-		theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:NULL];
+		xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
+		
+		NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+			[NSString stringWithUTF8String:theLastErrorPtr->message], NSLocalizedDescriptionKey,
+			NULL];
+		
+		
+		theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
+		
+		xmlResetLastError();
 		}
 
 	if (outError)

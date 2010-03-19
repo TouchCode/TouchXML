@@ -15,6 +15,7 @@
 			dependencies = (
 				457941080D82219E00EB2D22 /* PBXTargetDependency */,
 				4579410A0D8221A100EB2D22 /* PBXTargetDependency */,
+				451E6F711152F68B0024ABA5 /* PBXTargetDependency */,
 			);
 			name = All;
 			productName = All;
@@ -22,6 +23,20 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		451E6E461152EB790024ABA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 451E6E451152EB790024ABA5 /* Info.plist */; };
+		451E6E4A1152EB9F0024ABA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6E491152EB9F0024ABA5 /* main.m */; };
+		451E6E4C1152EBB60024ABA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451E6E4B1152EBB60024ABA5 /* Cocoa.framework */; };
+		451E6EE31152EBF70024ABA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451E6EE21152EBF70024ABA5 /* MainMenu.xib */; };
+		451E6EFD1152EC5B0024ABA5 /* CMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6EFC1152EC5B0024ABA5 /* CMainController.m */; };
+		451E6F2A1152ED870024ABA5 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
+		451E6F2B1152ED880024ABA5 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
+		451E6F2C1152ED890024ABA5 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
+		451E6F2D1152ED890024ABA5 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
+		451E6F2E1152ED8B0024ABA5 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
+		451E6F2F1152ED8C0024ABA5 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		451E6F301152ED8C0024ABA5 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
+		451E6F311152ED8E0024ABA5 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
+		451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
 		4526F4B40FBB52C200781DD8 /* EncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4526F4B30FBB52C200781DD8 /* EncodingTests.m */; };
 		456A5ED10D9F4E4800D1D9CE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */; };
 		456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -55,6 +70,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		451E6F701152F68B0024ABA5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 451E6E301152EB4A0024ABA5 /* Validator */;
+			remoteInfo = Validator;
+		};
 		457941070D82219E00EB2D22 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -73,6 +95,13 @@
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		451E6E311152EB4A0024ABA5 /* Validator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Validator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		451E6E451152EB790024ABA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		451E6E491152EB9F0024ABA5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		451E6E4B1152EBB60024ABA5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		451E6EE21152EBF70024ABA5 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		451E6EFB1152EC5B0024ABA5 /* CMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMainController.h; sourceTree = "<group>"; };
+		451E6EFC1152EC5B0024ABA5 /* CMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMainController.m; sourceTree = "<group>"; };
 		4526F4B20FBB52C200781DD8 /* EncodingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingTests.h; sourceTree = "<group>"; };
 		4526F4B30FBB52C200781DD8 /* EncodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingTests.m; sourceTree = "<group>"; };
 		456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -113,6 +142,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		451E6E2F1152EB4A0024ABA5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				451E6E4C1152EBB60024ABA5 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		456A84890D81DB06000E29C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,26 +170,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */,
-			);
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				457940FF0D82217800EB2D22 /* TouchXML_UnitTests.octest */,
+				451E6E311152EB4A0024ABA5 /* Validator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,6 +185,7 @@
 				457940E30D82214700EB2D22 /* Demo */,
 				457940E70D82214700EB2D22 /* UnitTests */,
 				457940E90D82214700EB2D22 /* Common */,
+				451E6E441152EB790024ABA5 /* Validator */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -172,10 +195,23 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
-				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				451E6E4B1152EBB60024ABA5 /* Cocoa.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		451E6E441152EB790024ABA5 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				451E6E451152EB790024ABA5 /* Info.plist */,
+				451E6E491152EB9F0024ABA5 /* main.m */,
+				451E6EE21152EBF70024ABA5 /* MainMenu.xib */,
+				451E6EFB1152EC5B0024ABA5 /* CMainController.h */,
+				451E6EFC1152EC5B0024ABA5 /* CMainController.m */,
+			);
+			path = Validator;
 			sourceTree = "<group>";
 		};
 		457940E30D82214700EB2D22 /* Demo */ = {
@@ -285,6 +321,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		451E6E301152EB4A0024ABA5 /* Validator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 451E6E391152EB4B0024ABA5 /* Build configuration list for PBXNativeTarget "Validator" */;
+			buildPhases = (
+				451E6E2D1152EB4A0024ABA5 /* Resources */,
+				451E6E2E1152EB4A0024ABA5 /* Sources */,
+				451E6E2F1152EB4A0024ABA5 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Validator;
+			productName = Validator;
+			productReference = 451E6E311152EB4A0024ABA5 /* Validator.app */;
+			productType = "com.apple.product-type.application";
+		};
 		456A848A0D81DB06000E29C9 /* TouchXML_Demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXML_Demo" */;
@@ -333,11 +386,21 @@
 				457941040D82219400EB2D22 /* All */,
 				456A848A0D81DB06000E29C9 /* TouchXML_Demo */,
 				457940FE0D82217800EB2D22 /* TouchXML_UnitTests */,
+				451E6E301152EB4A0024ABA5 /* Validator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		451E6E2D1152EB4A0024ABA5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				451E6E461152EB790024ABA5 /* Info.plist in Resources */,
+				451E6EE31152EBF70024ABA5 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		457940FA0D82217800EB2D22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,6 +427,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		451E6E2E1152EB4A0024ABA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				451E6E4A1152EB9F0024ABA5 /* main.m in Sources */,
+				451E6EFD1152EC5B0024ABA5 /* CMainController.m in Sources */,
+				451E6F2A1152ED870024ABA5 /* CXMLDocument.m in Sources */,
+				451E6F2B1152ED880024ABA5 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				451E6F2C1152ED890024ABA5 /* CXMLElement.m in Sources */,
+				451E6F2D1152ED890024ABA5 /* CXMLElement_CreationExtensions.m in Sources */,
+				451E6F2E1152ED8B0024ABA5 /* CXMLNode.m in Sources */,
+				451E6F2F1152ED8C0024ABA5 /* CXMLNode_PrivateExtensions.m in Sources */,
+				451E6F301152ED8C0024ABA5 /* CXMLNode_XPathExtensions.m in Sources */,
+				451E6F311152ED8E0024ABA5 /* CXMLDocument_CreationExtensions.m in Sources */,
+				451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		456A84880D81DB06000E29C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,6 +489,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		451E6F711152F68B0024ABA5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 451E6E301152EB4A0024ABA5 /* Validator */;
+			targetProxy = 451E6F701152F68B0024ABA5 /* PBXContainerItemProxy */;
+		};
 		457941080D82219E00EB2D22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 456A848A0D81DB06000E29C9 /* TouchXML_Demo */;
@@ -421,11 +507,86 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		451E6E361152EB4B0024ABA5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = Validator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Validator;
+			};
+			name = Debug;
+		};
+		451E6E371152EB4B0024ABA5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = Validator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Validator;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		451E6E381152EB4B0024ABA5 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/tidy,
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = Validator/Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"-ltidy",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Validator;
+			};
+			name = Coverage;
+		};
 		4533AB090DA4203C0028B909 /* Coverage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
@@ -645,7 +806,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -659,7 +820,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
 			};
@@ -668,6 +829,16 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		451E6E391152EB4B0024ABA5 /* Build configuration list for PBXNativeTarget "Validator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				451E6E361152EB4B0024ABA5 /* Debug */,
+				451E6E371152EB4B0024ABA5 /* Release */,
+				451E6E381152EB4B0024ABA5 /* Coverage */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXML_Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
