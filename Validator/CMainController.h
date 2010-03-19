@@ -12,11 +12,13 @@
 @interface CMainController : NSObject {
 	NSWindow *window;
 	NSString *XMLString;
+	NSString *XPath;
 	NSString *status;
 }
 
 @property (readwrite, nonatomic, assign) IBOutlet NSWindow *window;
 @property (readwrite, nonatomic, copy) NSString *XMLString;
+@property (readwrite, nonatomic, copy) NSString *XPath;
 @property (readwrite, nonatomic, copy) NSString *status;
 
 @end

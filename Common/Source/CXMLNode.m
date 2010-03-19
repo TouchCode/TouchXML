@@ -290,6 +290,12 @@ theXPathContext->node = _node;
 
 // TODO considering putting xmlChar <-> UTF8 into a NSString category
 xmlXPathObjectPtr theXPathObject = xmlXPathEvalExpression((const xmlChar *)[xpath UTF8String], theXPathContext);
+if (theXPathObject == NULL)
+	{
+	if (error)
+		*error = [NSError errorWithDomain:@"TODO_DOMAIN" code:-1 userInfo:NULL];
+	return(NULL);
+	}
 if (xmlXPathNodeSetIsEmpty(theXPathObject->nodesetval))
 	theResult = [NSArray array]; // TODO better to return NULL?
 else

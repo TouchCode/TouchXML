@@ -14,6 +14,7 @@
 
 @synthesize window;
 @synthesize XMLString;
+@synthesize XPath;
 @synthesize status;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)inNotification
@@ -34,16 +35,49 @@ if (inXMLString != XMLString)
 	if (inXMLString)
 		{
 		XMLString = [inXMLString copy];
-		//
-		NSError *theError = NULL;
-		CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:inXMLString options:0 error:&theError] autorelease];
-		if (theXMLDocument)
-			self.status = @"OK";
-		else
-			self.status = [theError description];
+		[self updateStatus];
 		}
-	
 	}
+}
+
+- (void)setXPath:(NSString *)inXPath
+{
+if (inXPath != XPath)
+	{
+	if (XPath)
+		{
+		[XPath release];
+		XPath = NULL;
+		}
+		
+	if (inXPath)
+		{
+		XPath = [inXPath copy];
+		[self updateStatus];
+		}
+	}
+}
+
+- (void)updateStatus
+{
+NSError *theError = NULL;
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:self.XMLString options:0 error:&theError] autorelease];
+if (theXMLDocument)
+	{
+	if (self.XPath.length > 0)
+		{
+		NSArray *theNodes = [theXMLDocument nodesForXPath:self.XPath error:&theError];
+		if (theNodes)
+			self.status = [theNodes description];
+		else
+			self.status = @"OK";
+		}
+	else
+		self.status = @"OK";
+	}
+else
+	self.status = [theError description];
+
 }
 
 @end
