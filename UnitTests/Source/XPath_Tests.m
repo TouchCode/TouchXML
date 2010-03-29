@@ -31,6 +31,7 @@
 
 #import "CXMLDocument.h"
 #import "CXMLElement.h"
+#import "CXMLNode_XPathExtensions.h"
 
 @implementation XPath_Tests
 
@@ -47,7 +48,6 @@ theNodes = [theXMLDocument nodesForXPath:@"//@attribute" error:&theError];
 STAssertTrue([theNodes count] == 2, NULL);
 }
 
-/* THIS FAILS
 - (void)test_xmlns
 {
 NSError *theError = NULL;
@@ -58,10 +58,13 @@ STAssertNotNil(theXMLDocument, NULL);
 
 NSArray *theNodes = NULL;
 
-theNodes = [theXMLDocument nodesForXPath:@"//Timestamp" error:&theError];
+NSDictionary *theMappings = [NSDictionary dictionaryWithObjectsAndKeys:
+	@"urn:ebay:apis:eBLBaseComponents", @"ebay",
+	NULL];
+
+theNodes = [theXMLDocument nodesForXPath:@"//ebay:Timestamp" namespaceMappings:theMappings error:&theError];
 STAssertTrue([theNodes count] == 1, NULL);
 }
-*/
 
 - (void)test_relative_paths
 {
