@@ -38,16 +38,17 @@
 
 
 
-- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode;
+- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnRelease:(BOOL)inFreeOnRelease
 {
 if ((self = [super init]) != NULL)
 	{
 	_node = inLibXMLNode;
+	_freeNodeOnRelease = inFreeOnRelease;
 	}
 return(self);
 }
 
-+ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode
++ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnRelease:(BOOL)inFreeOnRelease
 {
 // TODO more checking.
 if (inLibXMLNode->_private)
@@ -72,7 +73,7 @@ switch (inLibXMLNode->type)
 		return(NULL);
 	}
 
-CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode] autorelease];
+CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnRelease:inFreeOnRelease] autorelease];
 
 
 if (inLibXMLNode->doc != NULL)

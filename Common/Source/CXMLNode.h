@@ -51,6 +51,7 @@ typedef enum {
 // NSXMLNode
 @interface CXMLNode : NSObject <NSCopying> {
 	xmlNodePtr _node;
+	BOOL _freeNodeOnRelease;
 }
 
 - (CXMLNodeKind)kind;
@@ -79,6 +80,4 @@ typedef enum {
 - (NSString *)XMLStringWithOptions:(NSUInteger)options;
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error;
-
-- (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str;
 @end

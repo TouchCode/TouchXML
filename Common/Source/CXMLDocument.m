@@ -198,7 +198,7 @@ _node = NULL;
 {
 xmlNodePtr theLibXMLNode = xmlDocGetRootElement((xmlDocPtr)_node);
 	
-return([CXMLNode nodeWithLibXMLNode:theLibXMLNode]);
+return([CXMLNode nodeWithLibXMLNode:theLibXMLNode freeOnRelease:NO]);
 }
 
 - (NSData *)XMLData

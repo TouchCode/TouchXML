@@ -36,13 +36,8 @@ NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 
 
 NSError *theError = NULL;
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<xml><![CDATA[<sender>John Smith</sender>]]></xml>" options:0 error:&theError] autorelease];
-NSLog(@"%@", theXMLDocument);
-CXMLElement *theRootElement = [theXMLDocument rootElement];
-NSLog(@"%@", [theRootElement name]);
-NSLog(@"%@", [theRootElement stringValue]);
-CXMLNode *theNode = [[theRootElement children] lastObject];
-NSLog(@"%@", [theNode stringValue]);
+CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<enclosure url=\"http://www.flickr.com/apps/video/stewart.swf?v=71377&amp;photo_id=4445665165\" type=\"application/x-shockwave-flash\"/>" options:0 error:&theError] autorelease];
+NSLog(@"%@", [[theXMLDocument rootElement] XMLString]);
 
 
 [pool release];
