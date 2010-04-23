@@ -45,7 +45,7 @@ while (theCurrentNode != NULL)
 	{
 	if (theCurrentNode->type == XML_ELEMENT_NODE && xmlStrcmp(theName, theCurrentNode->name) == 0)
 		{
-		CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnRelease:NO];
+		CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
 		[theElements addObject:theNode];
 		}
 	theCurrentNode = theCurrentNode->next;
@@ -61,7 +61,7 @@ NSMutableArray *theAttributes = [NSMutableArray array];
 xmlAttrPtr theCurrentNode = _node->properties;
 while (theCurrentNode != NULL)
 	{
-	CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnRelease:NO];
+	CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
 	[theAttributes addObject:theAttribute];
 	theCurrentNode = theCurrentNode->next;
 	}
@@ -78,7 +78,7 @@ while (theCurrentNode != NULL)
 	{
 	if (xmlStrcmp(theName, theCurrentNode->name) == 0)
 		{
-		CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnRelease:NO];
+		CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
 		return(theAttribute);
 		}
 	theCurrentNode = theCurrentNode->next;

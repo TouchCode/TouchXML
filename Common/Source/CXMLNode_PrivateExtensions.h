@@ -33,8 +33,8 @@
 
 @property (readonly, nonatomic, assign) xmlNodePtr node;
 
-- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnRelease:(BOOL)inFreeOnRelease;
+- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc;
 
-+ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnRelease:(BOOL)inFreeOnRelease;
++ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc;
 
 @end

@@ -64,7 +64,7 @@ if (_node)
 - (id)copyWithZone:(NSZone *)zone;
 {
 xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
-CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnRelease:YES];
+CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnDealloc:YES];
 theNewNode->_private = theNode;
 return(theNode);
 }
@@ -171,7 +171,7 @@ NSMutableArray *theChildren = [NSMutableArray array];
 xmlNodePtr theCurrentNode = _node->children;
 while (theCurrentNode != NULL)
 	{
-	CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnRelease:NO];
+	CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnDealloc:NO];
 	[theChildren addObject:theNode];
 	theCurrentNode = theCurrentNode->next;
 	}
@@ -187,7 +187,7 @@ NSUInteger N;
 for (N = 0; theCurrentNode != NULL && N != index; ++N, theCurrentNode = theCurrentNode->next)
 	;
 if (theCurrentNode)
-	return([CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnRelease:NO]);
+	return([CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnDealloc:NO]);
 return(NULL);
 }
 
@@ -198,7 +198,7 @@ NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 if (_node->prev == NULL)
 	return(NULL);
 else
-	return([CXMLNode nodeWithLibXMLNode:_node->prev freeOnRelease:NO]);
+	return([CXMLNode nodeWithLibXMLNode:_node->prev freeOnDealloc:NO]);
 }
 
 - (CXMLNode *)nextSibling
@@ -208,7 +208,7 @@ NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 if (_node->next == NULL)
 	return(NULL);
 else
-	return([CXMLNode nodeWithLibXMLNode:_node->next freeOnRelease:NO]);
+	return([CXMLNode nodeWithLibXMLNode:_node->next freeOnDealloc:NO]);
 }
 
 //- (CXMLNode *)previousNode;
@@ -303,7 +303,7 @@ else
 	for (N = 0; N < theXPathObject->nodesetval->nodeNr; N++)
 		{
 		xmlNodePtr theNode = theXPathObject->nodesetval->nodeTab[N];
-		[theArray addObject:[CXMLNode nodeWithLibXMLNode:theNode freeOnRelease:NO]];
+		[theArray addObject:[CXMLNode nodeWithLibXMLNode:theNode freeOnDealloc:NO]];
 		}
 		
 	theResult = theArray;
