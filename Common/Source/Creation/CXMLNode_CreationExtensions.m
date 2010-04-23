@@ -40,7 +40,7 @@
 {
 xmlDocPtr theDocumentNode = xmlNewDoc((const xmlChar *)"1.0");
 NSAssert(theDocumentNode != NULL, @"xmlNewDoc failed");
-CXMLDocument *theDocument = [[[CXMLDocument alloc] initWithLibXMLNode:(xmlNodePtr)theDocumentNode] autorelease];
+CXMLDocument *theDocument = [[[CXMLDocument alloc] initWithLibXMLNode:(xmlNodePtr)theDocumentNode freeOnDealloc:NO] autorelease];
 return(theDocument);
 }
 
@@ -49,7 +49,7 @@ return(theDocument);
 xmlDocPtr theDocumentNode = xmlNewDoc((const xmlChar *)"1.0");
 NSAssert(theDocumentNode != NULL, @"xmlNewDoc failed");
 xmlDocSetRootElement(theDocumentNode, element.node);
-CXMLDocument *theDocument = [[[CXMLDocument alloc] initWithLibXMLNode:(xmlNodePtr)theDocumentNode] autorelease];
+CXMLDocument *theDocument = [[[CXMLDocument alloc] initWithLibXMLNode:(xmlNodePtr)theDocumentNode freeOnDealloc:NO] autorelease];
 [theDocument.nodePool addObject:element];
 return(theDocument);
 }
@@ -57,7 +57,7 @@ return(theDocument);
 + (id)elementWithName:(NSString *)name
 {
 xmlNodePtr theElementNode = xmlNewNode(NULL, (const xmlChar *)[name UTF8String]);
-CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode] autorelease];
+CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode freeOnDealloc:NO] autorelease];
 return(theElement);
 }
 
@@ -67,14 +67,14 @@ xmlNodePtr theElementNode = xmlNewNode(NULL, (const xmlChar *)[name UTF8String])
 xmlNsPtr theNSNode = xmlNewNs(theElementNode, (const xmlChar *)[URI UTF8String], NULL);
 theElementNode->ns = theNSNode;
 
-CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode] autorelease];
+CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode freeOnDealloc:NO] autorelease];
 return(theElement);
 }
 
 + (id)elementWithName:(NSString *)name stringValue:(NSString *)string
 {
 xmlNodePtr theElementNode = xmlNewNode(NULL, (const xmlChar *)[name UTF8String]);
-CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode] autorelease];
+CXMLElement *theElement = [[[CXMLElement alloc] initWithLibXMLNode:(xmlNodePtr)theElementNode freeOnDealloc:NO] autorelease];
 theElement.stringValue = string;
 return(theElement);
 }
@@ -83,7 +83,7 @@ return(theElement);
 {
 xmlNsPtr theNode = xmlNewNs(NULL, (const xmlChar *)[stringValue UTF8String], (const xmlChar *)[name UTF8String]);
 NSAssert(theNode != NULL, @"xmlNewNs failed");
-CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:(xmlNodePtr)theNode] autorelease];
+CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:(xmlNodePtr)theNode freeOnDealloc:NO] autorelease];
 return(theNodeObject);
 }
 
@@ -91,7 +91,7 @@ return(theNodeObject);
 {
 xmlNodePtr theNode = xmlNewPI((const xmlChar *)[name UTF8String], (const xmlChar *)[stringValue UTF8String]);
 NSAssert(theNode != NULL, @"xmlNewPI failed");
-CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:theNode] autorelease];
+CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:theNode freeOnDealloc:NO] autorelease];
 return(theNodeObject);
 }
 
