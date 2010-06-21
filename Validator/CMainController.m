@@ -94,10 +94,12 @@ if (theXMLDocument)
 			self.status = @"OK";
 		}
 	else
-		self.status = @"OK";
+		self.status = [NSString stringWithFormat:@"OK (root: %@)", theXMLDocument.rootElement];
 	}
 else
-	self.status = [theError description];
+	{
+	self.status = [NSString stringWithFormat:@"Error: %@", [theError description]];
+	}
 
 }
 
