@@ -86,7 +86,28 @@ while (theCurrentNode != NULL)
 return(NULL);
 }
 
-//- (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI;
+- (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI
+{
+	// TODO -- look for native libxml2 function for finding a named attribute (like xmlGetProp)
+	const xmlChar *theLocalName = (const xmlChar *)[localName UTF8String];
+	const xmlChar *theNamespaceName = (const xmlChar *)[URI UTF8String];
+	
+	xmlAttrPtr theCurrentNode = _node->properties;
+	while (theCurrentNode != NULL)
+	{
+		if (theCurrentNode->ns && theCurrentNode->ns->href &&
+			xmlStrcmp(theLocalName, theCurrentNode->name) == 0 &&
+			xmlStrcmp(theNamespaceName, theCurrentNode->ns->href) == 0)
+		{
+			CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
+			return(theAttribute);
+		}
+		theCurrentNode = theCurrentNode->next;
+	}
+	return(NULL);
+}
+
+
 //- (NSArray *)namespaces
 //- (CXMLNode *)namespaceForPrefix:(NSString *)name;
 //- (CXMLNode *)resolveNamespaceForName:(NSString *)name;

@@ -118,60 +118,65 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 //
 //--------------------------------------------------------------------------
 
-- (void) assertTouchNode:(CXMLNode *)txNode matchesNSXMLNode:(NSXMLNode *)nsNode
+- (void) assertTouchNode:(CXMLNode *)txNode matchesNSXMLNode:(NSXMLNode *)nsNode describedAs:(NSString *)desc
 {
 	STAssertEqualObjects(stringValueOfCXMLNodeKind([txNode kind]),
 						 stringValueOfNSXMLNodeKind([nsNode kind]),
-						 @"for name, touch gave me %@, nsxml gave me %@",
+						 @"Running \"%@\" - For kind, touch gave me %@, nsxml gave me %@", desc,
 						 stringValueOfCXMLNodeKind([txNode kind]),
 						 stringValueOfNSXMLNodeKind([nsNode kind]));
 	
 	STAssertEqualObjects([txNode name], 
 						 [nsNode name],
-						 @"for name, touch gave me %@, nsxml gave me %@",
+						 @"Running \"%@\" - For name, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode name], 
 						 [nsNode name]);
 	
 	STAssertEqualObjects([txNode localName], 
 						 [nsNode localName],
-						 @"for localName, touch gave me %@, nsxml gave me %@",
+						 @"Running \"%@\" - For localName, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode localName], 
 						 [nsNode localName]);
 	
 	STAssertEqualObjects([txNode URI], 
 						 [nsNode URI],
-						 @"for URI, touch gave me %@, nsxml gave me %@",
+						 @"Running \"%@\" - For URI, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode URI], 
 						 [nsNode URI]);
 	
 	STAssertEqualObjects([txNode prefix], 
 						 [nsNode prefix],
-						 @"for prefix, touch gave me %@, nsxml gave me %@",
+						 @"Running \"%@\" - For prefix, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode prefix], 
 						 [nsNode prefix]);
 	
 	STAssertEqualObjects([txNode stringValue], 
 						 [nsNode stringValue],
-						 @"for stringValue, touch gave me %@, nsxml gave me %@",
+						 @"Running \"%@\" - For stringValue, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode stringValue], 
 						 [nsNode stringValue]);
 	
 	STAssertEquals([txNode childCount],
 				   [nsNode childCount],
-				   @"for childCount, touch gave me %d, nsxml gave me %d",
+				   @"Running \"%@\" - For childCount, touch gave me %d, nsxml gave me %d", desc,
 				   [txNode childCount],
 				   [nsNode childCount]);
 
 	STAssertEquals([[txNode children] count],
 				   [[nsNode children] count],
-				   @"for [children count], touch gave me %d, nsxml gave me %d",
+				   @"Running \"%@\" - For [children count], touch gave me %d, nsxml gave me %d", desc,
 				   [[txNode children] count],
 				   [[nsNode children] count]);
 }
 
+- (void) assertTouchNode:(CXMLNode *)txNode matchesNSXMLNode:(NSXMLNode *)nsNode 
+{
+	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Test"];
+}
+
 - (void) assertTouchElement:(CXMLElement *)txElement matchesNSXMLElement:(NSXMLElement *)nsElement
 {
-	[self assertTouchNode:txElement matchesNSXMLNode:nsElement];
+	[self assertTouchNode:txElement matchesNSXMLNode:nsElement describedAs:@"Test"];
 }
 
 
@@ -313,6 +318,34 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	}
 }
 
+- (void) test_getAttributeFullyQualified
+{
+	CXMLDocument *txDoc = nil;
+	NSXMLDocument *nsDoc = nil;
+	
+	// Setup 
+	
+	[self buildTouchDocument:&txDoc 
+			andNSXMLDocument:&nsDoc 
+			   withXMLString:emptyDocumentWithAttributesMixed()];
+
+	// Asserts
+	
+	CXMLNode *txNode = [[txDoc rootElement] attributeForLocalName:@"attr2" URI:(NSString *)NS1];
+	NSXMLNode *nsNode = [[nsDoc rootElement] attributeForLocalName:@"attr2" URI:(NSString *)NS1];
+
+	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Should find the fully qualified attribute"];
+
+	txNode = [[txDoc rootElement] attributeForName:@"ns1:attr2"];
+	nsNode = [[nsDoc rootElement] attributeForName:@"ns1:attr2"];
+	
+	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Searching by name with (correct) prefixed name"];
+
+	txNode = [[txDoc rootElement] attributeForLocalName:@"attr3" URI:nil];
+	nsNode = [[nsDoc rootElement] attributeForLocalName:@"attr3" URI:nil];
+	
+	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Fully qualified search with nil URI"];
+}
 
 
 
