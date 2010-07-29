@@ -94,28 +94,28 @@ return(_node->type); // TODO this isn't 100% accurate!
 
 - (NSString *)stringValue
 {
-NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
-xmlChar *theXMLString;
-BOOL theFreeReminderFlag = NO;
-if (_node->type == XML_TEXT_NODE || _node->type == XML_CDATA_SECTION_NODE) 
-	theXMLString = _node->content;
-else
+	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
+	xmlChar *theXMLString;
+	BOOL theFreeReminderFlag = NO;
+	if (_node->type == XML_TEXT_NODE || _node->type == XML_CDATA_SECTION_NODE) 
+		theXMLString = _node->content;
+	else
 	{
-	theXMLString = xmlNodeListGetString(_node->doc, _node->children, YES);
-	theFreeReminderFlag = YES;
+		theXMLString = xmlNodeListGetString(_node->doc, _node->children, YES);
+		theFreeReminderFlag = YES;
 	}
-
-NSString *theStringValue = NULL;
-if (theXMLString != NULL)
+	
+	NSString *theStringValue = @"";
+	if (theXMLString != NULL)
 	{
-	theStringValue = [NSString stringWithUTF8String:(const char *)theXMLString];
-	if (theFreeReminderFlag == YES)
+		theStringValue = [NSString stringWithUTF8String:(const char *)theXMLString];
+		if (theFreeReminderFlag == YES)
 		{
-		xmlFree(theXMLString);
+			xmlFree(theXMLString);
 		}
 	}
-
-return(theStringValue);
+	
+	return(theStringValue);
 }
 
 - (NSUInteger)index
@@ -159,28 +159,35 @@ else
 
 - (NSUInteger)childCount
 {
-NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
-
-xmlNodePtr theCurrentNode = _node->children;
-NSUInteger N;
-for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->next)
-	;
-return(N);
+	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
+	
+	if (_node->type == CXMLAttributeKind)
+		return 0; // NSXMLNodes of type NSXMLAttributeKind can't have children
+		
+	xmlNodePtr theCurrentNode = _node->children;
+	NSUInteger N;
+	for (N = 0; theCurrentNode != NULL; ++N, theCurrentNode = theCurrentNode->next)
+		;
+	return(N);
 }
 
 - (NSArray *)children
 {
-NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
-
-NSMutableArray *theChildren = [NSMutableArray array];
-xmlNodePtr theCurrentNode = _node->children;
-while (theCurrentNode != NULL)
+	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
+	
+	NSMutableArray *theChildren = [NSMutableArray array];
+	
+	if (_node->type != CXMLAttributeKind) // NSXML Attribs don't have children.
 	{
-	CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnDealloc:NO];
-	[theChildren addObject:theNode];
-	theCurrentNode = theCurrentNode->next;
+		xmlNodePtr theCurrentNode = _node->children;
+		while (theCurrentNode != NULL)
+		{
+			CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnDealloc:NO];
+			[theChildren addObject:theNode];
+			theCurrentNode = theCurrentNode->next;
+		}
 	}
-return(theChildren);      
+	return(theChildren);      
 }
 
 - (CXMLNode *)childAtIndex:(NSUInteger)index
