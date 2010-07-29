@@ -1,3 +1,9 @@
+== This is a fork (here be dragons) ==
+
+This is a fork of TouchXML so I can add features I need (mainly namespaces) that are on the "medium to long term" list at the official project. Hopefully once they work, we can get them upstream :)
+
+== Original TouchXML readme ==
+
 = Introduction =
 
 TouchXML is a lightweight replacement for Cocoa's NSXML* cluster of

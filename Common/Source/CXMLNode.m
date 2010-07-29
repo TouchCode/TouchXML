@@ -79,12 +79,17 @@ return(_node->type); // TODO this isn't 100% accurate!
 
 - (NSString *)name
 {
-NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
-// TODO use xmlCheckUTF8 to check name
-if (_node->name == NULL)
-	return(NULL);
-else
-	return([NSString stringWithUTF8String:(const char *)_node->name]);
+	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
+	// TODO use xmlCheckUTF8 to check name
+	if (_node->name == NULL)
+		return(NULL);
+	
+	NSString *localName = [NSString stringWithUTF8String:(const char *)_node->name];
+	
+	if (_node->ns == NULL || _node->ns->prefix == NULL)
+		return localName;
+	
+	return [NSString stringWithFormat:@"%@:%@",	[NSString stringWithUTF8String:(const char *)_node->ns->prefix], localName];
 }
 
 - (NSString *)stringValue
@@ -222,15 +227,15 @@ NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 if (_node->name == NULL)
 	return(NULL);
 else
-	return([NSString stringWithUTF8String:(const char *)_node->name]); // TODO this is the same as name. What's up with thaat?
+	return([NSString stringWithUTF8String:(const char *)_node->name]);
 }
 
 - (NSString *)prefix
 {
-if (_node->ns)
+if (_node->ns && _node->ns->prefix)
 	return([NSString stringWithUTF8String:(const char *)_node->ns->prefix]);
 else
-	return(NULL);
+	return(@"");
 }
 
 - (NSString *)URI
