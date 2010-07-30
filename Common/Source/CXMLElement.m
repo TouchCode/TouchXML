@@ -70,24 +70,46 @@ return(theAttributes);
 
 - (CXMLNode *)attributeForName:(NSString *)name
 {
-// TODO -- look for native libxml2 function for finding a named attribute (like xmlGetProp)
-const xmlChar *theName = (const xmlChar *)[name UTF8String];
-
-xmlAttrPtr theCurrentNode = _node->properties;
-while (theCurrentNode != NULL)
+	// TODO -- look for native libxml2 function for finding a named attribute (like xmlGetProp)
+	
+	NSRange split = [name rangeOfString:@":"];
+	
+	xmlChar *theLocalName = NULL;
+	xmlChar *thePrefix = NULL;
+	
+	if (split.length > 0)
 	{
-	if (xmlStrcmp(theName, theCurrentNode->name) == 0)
-		{
-		CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
-		return(theAttribute);
-		}
-	theCurrentNode = theCurrentNode->next;
+		theLocalName = (xmlChar *)[[name substringFromIndex:split.location + 1] UTF8String];
+		thePrefix = (xmlChar *)[[name substringToIndex:split.location] UTF8String];
+	} 
+	else 
+	{
+		theLocalName = (xmlChar *)[name UTF8String];
 	}
-return(NULL);
+	
+	xmlAttrPtr theCurrentNode = _node->properties;
+	while (theCurrentNode != NULL)
+	{
+		if (xmlStrcmp(theLocalName, theCurrentNode->name) == 0)
+		{
+			if (thePrefix == NULL || (theCurrentNode->ns 
+									  && theCurrentNode->ns->prefix 
+									  && xmlStrcmp(thePrefix, theCurrentNode->ns->prefix) == 0))
+			{
+				CXMLNode *theAttribute = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
+				return(theAttribute);
+			}
+		}
+		theCurrentNode = theCurrentNode->next;
+	}
+	return(NULL);
 }
 
 - (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI
 {
+	if (URI == nil)
+		return [self attributeForName:localName];
+	
 	// TODO -- look for native libxml2 function for finding a named attribute (like xmlGetProp)
 	const xmlChar *theLocalName = (const xmlChar *)[localName UTF8String];
 	const xmlChar *theNamespaceName = (const xmlChar *)[URI UTF8String];

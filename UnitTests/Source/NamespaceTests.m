@@ -48,7 +48,7 @@ NSString *emptyDocumentWithAttributesWithPrefix()
 
 NSString *emptyDocumentWithAttributesMixed()
 {
-	return [NSString stringWithFormat:@"<ns2:rootElement ns2:attr1=\"value1\" ns1:attr2=\"value2\" attr3=\"value3\" xmlns:ns1=\"%@\" xmlns:ns2=\"%@\"/>", NS1, NS2];
+	return [NSString stringWithFormat:@"<ns2:rootElement ns2:attr1=\"value1\" attr2=\"wrongValue\" ns1:attr2=\"value2\" attr3=\"value3\" xmlns:ns1=\"%@\" xmlns:ns2=\"%@\"/>", NS1, NS2];
 }
 
 //--------------------------------------------------------------------------
