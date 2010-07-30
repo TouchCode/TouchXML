@@ -41,7 +41,7 @@
 - (CXMLNode *)attributeForName:(NSString *)name;
 - (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI;
 
-//- (NSArray *)namespaces; //primitive
+- (NSArray *)namespaces; 
 //- (CXMLNode *)namespaceForPrefix:(NSString *)name;
 //- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
 //- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;

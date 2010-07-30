@@ -30,6 +30,8 @@
 #import "CXMLElement.h"
 
 #import "CXMLNode_PrivateExtensions.h"
+#import "CXMLNode_CreationExtensions.h"
+#import "CXMLNamespaceNode.h"
 
 @implementation CXMLElement
 
@@ -129,8 +131,25 @@ return(theAttributes);
 	return(NULL);
 }
 
+- (NSArray *)namespaces
+{
+	NSMutableArray *theNamespaces = [[[NSMutableArray alloc] init] autorelease];
+	xmlNsPtr theCurrentNamespace = _node->nsDef;
+	
+	while (theCurrentNamespace != NULL)
+	{
+		NSString *thePrefix = theCurrentNamespace->prefix ? [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix] : @"";
+		NSString *theURI = [NSString stringWithUTF8String:(const char *)theCurrentNamespace->href];
+		CXMLNamespaceNode *theNode = [[CXMLNamespaceNode alloc] initWithPrefix:thePrefix URI:theURI parentElement:self];
+		[theNamespaces addObject:theNode];
+		[theNode release];		
+		
+		theCurrentNamespace = theCurrentNamespace->next;
+	}
+	
+	return theNamespaces;
+}
 
-//- (NSArray *)namespaces
 //- (CXMLNode *)namespaceForPrefix:(NSString *)name;
 //- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
 //- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;

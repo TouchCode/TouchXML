@@ -120,6 +120,11 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 
 - (void) assertTouchNode:(CXMLNode *)txNode matchesNSXMLNode:(NSXMLNode *)nsNode describedAs:(NSString *)desc
 {
+	if (txNode == nil && nsNode == nil) return; // Equal
+	
+	STAssertNotNil(txNode, @"Running \"%@\" touch node nil, nsNode is %@", nsNode); 
+	STAssertNotNil(txNode, @"Running \"%@\" nsXML node nil, touch node is %@", txNode); 
+	
 	STAssertEqualObjects(stringValueOfCXMLNodeKind([txNode kind]),
 						 stringValueOfNSXMLNodeKind([nsNode kind]),
 						 @"Running \"%@\" - For kind, touch gave me %@, nsxml gave me %@", desc,
@@ -169,6 +174,28 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 				   [[nsNode children] count]);
 }
 
+- (void) assertTouchElement:(CXMLElement *)txElement matchesNSXMLElement:(NSXMLElement *)nsElement describedAs:(NSString *)desc
+{
+	[self assertTouchNode:txElement matchesNSXMLNode:nsElement describedAs:desc];
+	
+	NSArray *txNamespaces = [txElement namespaces];
+	NSArray *nsNamespaces = [nsElement namespaces];
+	
+	STAssertEquals([txNamespaces count],
+				   [nsNamespaces count],
+				   @"Running \"%@\" - For [namespaces count], touch gave me %d, nsxml gave me %d", desc,
+				   [txNamespaces count],
+				   [nsNamespaces count]);
+	
+	for (int i = 0; i < [txNamespaces count]; i++)
+	{
+		[self assertTouchNode:[txNamespaces objectAtIndex:i] 
+			 matchesNSXMLNode:[nsNamespaces objectAtIndex:i] 
+				  describedAs:@"Comparing namespaces"];
+	}
+}
+
+
 - (void) assertTouchNode:(CXMLNode *)txNode matchesNSXMLNode:(NSXMLNode *)nsNode 
 {
 	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Test"];
@@ -176,9 +203,8 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 
 - (void) assertTouchElement:(CXMLElement *)txElement matchesNSXMLElement:(NSXMLElement *)nsElement
 {
-	[self assertTouchNode:txElement matchesNSXMLNode:nsElement describedAs:@"Test"];
+	[self assertTouchElement:txElement matchesNSXMLElement:nsElement describedAs:@"Test"];
 }
-
 
 //--------------------------------------------------------------------------
 //
@@ -346,7 +372,5 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Fully qualified search with nil URI"];
 }
-
-
 
 @end

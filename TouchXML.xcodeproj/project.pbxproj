@@ -24,6 +24,9 @@
 
 /* Begin PBXBuildFile section */
 		030E2698120115B3008B53A4 /* NamespaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E2697120115B3008B53A4 /* NamespaceTests.m */; };
+		030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
+		030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
+		030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
 		451E6E461152EB790024ABA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 451E6E451152EB790024ABA5 /* Info.plist */; };
 		451E6E4A1152EB9F0024ABA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6E491152EB9F0024ABA5 /* main.m */; };
 		451E6E4C1152EBB60024ABA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451E6E4B1152EBB60024ABA5 /* Cocoa.framework */; };
@@ -97,6 +100,8 @@
 /* Begin PBXFileReference section */
 		030E2696120115B3008B53A4 /* NamespaceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamespaceTests.h; sourceTree = "<group>"; };
 		030E2697120115B3008B53A4 /* NamespaceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamespaceTests.m; sourceTree = "<group>"; };
+		030E27C71202762F008B53A4 /* CXMLNamespaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNamespaceNode.h; sourceTree = "<group>"; };
+		030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNamespaceNode.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		451E6E311152EB4A0024ABA5 /* Validator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Validator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		451E6E451152EB790024ABA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -291,6 +296,8 @@
 				45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */,
 				458CE9C40F9C12BB009EF591 /* Creation */,
 				458CE9C90F9C12BB009EF591 /* Tidy */,
+				030E27C71202762F008B53A4 /* CXMLNamespaceNode.h */,
+				030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -454,6 +461,7 @@
 				451E6F301152ED8C0024ABA5 /* CXMLNode_XPathExtensions.m in Sources */,
 				451E6F311152ED8E0024ABA5 /* CXMLDocument_CreationExtensions.m in Sources */,
 				451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */,
+				030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +481,7 @@
 				458CE9D20F9C12CE009EF591 /* CXMLNode_CreationExtensions.m in Sources */,
 				458CE9D30F9C12CE009EF591 /* CXMLDocument_CreationExtensions.m in Sources */,
 				45E8A1981111E080009C150D /* main.m in Sources */,
+				030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +505,7 @@
 				458CE9CE0F9C12BB009EF591 /* CTidy.m in Sources */,
 				4526F4B40FBB52C200781DD8 /* EncodingTests.m in Sources */,
 				030E2698120115B3008B53A4 /* NamespaceTests.m in Sources */,
+				030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

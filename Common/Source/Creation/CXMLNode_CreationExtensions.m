@@ -33,6 +33,7 @@
 #import "CXMLElement.h"
 #import "CXMLNode_PrivateExtensions.h"
 #import "CXMLDocument_PrivateExtensions.h"
+#import "CXMLNamespaceNode.h"
 
 @implementation CXMLNode (CXMLNode_CreationExtensions)
 
@@ -81,10 +82,7 @@ return(theElement);
 
 + (id)namespaceWithName:(NSString *)name stringValue:(NSString *)stringValue
 {
-xmlNsPtr theNode = xmlNewNs(NULL, (const xmlChar *)[stringValue UTF8String], (const xmlChar *)[name UTF8String]);
-NSAssert(theNode != NULL, @"xmlNewNs failed");
-CXMLNode *theNodeObject = [[[CXMLNode alloc] initWithLibXMLNode:(xmlNodePtr)theNode freeOnDealloc:NO] autorelease];
-return(theNodeObject);
+	return [[[CXMLNamespaceNode alloc] initWithPrefix:name URI:stringValue parentElement:nil] autorelease];
 }
 
 + (id)processingInstructionWithName:(NSString *)name stringValue:(NSString *)stringValue;
