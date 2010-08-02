@@ -112,7 +112,7 @@
 
 - (NSString *)URI
 {
-	return @"";
+	return nil;
 }
 
 //+ (NSString *)localNameForName:(NSString *)name;

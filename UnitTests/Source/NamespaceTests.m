@@ -136,12 +136,17 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 						 @"Running \"%@\" - For name, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode name], 
 						 [nsNode name]);
-	
-	STAssertEqualObjects([txNode localName], 
-						 [nsNode localName],
-						 @"Running \"%@\" - For localName, touch gave me %@, nsxml gave me %@", desc,
-						 [txNode localName], 
-						 [nsNode localName]);
+
+	if ([nsNode kind] != NSXMLNamespaceKind)
+	{
+		// Bug in cocoa's -localName impl means we can't run this on namespace nodes.
+		
+		STAssertEqualObjects([txNode localName], 
+							 [nsNode localName],
+							 @"Running \"%@\" - For localName, touch gave me %@, nsxml gave me %@", desc,
+							 [txNode localName], 
+							 [nsNode localName]);
+	}
 	
 	STAssertEqualObjects([txNode URI], 
 						 [nsNode URI],
