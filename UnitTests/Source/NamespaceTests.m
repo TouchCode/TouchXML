@@ -212,13 +212,40 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 				   @"Running \"%@\" - For [namespaces count], touch gave me %d, nsxml gave me %d", desc,
 				   [txNamespaces count],
 				   [nsNamespaces count]);
-	
+
+	CXMLNode *txNamespaceNode;
+	NSXMLNode *nsNamespaceNode;
+
 	for (int i = 0; i < [txNamespaces count]; i++)
 	{
-		[self assertTouchNode:[txNamespaces objectAtIndex:i] 
-			 matchesNSXMLNode:[nsNamespaces objectAtIndex:i] 
+		txNamespaceNode = [txNamespaces objectAtIndex:i];
+		nsNamespaceNode = [nsNamespaces objectAtIndex:i];
+		
+		[self assertTouchNode:txNamespaceNode
+			 matchesNSXMLNode:nsNamespaceNode
 				  describedAs:@"Comparing namespaces"];
 	}
+	
+	txNamespaceNode = [txElement namespaceForPrefix:@"ns1"];
+	nsNamespaceNode = [nsElement namespaceForPrefix:@"ns1"];
+	
+	[self assertTouchNode:txNamespaceNode
+		 matchesNSXMLNode:nsNamespaceNode
+			  describedAs:@"Comparing namespaceForPrefix \"ns1\""];
+
+	txNamespaceNode = [txElement namespaceForPrefix:@"ns2"];
+	nsNamespaceNode = [nsElement namespaceForPrefix:@"ns2"];
+	
+	[self assertTouchNode:txNamespaceNode
+		 matchesNSXMLNode:nsNamespaceNode
+			  describedAs:@"Comparing namespaceForPrefix \"ns2\""];
+	
+	txNamespaceNode = [txElement namespaceForPrefix:@"unused"];
+	nsNamespaceNode = [nsElement namespaceForPrefix:@"unused"];
+	
+	[self assertTouchNode:txNamespaceNode
+		 matchesNSXMLNode:nsNamespaceNode
+			  describedAs:@"Comparing namespaceForPrefix \"unused\""];
 }
 
 
@@ -450,5 +477,135 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	}
 	
 }
+
+- (void) test_resolveNamespaceForName
+{
+	CXMLDocument *txDoc = nil;
+	NSXMLDocument *nsDoc = nil;
+	
+	// Setup 
+	
+	[self buildTouchDocument:&txDoc 
+			andNSXMLDocument:&nsDoc 
+			   withXMLString:simpleDocument()];
+	
+	CXMLElement *txRootElement = [txDoc rootElement];
+	NSXMLElement *nsRootElement = [nsDoc rootElement];
+	
+	// Asserts
+	
+	[self assertTouchNode:[txRootElement resolveNamespaceForName:@"ns1:childElement"]
+		 matchesNSXMLNode:[nsRootElement resolveNamespaceForName:@"ns1:childElement"]
+			  describedAs:@"Resolving namespace for ns1(colon)childElement"];
+	
+	[self assertTouchNode:[txRootElement resolveNamespaceForName:@"ns2:childElement"]
+		 matchesNSXMLNode:[nsRootElement resolveNamespaceForName:@"ns2:childElement"]
+			  describedAs:@"Resolving namespace for ns2(colon)childElement"];
+	
+	[self assertTouchNode:[txRootElement resolveNamespaceForName:@"ns1:unusedElementName"]
+		 matchesNSXMLNode:[nsRootElement resolveNamespaceForName:@"ns1:unusedElementName"]
+			  describedAs:@"Resolving namespace for ns1(colon)unusedElementName"];
+	
+	[self assertTouchNode:[txRootElement resolveNamespaceForName:@"childElement"]
+		 matchesNSXMLNode:[nsRootElement resolveNamespaceForName:@"childElement"]
+			  describedAs:@"Resolving namespace for childElement"];
+	
+	[self assertTouchNode:[txRootElement resolveNamespaceForName:@"unused:childElement"]
+		 matchesNSXMLNode:[nsRootElement resolveNamespaceForName:@"unused:childElement"]
+			  describedAs:@"Resolving namespace for unused(colon)childElement"];
+}
+
+- (void) test_resolvePrefixForNamespaceURI
+{
+	CXMLDocument *txDoc = nil;
+	NSXMLDocument *nsDoc = nil;
+	
+	// Setup 
+	
+	[self buildTouchDocument:&txDoc 
+			andNSXMLDocument:&nsDoc 
+			   withXMLString:simpleDocument()];
+	
+	CXMLElement *txRootElement = [txDoc rootElement];
+	NSXMLElement *nsRootElement = [nsDoc rootElement];
+	
+	// Asserts
+	
+	NSString *txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
+	NSString *nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
+	
+	STAssertEqualObjects(txURI,
+						 nsURI,
+						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS1,
+						 txURI,
+						 nsURI);
+	
+	txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
+	nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
+	
+	STAssertEqualObjects(txURI,
+						 nsURI,
+						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS2,
+						 txURI,
+						 nsURI);
+	
+	NSString *unusedNamespace = @"www.example.org/this/namespace/unused";
+	
+	txURI = [txRootElement resolvePrefixForNamespaceURI:unusedNamespace];
+	nsURI = [nsRootElement resolvePrefixForNamespaceURI:unusedNamespace];
+	
+	STAssertEqualObjects(txURI,
+						 nsURI,
+						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", unusedNamespace,
+						 txURI,
+						 nsURI);
+	
+}
+- (void) test_resolvePrefixForNamespaceURI2
+{
+	CXMLDocument *txDoc = nil;
+	NSXMLDocument *nsDoc = nil;
+	
+	// Setup 
+	
+	[self buildTouchDocument:&txDoc 
+			andNSXMLDocument:&nsDoc 
+			   withXMLString:emptyDocumentNoPrefix()];
+	
+	CXMLElement *txRootElement = [txDoc rootElement];
+	NSXMLElement *nsRootElement = [nsDoc rootElement];
+	
+	// Asserts
+	
+	NSString *txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
+	NSString *nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
+	
+	STAssertEqualObjects(txURI,
+						 nsURI,
+						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS1,
+						 txURI,
+						 nsURI);
+	
+	txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
+	nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
+	
+	STAssertEqualObjects(txURI,
+						 nsURI,
+						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS2,
+						 txURI,
+						 nsURI);
+	
+	NSString *unusedNamespace = @"www.example.org/this/namespace/unused";
+	
+	txURI = [txRootElement resolvePrefixForNamespaceURI:unusedNamespace];
+	nsURI = [nsRootElement resolvePrefixForNamespaceURI:unusedNamespace];
+	
+	STAssertEqualObjects(txURI,
+						 nsURI,
+						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", unusedNamespace,
+						 txURI,
+						 nsURI);
+}
+
 
 @end

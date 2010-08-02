@@ -42,9 +42,9 @@
 - (CXMLNode *)attributeForLocalName:(NSString *)localName URI:(NSString *)URI;
 
 - (NSArray *)namespaces; 
-//- (CXMLNode *)namespaceForPrefix:(NSString *)name;
-//- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
-//- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;
+- (CXMLNode *)namespaceForPrefix:(NSString *)name;
+- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
+- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;
 
 //- (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str;
 @end

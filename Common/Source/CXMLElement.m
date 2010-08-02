@@ -174,9 +174,67 @@ return(theAttributes);
 	return theNamespaces;
 }
 
-//- (CXMLNode *)namespaceForPrefix:(NSString *)name;
-//- (CXMLNode *)resolveNamespaceForName:(NSString *)name;
-//- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI;
+- (CXMLNode *)namespaceForPrefix:(NSString *)name
+{
+	const xmlChar *thePrefix = (const xmlChar *)[name UTF8String];
+	xmlNsPtr theCurrentNamespace = _node->nsDef;
+	
+	while (theCurrentNamespace != NULL)
+	{
+		if (xmlStrcmp(theCurrentNamespace->prefix, thePrefix) == 0)
+		{
+			NSString *thePrefix = theCurrentNamespace->prefix ? [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix] : @"";
+			NSString *theURI = [NSString stringWithUTF8String:(const char *)theCurrentNamespace->href];
+			return [[[CXMLNamespaceNode alloc] initWithPrefix:thePrefix URI:theURI parentElement:self] autorelease];
+		}			
+		theCurrentNamespace = theCurrentNamespace->next;
+	}
+	return nil;
+}
+
+- (CXMLNode *)resolveNamespaceForName:(NSString *)name
+{
+	NSRange split = [name rangeOfString:@":"];
+	
+	if (split.length > 0)
+		return [self namespaceForPrefix:[name substringToIndex:split.location]];
+	
+	xmlNsPtr theCurrentNamespace = _node->nsDef;
+	
+	while (theCurrentNamespace != NULL)
+	{
+		if (theCurrentNamespace->prefix == 0 
+			|| (theCurrentNamespace->prefix)[0] == 0)
+		{
+			NSString *thePrefix = theCurrentNamespace->prefix ? [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix] : @"";
+			NSString *theURI = [NSString stringWithUTF8String:(const char *)theCurrentNamespace->href];
+			return [[[CXMLNamespaceNode alloc] initWithPrefix:thePrefix URI:theURI parentElement:self] autorelease];
+		}			
+		theCurrentNamespace = theCurrentNamespace->next;
+	}
+	
+	return nil;
+}
+
+- (NSString *)resolvePrefixForNamespaceURI:(NSString *)namespaceURI
+{
+	const xmlChar *theXMLURI = (const xmlChar *)[namespaceURI UTF8String];
+	
+	xmlNsPtr theCurrentNamespace = _node->nsDef;
+	
+	while (theCurrentNamespace != NULL)
+	{
+		if (xmlStrcmp(theCurrentNamespace->href, theXMLURI) == 0)
+		{
+			if(theCurrentNamespace->prefix) 
+				return [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix];
+			
+			return @"";
+		}			
+		theCurrentNamespace = theCurrentNamespace->next;
+	}
+	return nil;
+}
 
 //- (NSString*)_XMLStringWithOptions:(NSUInteger)options appendingToString:(NSMutableString*)str
 //{
