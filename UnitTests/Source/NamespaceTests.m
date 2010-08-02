@@ -51,6 +51,27 @@ NSString *emptyDocumentWithAttributesMixed()
 	return [NSString stringWithFormat:@"<ns2:rootElement ns2:attr1=\"value1\" attr2=\"wrongValue\" ns1:attr2=\"value2\" attr3=\"value3\" xmlns:ns1=\"%@\" xmlns:ns2=\"%@\"/>", NS1, NS2];
 }
 
+NSString *simpleDocument()
+{
+	return [NSString stringWithFormat:
+			@"<ns1:rootElement xmlns:ns1=\"%@\" xmlns:ns2=\"%@\">"
+			"<ns1:childElement>alpha</ns1:childElement>"
+			"<ns1:childElement>bravo</ns1:childElement>"
+			"<ns2:childElement>charlie</ns2:childElement>"
+			"<ns1:childElement>delta</ns1:childElement>"
+			"<ns1:childElement>echo</ns1:childElement>"
+			"<ns2:childElement>foxtrot</ns2:childElement>"
+			"<ns2:childElement>golf</ns2:childElement>"
+			"<ns1:childElement>helo</ns1:childElement>"
+			"<childElement>igloo</childElement>"
+			"<ns1:childElement>"
+			"<ns2:childElement>juliet</ns2:childElement>"
+			"<ns2:childElement>kilo</ns2:childElement>"
+			"<ns2:childElement>lima</ns2:childElement>"
+			"</ns1:childElement>"
+			"</ns1:rootElement>", NS1, NS2];
+}
+
 //--------------------------------------------------------------------------
 //
 //  Builder helpers
@@ -376,6 +397,58 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	nsNode = [[nsDoc rootElement] attributeForLocalName:@"attr3" URI:nil];
 	
 	[self assertTouchNode:txNode matchesNSXMLNode:nsNode describedAs:@"Fully qualified search with nil URI"];
+}
+
+- (void) test_getElementsFullyQualified
+{
+	CXMLDocument *txDoc = nil;
+	NSXMLDocument *nsDoc = nil;
+	
+	// Setup 
+	
+	[self buildTouchDocument:&txDoc 
+			andNSXMLDocument:&nsDoc 
+			   withXMLString:simpleDocument()];
+	
+	// Asserts
+	
+	CXMLElement *txElement = [txDoc rootElement];
+	NSXMLElement *nsElement = [nsDoc rootElement];
+	
+	[self assertTouchElement:txElement matchesNSXMLElement:nsElement describedAs:@"Comparing rootElements"];
+	
+	NSArray *txChildren = [txElement elementsForLocalName:@"childElement" URI:(NSString *)NS1];
+	NSArray *nsChildren = [nsElement elementsForLocalName:@"childElement" URI:(NSString *)NS1];
+
+	STAssertEquals([txChildren count],
+				   [nsChildren count],
+				   @"Comparing list selected with URI, [txChildren count] is %d, [nsChildren count] is %d", 
+				   [txChildren count],
+				   [nsChildren count]);
+	
+	for (int i = 0; i < [txChildren count]; i++)
+	{
+		[self assertTouchElement:[txChildren objectAtIndex:i] 
+			 matchesNSXMLElement:[nsChildren objectAtIndex:i] 
+					 describedAs:@"Comparing elements selected with URI"];
+	}
+	
+	txChildren = [txElement elementsForLocalName:@"ns2:childElement" URI:nil];
+	nsChildren = [nsElement elementsForLocalName:@"ns2:childElement" URI:nil];
+	
+	STAssertEquals([txChildren count],
+				   [nsChildren count],
+				   @"Comparing list selected with nil URI but prefixed name, [txChildren count] is %d, [nsChildren count] is %d", 
+				   [txChildren count],
+				   [nsChildren count]);
+	
+	for (int i = 0; i < [txChildren count]; i++)
+	{
+		[self assertTouchElement:[txChildren objectAtIndex:i] 
+			 matchesNSXMLElement:[nsChildren objectAtIndex:i] 
+					 describedAs:@"Comparing elements selected with nil URI but prefixed name"];
+	}
+	
 }
 
 @end

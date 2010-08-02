@@ -35,7 +35,7 @@
 }
 
 - (NSArray *)elementsForName:(NSString *)name;
-//- (NSArray *)elementsForLocalName:(NSString *)localName URI:(NSString *)URI;
+- (NSArray *)elementsForLocalName:(NSString *)localName URI:(NSString *)URI;
 
 - (NSArray *)attributes;
 - (CXMLNode *)attributeForName:(NSString *)name;

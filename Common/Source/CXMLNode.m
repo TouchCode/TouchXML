@@ -95,27 +95,21 @@ return(_node->type); // TODO this isn't 100% accurate!
 - (NSString *)stringValue
 {
 	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
-	xmlChar *theXMLString;
-	BOOL theFreeReminderFlag = NO;
+	
 	if (_node->type == XML_TEXT_NODE || _node->type == XML_CDATA_SECTION_NODE) 
-		theXMLString = _node->content;
-	else
+		return [NSString stringWithUTF8String:(const char *)_node->content];
+	
+	if (_node->type == XML_ATTRIBUTE_NODE)
+		return [NSString stringWithUTF8String:(const char *)_node->children->content];
+
+	NSMutableString *theStringValue = [[[NSMutableString alloc] init] autorelease];
+	
+	for (CXMLNode *child in [self children])
 	{
-		theXMLString = xmlNodeListGetString(_node->doc, _node->children, YES);
-		theFreeReminderFlag = YES;
+		[theStringValue appendString:[child stringValue]];
 	}
 	
-	NSString *theStringValue = @"";
-	if (theXMLString != NULL)
-	{
-		theStringValue = [NSString stringWithUTF8String:(const char *)theXMLString];
-		if (theFreeReminderFlag == YES)
-		{
-			xmlFree(theXMLString);
-		}
-	}
-	
-	return(theStringValue);
+	return theStringValue;
 }
 
 - (NSUInteger)index

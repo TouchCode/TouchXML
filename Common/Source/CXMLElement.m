@@ -55,7 +55,31 @@ while (theCurrentNode != NULL)
 return(theElements);
 }
 
-//- (NSArray *)elementsForLocalName:(NSString *)localName URI:(NSString *)URI;
+- (NSArray *)elementsForLocalName:(NSString *)localName URI:(NSString *)URI
+{
+	if (URI == nil || [URI length] == 0)
+		return [self elementsForName:localName];
+	
+	NSMutableArray *theElements = [NSMutableArray array];
+	const xmlChar *theLocalName = (const xmlChar *)[localName UTF8String];
+	const xmlChar *theNamespaceName = (const xmlChar *)[URI UTF8String];
+	
+	xmlNodePtr theCurrentNode = _node->children;
+	while (theCurrentNode != NULL)
+	{
+		if (theCurrentNode->type == XML_ELEMENT_NODE 
+			&& xmlStrcmp(theLocalName, theCurrentNode->name) == 0
+			&& theCurrentNode->ns
+			&& xmlStrcmp(theNamespaceName, theCurrentNode->ns->href) == 0)
+		{
+			CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:(xmlNodePtr)theCurrentNode freeOnDealloc:NO];
+			[theElements addObject:theNode];
+		}
+		theCurrentNode = theCurrentNode->next;
+	}	
+	
+	return theElements;
+}
 
 - (NSArray *)attributes
 {
