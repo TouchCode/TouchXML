@@ -561,6 +561,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 						 nsURI);
 	
 }
+
 - (void) test_resolvePrefixForNamespaceURI2
 {
 	CXMLDocument *txDoc = nil;
@@ -607,5 +608,113 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 						 nsURI);
 }
 
+- (void) test_nameDivision
+{
+	NSString *name1 = @"aName";
+	NSString *name2 = @"prefix:localName";
+	NSString *name3 = @"p:localName";
+	NSString *name4 = @"prefix:l";
+	NSString *name5 = @"p:l";
+	
+	// Name 1
+	
+	NSString *str1 = [CXMLNode prefixForName:name1];
+	NSString *str2 = [NSXMLNode prefixForName:name1];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing prefix for name1, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	str1 = [CXMLNode localNameForName:name1];
+	str2 = [NSXMLNode localNameForName:name1];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing localName for name1, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	// Name 2
+	
+	str1 = [CXMLNode prefixForName:name2];
+	str2 = [NSXMLNode prefixForName:name2];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing prefix for name2, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	str1 = [CXMLNode localNameForName:name2];
+	str2 = [NSXMLNode localNameForName:name2];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing localName for name2, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	// Name 3
+	
+	str1 = [CXMLNode prefixForName:name3];
+	str2 = [NSXMLNode prefixForName:name3];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing prefix for name3, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	str1 = [CXMLNode localNameForName:name3];
+	str2 = [NSXMLNode localNameForName:name3];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing localName for name3, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	// Name 4
+	
+	str1 = [CXMLNode prefixForName:name4];
+	str2 = [NSXMLNode prefixForName:name4];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing prefix for name4, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	str1 = [CXMLNode localNameForName:name4];
+	str2 = [NSXMLNode localNameForName:name4];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing localName for name4, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	// Name 5
+	
+	str1 = [CXMLNode prefixForName:name5];
+	str2 = [NSXMLNode prefixForName:name5];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing prefix for name5, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+	
+	str1 = [CXMLNode localNameForName:name5];
+	str2 = [NSXMLNode localNameForName:name5];
+	
+	STAssertEqualObjects(str1, 
+						 str2,
+						 @"Comparing localName for name5, touch gave me %@, nsxml gave me %@",
+						 str1, 
+						 str2);
+}
 
 @end

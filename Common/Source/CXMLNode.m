@@ -32,6 +32,7 @@
 #import "CXMLNode_PrivateExtensions.h"
 #import "CXMLDocument.h"
 #import "CXMLElement.h"
+#import "CXMLNode_CreationExtensions.h"
 
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
@@ -247,9 +248,42 @@ else
 	return(NULL);
 }
 
-//+ (NSString *)localNameForName:(NSString *)name;
-//+ (NSString *)prefixForName:(NSString *)name;
-//+ (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name;
++ (NSString *)localNameForName:(NSString *)name
+{
+	NSRange split = [name rangeOfString:@":"];
+	
+	if (split.length > 0)
+		return [name substringFromIndex:split.location + 1];
+	
+	return name;
+}
+
++ (NSString *)prefixForName:(NSString *)name
+{
+	NSRange split = [name rangeOfString:@":"];
+	
+	if (split.length > 0)
+		return [name substringToIndex:split.location];
+	
+	return @"";
+}
+
++ (CXMLNode *)predefinedNamespaceForPrefix:(NSString *)name
+{
+	if ([name isEqualToString:@"xml"])
+		return [CXMLNode namespaceWithName:@"xml" stringValue:@"http://www.w3.org/XML/1998/namespace"];
+	
+	if ([name isEqualToString:@"xs"])
+		return [CXMLNode namespaceWithName:@"xs" stringValue:@"http://www.w3.org/2001/XMLSchema"];
+	
+	if ([name isEqualToString:@"xsi"])
+		return [CXMLNode namespaceWithName:@"xsi" stringValue:@"http://www.w3.org/2001/XMLSchema-instance"];
+	
+	if ([name isEqualToString:@"xmlns"]) // Not in Cocoa, but should be as it's reserved by W3C
+		return [CXMLNode namespaceWithName:@"xmlns" stringValue:@"http://www.w3.org/2000/xmlns/"];
+	
+	return nil;
+}
 
 - (NSString *)description
 {
