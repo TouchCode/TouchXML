@@ -27,7 +27,8 @@
 		030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
 		030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
 		030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
-		451E6E461152EB790024ABA5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 451E6E451152EB790024ABA5 /* Info.plist */; };
+		45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */; };
+		45045CA9121E47ED00BD4662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45045CA6121E47ED00BD4662 /* main.m */; };
 		451E6E4A1152EB9F0024ABA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6E491152EB9F0024ABA5 /* main.m */; };
 		451E6E4C1152EBB60024ABA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451E6E4B1152EBB60024ABA5 /* Cocoa.framework */; };
 		451E6EE31152EBF70024ABA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451E6EE21152EBF70024ABA5 /* MainMenu.xib */; };
@@ -57,7 +58,6 @@
 		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457943940D8248DC00EB2D22 /* XPath_Tests.m */; };
-		458CE91B0F9C0CE6009EF591 /* TidyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE91A0F9C0CE6009EF591 /* TidyTests.m */; };
 		458CE9CC0F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
 		458CE9CD0F9C12BB009EF591 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
 		458CE9CE0F9C12BB009EF591 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9CB0F9C12BB009EF591 /* CTidy.m */; };
@@ -68,9 +68,6 @@
 		45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
 		45D113840EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
 		45D113860EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
-		45D114E40EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D114E30EC9F658005193F9 /* CXMLNode_Debugging.m */; };
-		45D114E50EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D114E30EC9F658005193F9 /* CXMLNode_Debugging.m */; };
-		45E8A1981111E080009C150D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940E50D82214700EB2D22 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +100,10 @@
 		030E27C71202762F008B53A4 /* CXMLNamespaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNamespaceNode.h; sourceTree = "<group>"; };
 		030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNamespaceNode.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		45045CA4121E47ED00BD4662 /* CXMLNode_Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_Debugging.h; sourceTree = "<group>"; };
+		45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_Debugging.m; sourceTree = "<group>"; };
+		45045CA6121E47ED00BD4662 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		45045CA7121E47ED00BD4662 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		451E6E311152EB4A0024ABA5 /* Validator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Validator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		451E6E451152EB790024ABA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		451E6E491152EB9F0024ABA5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,8 +114,6 @@
 		4526F4B20FBB52C200781DD8 /* EncodingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingTests.h; sourceTree = "<group>"; };
 		4526F4B30FBB52C200781DD8 /* EncodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingTests.m; sourceTree = "<group>"; };
 		456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		457940E50D82214700EB2D22 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		457940E60D82214700EB2D22 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		457940EB0D82214700EB2D22 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument.h; sourceTree = "<group>"; };
 		457940EC0D82214700EB2D22 /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument.m; sourceTree = "<group>"; };
 		457940ED0D82214700EB2D22 /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement.h; sourceTree = "<group>"; };
@@ -145,8 +144,6 @@
 		45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_XPathExtensions.m; sourceTree = "<group>"; };
 		45D113800EC9E906005193F9 /* CXMLElement_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement_CreationExtensions.h; sourceTree = "<group>"; };
 		45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_CreationExtensions.m; sourceTree = "<group>"; };
-		45D114E20EC9F658005193F9 /* CXMLNode_Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_Debugging.h; sourceTree = "<group>"; };
-		45D114E30EC9F658005193F9 /* CXMLNode_Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_Debugging.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,9 +187,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				457940E30D82214700EB2D22 /* Demo */,
+				457940EA0D82214700EB2D22 /* Source */,
 				457940E70D82214700EB2D22 /* UnitTests */,
-				457940E90D82214700EB2D22 /* Common */,
 				451E6E441152EB790024ABA5 /* Validator */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -210,6 +206,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		45045CA3121E47ED00BD4662 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				45045CA4121E47ED00BD4662 /* CXMLNode_Debugging.h */,
+				45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */,
+				45045CA6121E47ED00BD4662 /* main.m */,
+				45045CA7121E47ED00BD4662 /* Prefix.pch */,
+			);
+			name = Demo;
+			path = Support/Demo;
+			sourceTree = SOURCE_ROOT;
+		};
 		451E6E441152EB790024ABA5 /* Validator */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,26 +227,8 @@
 				451E6EFB1152EC5B0024ABA5 /* CMainController.h */,
 				451E6EFC1152EC5B0024ABA5 /* CMainController.m */,
 			);
-			path = Validator;
-			sourceTree = "<group>";
-		};
-		457940E30D82214700EB2D22 /* Demo */ = {
-			isa = PBXGroup;
-			children = (
-				457940E40D82214700EB2D22 /* Source */,
-			);
-			path = Demo;
-			sourceTree = "<group>";
-		};
-		457940E40D82214700EB2D22 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				457940E50D82214700EB2D22 /* main.m */,
-				45D114E20EC9F658005193F9 /* CXMLNode_Debugging.h */,
-				45D114E30EC9F658005193F9 /* CXMLNode_Debugging.m */,
-				457940E60D82214700EB2D22 /* Prefix.pch */,
-			);
-			path = Source;
+			name = Validator;
+			path = Support/Validator;
 			sourceTree = "<group>";
 		};
 		457940E70D82214700EB2D22 /* UnitTests */ = {
@@ -247,7 +237,8 @@
 				457940E80D82214700EB2D22 /* Source */,
 				457941570D8225FC00EB2D22 /* Resources */,
 			);
-			path = UnitTests;
+			name = UnitTests;
+			path = Support/UnitTests;
 			sourceTree = "<group>";
 		};
 		457940E80D82214700EB2D22 /* Source */ = {
@@ -266,14 +257,6 @@
 				030E2697120115B3008B53A4 /* NamespaceTests.m */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		457940E90D82214700EB2D22 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				457940EA0D82214700EB2D22 /* Source */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		457940EA0D82214700EB2D22 /* Source */ = {
@@ -298,6 +281,7 @@
 				458CE9C90F9C12BB009EF591 /* Tidy */,
 				030E27C71202762F008B53A4 /* CXMLNamespaceNode.h */,
 				030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */,
+				45045CA3121E47ED00BD4662 /* Demo */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -415,7 +399,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451E6E461152EB790024ABA5 /* Info.plist in Resources */,
 				451E6EE31152EBF70024ABA5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,12 +459,12 @@
 				457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
 				45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */,
 				45D113860EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */,
-				45D114E40EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */,
 				458CE9D10F9C12CD009EF591 /* CTidy.m in Sources */,
 				458CE9D20F9C12CE009EF591 /* CXMLNode_CreationExtensions.m in Sources */,
 				458CE9D30F9C12CE009EF591 /* CXMLDocument_CreationExtensions.m in Sources */,
-				45E8A1981111E080009C150D /* main.m in Sources */,
 				030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
+				45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */,
+				45045CA9121E47ED00BD4662 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,8 +481,6 @@
 				457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */,
 				45AA86A60DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */,
 				45D113840EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */,
-				45D114E50EC9F658005193F9 /* CXMLNode_Debugging.m in Sources */,
-				458CE91B0F9C0CE6009EF591 /* TidyTests.m in Sources */,
 				458CE9CC0F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m in Sources */,
 				458CE9CD0F9C12BB009EF591 /* CXMLNode_CreationExtensions.m in Sources */,
 				458CE9CE0F9C12BB009EF591 /* CTidy.m in Sources */,
@@ -545,7 +526,7 @@
 					/usr/include/tidy,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = Validator/Info.plist;
+				INFOPLIST_FILE = Support/Validator/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -570,7 +551,7 @@
 					/usr/include/tidy,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = Validator/Info.plist;
+				INFOPLIST_FILE = Support/Validator/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -594,7 +575,7 @@
 					/usr/include/tidy,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = Validator/Info.plist;
+				INFOPLIST_FILE = Support/Validator/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -644,7 +625,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/tidy,
 					/usr/include/libxml2,
@@ -673,12 +654,12 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/tidy,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
+				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -701,7 +682,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/tidy,
 					/usr/include/libxml2,
@@ -726,7 +707,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/tidy,
 					/usr/include/libxml2,
@@ -756,12 +737,12 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/tidy,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
+				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -786,12 +767,12 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Demo/Source/Prefix.pch;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/tidy,
 					/usr/include/libxml2,
 				);
-				INFOPLIST_FILE = UnitTests/Resources/Info.plist;
+				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
 				OTHER_LDFLAGS = (
 					"-lxml2",
