@@ -1,16 +1,16 @@
-== Original TouchXML readme ==
+= TouchXML =
 
-= Introduction =
+== Introduction ==
 
 TouchXML is a lightweight replacement for Cocoa's NSXML* cluster of
 classes. It is based on the commonly available Open Source libxml2
 library.
 
-= License =
+== License ==
 
 TouchXML is released under the Modified BSD license.
 
-= Goals =
+== Goals ==
 
 The goal is to create a lightweight  NSXML* style XML api that can used
 in environments without NSXML* (e.g. iPhone).
