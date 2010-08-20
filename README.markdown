@@ -1,7 +1,3 @@
-== This is a fork (here be dragons) ==
-
-This is a fork of TouchXML so I can add features I need (mainly namespaces) that are on the "medium to long term" list at the official project. Hopefully once they work, we can get them upstream :)
-
 == Original TouchXML readme ==
 
 = Introduction =
@@ -28,4 +24,4 @@ application needs XML write support.
 * Lightweight. Rarely used NSXML* functionality should not be
 implemented.
 
-See http://code.google.com/p/touchcode/wiki/TouchXML for more.
+See http://github.com/schwa/TouchXML for more.
