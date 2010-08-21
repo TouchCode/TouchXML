@@ -64,6 +64,7 @@ if (_node)
 
 - (id)copyWithZone:(NSZone *)zone;
 {
+#pragma unused (zone)
 xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
 CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnDealloc:YES];
 theNewNode->_private = theNode;
@@ -299,7 +300,9 @@ return([self XMLStringWithOptions:0]);
 
 - (NSString *)XMLStringWithOptions:(NSUInteger)options
 {
-NSMutableData *theData = [[NSMutableData alloc] init];
+#pragma unused (options)
+
+NSMutableData *theData = [[[NSMutableData alloc] init] autorelease];
 
 xmlOutputBufferPtr theOutputBuffer = xmlOutputBufferCreateIO(MyXmlOutputWriteCallback, MyXmlOutputCloseCallback, theData, NULL);
 
@@ -369,7 +372,5 @@ return(len);
 
 static int MyXmlOutputCloseCallback(void * context)
 {
-NSMutableData *theData = context;
-[theData release];
 return(0);
 }
