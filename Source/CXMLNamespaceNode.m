@@ -12,7 +12,7 @@
 
 - (id) initWithPrefix:(NSString *)prefix URI:(NSString *)uri parentElement:(CXMLElement *)parent
 {
-	if (self = [super init]) 
+	if ((self = [super init])) 
 	{
 		_prefix = [prefix copy];
 		_uri = [uri copy];
