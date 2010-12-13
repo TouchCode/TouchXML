@@ -51,32 +51,6 @@
 @implementation CXHTMLDocument
 
 
-// need to replace this code, for the somewhat trivial task of finding the body element
-static xmlNodePtr xhtml_find_body (xmlDocPtr doc)
-{
-	xmlXPathContextPtr xpathCtxt = NULL;
-	xmlXPathObjectPtr xpathObj = NULL;
-	xmlNodePtr node = NULL;
-  
-	xpathCtxt = xmlXPathNewContext (doc);
-	if (!xpathCtxt)
-		goto error;
-  
-	xpathObj = xmlXPathEvalExpression (BAD_CAST("/html/body"), xpathCtxt);
-	if (!xpathObj)
-		goto error;
-	if (!xpathObj->nodesetval->nodeMax)
-		goto error;
-	
-	node = xpathObj->nodesetval->nodeTab[0];
-error:
-	if (xpathObj)
-		xmlXPathFreeObject (xpathObj);
-	if (xpathCtxt)
-		xmlXPathFreeContext (xpathCtxt);
-	return node;
-}
-
 // Differs from initWithXMLString by using libXML's HTML parser, which automatically decodes XHTML/HTML entities found within the document
 // which eliminates the need to resanitize strings extracted from the document
 // libXML treats a htmlDocPtr the same as xmlDocPtr
