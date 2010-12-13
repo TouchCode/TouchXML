@@ -30,6 +30,12 @@
 #import "CMainController.h"
 
 #import "CXMLDocument.h"
+#import "CXHTMLDocument.h"
+
+@interface CMainController()
+- (void)updateStatus;
+@end
+
 
 @implementation CMainController
 
@@ -37,6 +43,7 @@
 @synthesize XMLString;
 @synthesize XPath;
 @synthesize status;
+@synthesize documentType;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)inNotification
 {
@@ -79,10 +86,24 @@ if (inXPath != XPath)
 	}
 }
 
+- (void)setDocumentType:(NSUInteger)aDocumentType
+{
+  if (aDocumentType != documentType)
+  {
+    documentType = aDocumentType;
+    [self updateStatus];
+  }
+}
+
 - (void)updateStatus
 {
 NSError *theError = NULL;
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:self.XMLString options:0 error:&theError] autorelease];
+  CXMLDocument *theXMLDocument = nil;
+  if (self.documentType == 0)
+    theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:self.XMLString options:0 error:&theError] autorelease];
+  else 
+    theXMLDocument = [[[CXHTMLDocument alloc] initWithXHTMLString:self.XMLString options:0 error:&theError] autorelease];
+
 if (theXMLDocument)
 	{
 	if (self.XPath.length > 0)
