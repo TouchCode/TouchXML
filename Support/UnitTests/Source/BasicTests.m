@@ -73,6 +73,15 @@ STAssertNil(theXMLDocument, NULL);
 STAssertNotNil(theError, NULL);
 }
 
+- (void)test_badXMLTestFromData
+{
+	NSError *theError = NULL;
+	NSData *theData=[@"This is invalid XML." dataUsingEncoding:NSUTF8StringEncoding];
+	CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithData:theData options:0 error:&theError] autorelease];
+	STAssertNil(theXMLDocument, NULL);
+	STAssertNotNil(theError, NULL);
+}
+
 - (void)test_nodeNavigation
 {
 NSError *theError = NULL;

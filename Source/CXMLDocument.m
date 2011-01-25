@@ -125,14 +125,21 @@ if ((self = [super init]) != NULL)
 			theDoc = xmlReadMemory([inData bytes], [inData length], NULL, enc, XML_PARSE_RECOVER | XML_PARSE_NOWARNING);
 			}
 		
-		if (theDoc != NULL)
+		if (theDoc != NULL && xmlDocGetRootElement(theDoc) != NULL)
 			{
 			_node = (xmlNodePtr)theDoc;
 			_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
 			}
 		else
 			{
-			theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:-1 userInfo:NULL];
+			xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
+			NSString* message = [NSString stringWithUTF8String:
+								 (theLastErrorPtr ? theLastErrorPtr->message : "Unknown error")];
+			NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+										 message, NSLocalizedDescriptionKey, NULL];
+			theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
+								 
+			xmlResetLastError();
 			}
 		}
 
