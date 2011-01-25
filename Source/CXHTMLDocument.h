@@ -1,9 +1,9 @@
 //
-//  CMainController.h
+//  CXHTMLDocument.h
 //  TouchCode
 //
-//  Created by Jonathan Wight on 03/18/10.
-//  Copyright 2010 toxicsoftware.com. All rights reserved.
+//  Created by Jonathan Wight on 03/07/08.
+//  Copyright 2008 toxicsoftware.com. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -27,21 +27,14 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "CXMLDocument.h"
 
 
-@interface CMainController : NSObject {
-	NSWindow *window;
-	NSString *XMLString;
-	NSString *XPath;
-	NSString *status;
-  NSUInteger documentType;
+@interface CXHTMLDocument : CXMLDocument {
+
 }
 
-@property (readwrite, nonatomic, assign) IBOutlet NSWindow *window;
-@property (readwrite, nonatomic, copy) NSString *XMLString;
-@property (readwrite, nonatomic, copy) NSString *XPath;
-@property (readwrite, nonatomic, copy) NSString *status;
-@property (readwrite, nonatomic, assign) NSUInteger documentType;
+- (id)initWithXHTMLData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
+- (id)initWithXHTMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
 
 @end
