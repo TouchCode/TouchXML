@@ -24,4 +24,4 @@ application needs XML write support.
 * Lightweight. Rarely used NSXML* functionality should not be
 implemented.
 
-See http://github.com/schwa/TouchXML for more.
+See http://github.com/TouchCode/TouchXML for more.
