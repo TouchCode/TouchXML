@@ -1,9 +1,9 @@
 //
-//  TouchXML.h
+//  CXMLNode_FilteredAttributesExtensions.m
 //  TouchCode
 //
-//  Created by Jonathan Wight on 07/11/08.
-//  Copyright 2008 toxicsoftware.com. All rights reserved.
+//  Created by Felix Morgner on 11/01/11.
+//  Copyright 2011 felixmorgner.ch. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -27,12 +27,35 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CXMLDocument.h"
-#import "CXMLDocument_CreationExtensions.h"
-#import "CXMLElement.h"
-#import "CXMLElement_CreationExtensions.h"
-#import "CXMLElement_ElementTreeExtensions.h"
-#import "CXMLNode.h"
-#import "CXMLNode_CreationExtensions.h"
-#import "CXMLNode_XPathExtensions.h"
 #import "CXMLNode_FilteredAttributesExtensions.h"
+#import "CXMLNode_PrivateExtensions.h"
+
+@implementation CXMLNode (CXMLNode_FilteredAttributesExtensions)
+
+- (NSArray *)childrenOfKind:(CXMLNodeKind)theKind
+	{
+	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
+	
+	NSMutableArray *theChildren = [NSMutableArray array];
+	
+	if (_node->type != CXMLAttributeKind) // NSXML Attribs don't have children.
+		{
+		xmlNodePtr theCurrentNode = _node->children;
+
+		while (theCurrentNode != NULL)
+			{
+			while(theCurrentNode && theCurrentNode->type != theKind)
+				theCurrentNode = theCurrentNode->next;
+				
+			if(!theCurrentNode)
+				break;
+
+			CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnDealloc:NO];
+			[theChildren addObject:theNode];
+			theCurrentNode = theCurrentNode->next;
+			}
+		}
+	return(theChildren);      
+	}
+
+@end

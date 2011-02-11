@@ -33,6 +33,7 @@
 #import "CXMLDocument.h"
 #import "CXMLElement.h"
 #import "CXMLNode_CreationExtensions.h"
+#import "CXMLNode_FilteredAttributesExtensions.h"
 
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>

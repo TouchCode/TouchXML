@@ -1,9 +1,9 @@
 //
-//  TouchXML.h
+//  CXMLNode_FilteredAttributesExtensions.h
 //  TouchCode
 //
-//  Created by Jonathan Wight on 07/11/08.
-//  Copyright 2008 toxicsoftware.com. All rights reserved.
+//  Created by Felix Morgner on 11/01/11.
+//  Copyright 2011 felixmorgner.ch. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -27,12 +27,10 @@
 //  OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "CXMLDocument.h"
-#import "CXMLDocument_CreationExtensions.h"
-#import "CXMLElement.h"
-#import "CXMLElement_CreationExtensions.h"
-#import "CXMLElement_ElementTreeExtensions.h"
 #import "CXMLNode.h"
-#import "CXMLNode_CreationExtensions.h"
-#import "CXMLNode_XPathExtensions.h"
-#import "CXMLNode_FilteredAttributesExtensions.h"
+
+@interface CXMLNode (CXMLNode_FilteredAttributesExtensions)
+
+- (NSArray *)childrenOfKind:(CXMLNodeKind)theKind;
+
+@end
