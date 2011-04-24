@@ -1,9 +1,9 @@
 //
-//  TouchXML.h
+//  DocumentBasedClass.m
 //  TouchCode
 //
-//  Created by Jonathan Wight on 07/11/08.
-//  Copyright 2008 toxicsoftware.com. All rights reserved.
+//  Created by jonathan on 4/22/11.
+//  Copyright 2011 New Medio. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation
@@ -25,15 +25,27 @@
 //  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 //  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 //  OTHER DEALINGS IN THE SOFTWARE.
-//
 
-#import "CXMLDocument.h"
-#import "CXMLDocument_CreationExtensions.h"
-#import "CXMLElement.h"
-#import "CXMLElement_CreationExtensions.h"
-#import "CXMLElement_ElementTreeExtensions.h"
-#import "CXMLNode.h"
-#import "CXMLNode_CreationExtensions.h"
-#import "CXMLNode_XPathExtensions.h"
-#import "CXMLBookmark.h"
+
 #import "BookmarkBasedClass.h"
+
+
+@implementation BookmarkBasedClass
+
+@synthesize bookmark;
+
+-(id)initWithBookmark:(CXMLBookmark *)bk {
+	[super init];
+	self.bookmark = bk;
+	
+	return self;
+}
+
+
+-(void) dealloc {
+	[bookmark release];
+	
+	[super dealloc];
+}
+
+@end

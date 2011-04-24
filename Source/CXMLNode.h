@@ -31,6 +31,8 @@
 
 #include <libxml/tree.h>
 
+@class CXMLBookmark;
+
 typedef enum {
 	CXMLInvalidKind = 0,
 	CXMLElementKind = XML_ELEMENT_NODE,
@@ -80,4 +82,6 @@ typedef enum {
 - (NSString *)XMLStringWithOptions:(NSUInteger)options;
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 - (NSArray *)nodesForXPath:(NSString *)xpath error:(NSError **)error;
+- (NSString *) stringForXPath:(NSString *)xpath;
+- (CXMLBookmark *) bookmark;
 @end
