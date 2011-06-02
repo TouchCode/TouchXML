@@ -33,6 +33,8 @@
 #import "CXMLDocument.h"
 #import "CXMLElement.h"
 #import "CXMLNode_CreationExtensions.h"
+#import "CXMLBookmark.h"
+#import "CXMLNode_XPathExtensions.h"
 
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
@@ -356,6 +358,15 @@ xmlXPathFreeObject(theXPathObject);
 xmlXPathFreeContext(theXPathContext);
 return(theResult);
 }
+
+-(NSString *)stringForXPath:(NSString *)xpath {
+	return [[self nodeForXPath:xpath error:nil] stringValue];
+}
+
+-(CXMLBookmark *)bookmark {
+	return [[[CXMLBookmark alloc] initWithNode:self] autorelease];
+}
+
 
 //- (NSArray *)objectsForXQuery:(NSString *)xquery constants:(NSDictionary *)constants error:(NSError **)error;
 //- (NSArray *)objectsForXQuery:(NSString *)xquery error:(NSError **)error;

@@ -71,6 +71,9 @@
 		5FBDFF4712B6042800923CD7 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
 		5FBDFF4812B6042800923CD7 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
 		5FBDFF4912B6042800923CD7 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
+		AB90A64713648E7100A2F627 /* CXMLBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90A61013648C3E00A2F627 /* CXMLBookmark.m */; };
+		AB90A64813648E7200A2F627 /* CXMLBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90A61013648C3E00A2F627 /* CXMLBookmark.m */; };
+		AB90A64913648E7400A2F627 /* CXMLBookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = AB90A61013648C3E00A2F627 /* CXMLBookmark.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +152,10 @@
 		45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_CreationExtensions.m; sourceTree = "<group>"; };
 		5FBDFF4512B6042800923CD7 /* CXHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHTMLDocument.h; sourceTree = "<group>"; };
 		5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHTMLDocument.m; sourceTree = "<group>"; };
+		AB90A60E13648C3E00A2F627 /* BookmarkBasedClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkBasedClass.m; sourceTree = "<group>"; };
+		AB90A60F13648C3E00A2F627 /* BookmarkBasedClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkBasedClass.h; sourceTree = "<group>"; };
+		AB90A61013648C3E00A2F627 /* CXMLBookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLBookmark.m; sourceTree = "<group>"; };
+		AB90A61113648C3E00A2F627 /* CXMLBookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLBookmark.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +274,10 @@
 		457940EA0D82214700EB2D22 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AB90A60E13648C3E00A2F627 /* BookmarkBasedClass.m */,
+				AB90A60F13648C3E00A2F627 /* BookmarkBasedClass.h */,
+				AB90A61013648C3E00A2F627 /* CXMLBookmark.m */,
+				AB90A61113648C3E00A2F627 /* CXMLBookmark.h */,
 				45AA24120E280F9700E12B55 /* TouchXML.h */,
 				457940EB0D82214700EB2D22 /* CXMLDocument.h */,
 				457940EC0D82214700EB2D22 /* CXMLDocument.m */,
@@ -453,6 +464,7 @@
 				451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */,
 				030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 				5FBDFF4912B6042800923CD7 /* CXHTMLDocument.m in Sources */,
+				AB90A64913648E7400A2F627 /* CXMLBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +486,7 @@
 				45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */,
 				45045CA9121E47ED00BD4662 /* main.m in Sources */,
 				5FBDFF4712B6042800923CD7 /* CXHTMLDocument.m in Sources */,
+				AB90A64713648E7100A2F627 /* CXMLBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +510,7 @@
 				030E2698120115B3008B53A4 /* NamespaceTests.m in Sources */,
 				030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 				5FBDFF4812B6042800923CD7 /* CXHTMLDocument.m in Sources */,
+				AB90A64813648E7200A2F627 /* CXMLBookmark.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
