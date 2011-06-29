@@ -75,7 +75,7 @@ switch (inLibXMLNode->type)
 		return(NULL);
 	}
 
-CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDealloc:infreeOnDealloc] autorelease];
+CXMLNode *theNode = [[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDealloc:infreeOnDealloc];
 
 
 if (inLibXMLNode->doc != NULL)
@@ -87,7 +87,7 @@ if (inLibXMLNode->doc != NULL)
 
 		[[theXMLDocument nodePool] addObject:theNode];
 
-		theNode->_node->_private = theNode;
+		theNode->_node->_private = (void*)objc_unretainedPointer(theNode);
 		}
 	}
 return(theNode);

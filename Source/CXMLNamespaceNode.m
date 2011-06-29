@@ -24,11 +24,10 @@
 
 - (void) dealloc
 {
-	[_prefix release], _prefix = nil;
-	[_uri release], _uri = nil;
+	_prefix = nil;
+	_uri = nil;
 	_parent = nil; // Parent not retained
 	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -43,12 +42,12 @@
 
 - (NSString *)name
 {
-	return _prefix ? [[_prefix copy] autorelease] : @"";
+	return _prefix ? [_prefix copy] : @"";
 }
 
 - (NSString *)stringValue
 {
-	return _uri ? [[_uri copy] autorelease] : @"";
+	return _uri ? [_uri copy] : @"";
 }
 
 - (NSUInteger)index

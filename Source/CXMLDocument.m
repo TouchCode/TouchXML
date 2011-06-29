@@ -63,7 +63,7 @@ if ((self = [super init]) != NULL)
 		{
 		_node = (xmlNodePtr)theDoc;
 		NSAssert(_node->_private == NULL, @"TODO");
-		_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+		_node->_private = (void*)objc_unretainedPointer(self); // Note. NOT retained (TODO think more about _private usage)
 		}
 	else
 		{
@@ -84,7 +84,6 @@ if ((self = [super init]) != NULL)
 
 	if (theError != NULL)
 		{
-		[self release];
 		self = NULL;
 		}
 	}
@@ -128,7 +127,7 @@ if ((self = [super init]) != NULL)
 		if (theDoc != NULL && xmlDocGetRootElement(theDoc) != NULL)
 			{
 			_node = (xmlNodePtr)theDoc;
-			_node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+			_node->_private = (void*)objc_unretainedPointer(self); // Note. NOT retained (TODO think more about _private usage)
 			}
 		else
 			{
@@ -148,7 +147,6 @@ if ((self = [super init]) != NULL)
 
 	if (theError != NULL)
 		{
-		[self release];
 		self = NULL;
 		}
 	}
@@ -183,17 +181,15 @@ return(self);
 {
 // Fix for #35 http://code.google.com/p/touchcode/issues/detail?id=35 -- clear up the node objects first (inside a pool so I _know_ they're cleared) and then freeing the document
 
-NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
+@autoreleasepool {
 
-[nodePool release];
 nodePool = NULL;
 
-[thePool release];
+}
 //
 xmlFreeDoc((xmlDocPtr)_node);
 _node = NULL;
 //
-[super dealloc];
 }
 
 //- (NSString *)characterEncoding;
@@ -249,7 +245,7 @@ xmlChar *xmlbuff;
 int buffersize;
 
 xmlDocDumpFormatMemory((xmlDocPtr)(self->_node), &xmlbuff, &buffersize, 1);
-NSString *dump = [[[NSString alloc] initWithBytes:xmlbuff length:buffersize encoding:NSUTF8StringEncoding] autorelease];
+NSString *dump = [[NSString alloc] initWithBytes:xmlbuff length:buffersize encoding:NSUTF8StringEncoding];
 xmlFree(xmlbuff);
 						   
 [result appendString:dump];

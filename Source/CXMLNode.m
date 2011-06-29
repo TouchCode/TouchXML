@@ -48,7 +48,7 @@ static int MyXmlOutputCloseCallback(void * context);
 {
 if (_node)
 	{
-	if (_node->_private == self)
+	if (_node->_private == (void*)objc_unretainedPointer(self))
 		_node->_private = NULL;
 
 	if (_freeNodeOnRelease)
@@ -59,7 +59,6 @@ if (_node)
 	_node = NULL;
 	}
 //
-[super dealloc];
 }
 
 - (id)copyWithZone:(NSZone *)zone;
@@ -67,7 +66,7 @@ if (_node)
 #pragma unused (zone)
 xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
 CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnDealloc:YES];
-theNewNode->_private = theNode;
+theNewNode->_private = (void*)objc_unretainedPointer(theNode);
 return(theNode);
 }
 
@@ -104,7 +103,7 @@ return((CXMLNodeKind)_node->type); // TODO this isn't 100% accurate!
 	if (_node->type == XML_ATTRIBUTE_NODE)
 		return [NSString stringWithUTF8String:(const char *)_node->children->content];
 
-	NSMutableString *theStringValue = [[[NSMutableString alloc] init] autorelease];
+	NSMutableString *theStringValue = [[NSMutableString alloc] init];
 	
 	for (CXMLNode *child in [self children])
 	{
@@ -302,15 +301,15 @@ return([self XMLStringWithOptions:0]);
 {
 #pragma unused (options)
 
-NSMutableData *theData = [[[NSMutableData alloc] init] autorelease];
+NSMutableData *theData = [[NSMutableData alloc] init];
 
-xmlOutputBufferPtr theOutputBuffer = xmlOutputBufferCreateIO(MyXmlOutputWriteCallback, MyXmlOutputCloseCallback, theData, NULL);
+xmlOutputBufferPtr theOutputBuffer = xmlOutputBufferCreateIO(MyXmlOutputWriteCallback, MyXmlOutputCloseCallback, (void*)objc_unretainedPointer(theData), NULL);
 
 xmlNodeDumpOutput(theOutputBuffer, _node->doc, _node, 0, 0, "utf-8");
 
 xmlOutputBufferFlush(theOutputBuffer);
 
-NSString *theString = [[[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding] autorelease];
+NSString *theString = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
 
 xmlOutputBufferClose(theOutputBuffer);
 
