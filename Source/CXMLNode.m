@@ -140,7 +140,7 @@ return(N);
 {
 NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 
-return(_node->doc->_private);
+return (__bridge CXMLDocument *)(_node->doc->_private);
 }
 
 - (CXMLNode *)parent
@@ -150,7 +150,7 @@ NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 if (_node->parent == NULL)
 	return(NULL);
 else
-	return (_node->parent->_private);
+	return (__bridge CXMLNode *)(_node->parent->_private);
 }
 
 - (NSUInteger)childCount
@@ -365,7 +365,7 @@ return(theResult);
 
 static int MyXmlOutputWriteCallback(void * context, const char * buffer, int len)
 {
-NSMutableData *theData = context;
+NSMutableData *theData = (__bridge NSMutableData *)context;
 [theData appendBytes:buffer length:len];
 return(len);
 }
