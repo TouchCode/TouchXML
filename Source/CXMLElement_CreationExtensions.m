@@ -37,6 +37,8 @@ NSAssert(inNode->_node->doc == NULL, @"Cannot addChild with a node that already 
 NSAssert(self->_node != NULL, @"_node should not be null");
 NSAssert(inNode->_node != NULL, @"_node should not be null");
 xmlAddChild(self->_node, inNode->_node);
+// now XML element is tracked by document, do not release on dealloc
+inNode->_freeNodeOnRelease = NO;
 }
 
 - (void)addNamespace:(CXMLNode *)inNamespace
