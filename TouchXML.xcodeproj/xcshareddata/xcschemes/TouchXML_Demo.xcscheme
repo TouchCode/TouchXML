@@ -19,6 +19,20 @@
                ReferencedContainer = "container:TouchXML.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "451E6E301152EB4A0024ABA5"
+               BuildableName = "Validator.app"
+               BlueprintName = "Validator"
+               ReferencedContainer = "container:TouchXML.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
