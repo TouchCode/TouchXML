@@ -48,7 +48,7 @@ static int MyXmlOutputCloseCallback(void * context);
 {
 if (_node)
 	{
-	if (_node->_private == self)
+	if (_node->_private == (__bridge void *)self)
 		_node->_private = NULL;
 
 	if (_freeNodeOnRelease)
@@ -67,7 +67,7 @@ if (_node)
 #pragma unused (zone)
 xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
 CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnDealloc:YES];
-theNewNode->_private = theNode;
+theNewNode->_private = (__bridge void *)theNode;
 return(theNode);
 }
 
@@ -140,7 +140,7 @@ return(N);
 {
 NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 
-return(_node->doc->_private);
+return((__bridge CXMLDocument *)_node->doc->_private);
 }
 
 - (CXMLNode *)parent
@@ -150,7 +150,7 @@ NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
 if (_node->parent == NULL)
 	return(NULL);
 else
-	return (_node->parent->_private);
+	return((__bridge CXMLDocument *)_node->parent->_private);
 }
 
 - (NSUInteger)childCount
@@ -304,7 +304,7 @@ return([self XMLStringWithOptions:0]);
 
 NSMutableData *theData = [[[NSMutableData alloc] init] autorelease];
 
-xmlOutputBufferPtr theOutputBuffer = xmlOutputBufferCreateIO(MyXmlOutputWriteCallback, MyXmlOutputCloseCallback, theData, NULL);
+xmlOutputBufferPtr theOutputBuffer = xmlOutputBufferCreateIO(MyXmlOutputWriteCallback, MyXmlOutputCloseCallback, (__bridge void *)theData, NULL);
 
 xmlNodeDumpOutput(theOutputBuffer, _node->doc, _node, 0, 0, "utf-8");
 
@@ -365,7 +365,7 @@ return(theResult);
 
 static int MyXmlOutputWriteCallback(void * context, const char * buffer, int len)
 {
-NSMutableData *theData = context;
+NSMutableData *theData = (__bridge NSMutableData *)context;
 [theData appendBytes:buffer length:len];
 return(len);
 }

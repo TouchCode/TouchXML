@@ -54,7 +54,7 @@ if (inLibXMLNode == NULL)
 	return nil;
 
 if (inLibXMLNode->_private)
-	return(inLibXMLNode->_private);
+	return((__bridge id)inLibXMLNode->_private);
 
 Class theClass = [CXMLNode class];
 switch (inLibXMLNode->type)
@@ -80,14 +80,14 @@ CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDea
 
 if (inLibXMLNode->doc != NULL)
 	{
-	CXMLDocument *theXMLDocument = inLibXMLNode->doc->_private;
+	CXMLDocument *theXMLDocument = (__bridge CXMLDocument *)inLibXMLNode->doc->_private;
 	if (theXMLDocument != NULL)
 		{
 		NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
 
 		[[theXMLDocument nodePool] addObject:theNode];
 
-		theNode->_node->_private = theNode;
+		theNode->_node->_private = (__bridge void *)theNode;
 		}
 	}
 return(theNode);

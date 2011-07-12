@@ -64,7 +64,7 @@
             {
             _node = (xmlNodePtr)theDoc;
             NSAssert(_node->_private == NULL, @"TODO");
-            _node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+            _node->_private = (__bridge void *)self; // Note. NOT retained (TODO think more about _private usage)
             }
         else
             {
@@ -129,7 +129,7 @@
             if (theDoc != NULL && xmlDocGetRootElement(theDoc) != NULL)
                 {
                 _node = (xmlNodePtr)theDoc;
-                _node->_private = self; // Note. NOT retained (TODO think more about _private usage)
+                _node->_private = (__bridge void *)self; // Note. NOT retained (TODO think more about _private usage)
                 }
             else
                 {
