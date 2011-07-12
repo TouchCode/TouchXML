@@ -56,7 +56,6 @@ if (inXMLString != XMLString)
 	{
 	if (XMLString)
 		{
-		[XMLString release];
 		XMLString = NULL;
 		}
 		
@@ -74,7 +73,6 @@ if (inXPath != XPath)
 	{
 	if (XPath)
 		{
-		[XPath release];
 		XPath = NULL;
 		}
 		
@@ -98,11 +96,11 @@ if (inXPath != XPath)
 - (void)updateStatus
 {
 NSError *theError = NULL;
-  CXMLDocument *theXMLDocument = nil;
-  if (self.documentType == 0)
-    theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:self.XMLString options:0 error:&theError] autorelease];
-  else 
-    theXMLDocument = [[[CXHTMLDocument alloc] initWithXHTMLString:self.XMLString options:0 error:&theError] autorelease];
+CXMLDocument *theXMLDocument = nil;
+if (self.documentType == 0)
+    theXMLDocument = [[CXMLDocument alloc] initWithXMLString:self.XMLString options:0 error:&theError];
+else 
+    theXMLDocument = [[CXHTMLDocument alloc] initWithXHTMLString:self.XMLString options:0 error:&theError];
 
 if (theXMLDocument)
 	{

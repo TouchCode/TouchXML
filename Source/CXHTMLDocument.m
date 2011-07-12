@@ -110,7 +110,6 @@
 		
 		if (theError != NULL)
             {
-			[self release];
 			self = NULL;
             }
         }
@@ -153,7 +152,6 @@
 
         if (theError != NULL)
             {
-            [self release];
             self = NULL;
             }
         }

@@ -85,7 +85,6 @@
 
         if (theError != NULL)
             {
-            [self release];
             self = NULL;
             }
         }
@@ -149,7 +148,6 @@
 
         if (theError != NULL)
             {
-            [self release];
             self = NULL;
             }
         }
@@ -183,17 +181,15 @@
     {
     // Fix for #35 http://code.google.com/p/touchcode/issues/detail?id=35 -- clear up the node objects first (inside a pool so I _know_ they're cleared) and then freeing the document
 
-    NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
+    @autoreleasepool {
 
-    [nodePool release];
     nodePool = NULL;
 
-    [thePool release];
+    }
     //
     xmlFreeDoc((xmlDocPtr)_node);
     _node = NULL;
     //
-    [super dealloc];
     }
 
 //- (NSString *)characterEncoding;
@@ -248,7 +244,7 @@
     int buffersize;
 
     xmlDocDumpFormatMemory((xmlDocPtr)(self->_node), &xmlbuff, &buffersize, 1);
-    NSString *dump = [[[NSString alloc] initWithBytes:xmlbuff length:buffersize encoding:NSUTF8StringEncoding] autorelease];
+    NSString *dump = [[NSString alloc] initWithBytes:xmlbuff length:buffersize encoding:NSUTF8StringEncoding];
     xmlFree(xmlbuff);
                                
     [result appendString:dump];

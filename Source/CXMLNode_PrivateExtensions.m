@@ -75,7 +75,7 @@ switch (inLibXMLNode->type)
 		return(NULL);
 	}
 
-CXMLNode *theNode = [[[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDealloc:infreeOnDealloc] autorelease];
+CXMLNode *theNode = [[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDealloc:infreeOnDealloc];
 
 
 if (inLibXMLNode->doc != NULL)

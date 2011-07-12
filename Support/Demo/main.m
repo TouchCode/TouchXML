@@ -32,14 +32,14 @@
 
 int main(int argc, char *argv[])
 {
-NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+@autoreleasepool {
 
 
 NSError *theError = NULL;
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:@"<enclosure url=\"http://www.flickr.com/apps/video/stewart.swf?v=71377&amp;photo_id=4445665165\" type=\"application/x-shockwave-flash\"/>" options:0 error:&theError] autorelease];
+CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:@"<enclosure url=\"http://www.flickr.com/apps/video/stewart.swf?v=71377&amp;photo_id=4445665165\" type=\"application/x-shockwave-flash\"/>" options:0 error:&theError];
 NSLog(@"%@", [[theXMLDocument rootElement] XMLString]);
 
 
-[pool release];
+}
 return 0;
 }

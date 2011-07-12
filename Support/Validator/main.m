@@ -31,11 +31,9 @@
 
 int main(int argc, const char *argv[])
 {
-NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
-
-NSApplicationMain(argc, argv);
-
-[thePool drain];
-
+@autoreleasepool
+    {
+    NSApplicationMain(argc, argv);
+    }
 return(0);
 }

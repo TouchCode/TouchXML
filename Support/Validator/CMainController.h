@@ -31,11 +31,6 @@
 
 
 @interface CMainController : NSObject {
-	NSWindow *window;
-	NSString *XMLString;
-	NSString *XPath;
-	NSString *status;
-  NSUInteger documentType;
 }
 
 @property (readwrite, nonatomic, assign) IBOutlet NSWindow *window;
