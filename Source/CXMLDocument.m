@@ -234,9 +234,9 @@ return(theData);
 //- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
 - (id)XMLStringWithOptions:(NSUInteger)options
 {
-id root = [self rootElement];
-NSMutableString* xmlString = [NSMutableString string];
-[xmlString appendString:[root XMLStringWithOptions:options]];
+CXMLElement *theRoot = [self rootElement];
+NSMutableString *xmlString = [NSMutableString string];
+[xmlString appendString:[theRoot XMLStringWithOptions:options]];
 return xmlString;
 }
 

@@ -183,9 +183,9 @@ return(theAttributes);
 	{
 		if (xmlStrcmp(theCurrentNamespace->prefix, thePrefix) == 0)
 		{
-			NSString *thePrefix = theCurrentNamespace->prefix ? [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix] : @"";
+			NSString *thePrefixString = theCurrentNamespace->prefix ? [NSString stringWithUTF8String:(const char *)theCurrentNamespace->prefix] : @"";
 			NSString *theURI = [NSString stringWithUTF8String:(const char *)theCurrentNamespace->href];
-			return [[[CXMLNamespaceNode alloc] initWithPrefix:thePrefix URI:theURI parentElement:self] autorelease];
+			return [[[CXMLNamespaceNode alloc] initWithPrefix:thePrefixString URI:theURI parentElement:self] autorelease];
 		}			
 		theCurrentNamespace = theCurrentNamespace->next;
 	}
