@@ -71,7 +71,10 @@ NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
 theResultCode = tidyOptSetBool(theTidyDocument, TidyForceOutput, YES);
 NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
 
-theResultCode = tidySetOutCharEncoding(theTidyDocument, "utf8");
+// Set encoding - same for input and output
+theResultCode = tidySetInCharEncoding(theTidyDocument, encoding)
+NSAssert(theResultCode >= 0, @"tidySetInCharEncoding() should return 0");
+theResultCode = tidySetOutCharEncoding(theTidyDocument, encoding);
 NSAssert(theResultCode >= 0, @"tidySetOutCharEncoding() should return 0");
 
 // Create an error buffer
@@ -165,7 +168,10 @@ NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
 theResultCode = tidyOptSetBool(theTidyDocument, TidyForceOutput, YES);
 NSAssert(theResultCode >= 0, @"tidyOptSetBool() should return 0");
 
-theResultCode = tidySetCharEncoding(theTidyDocument, "utf8");
+// Set encoding - same for input and output
+theResultCode = tidySetInCharEncoding(theTidyDocument, encoding)
+NSAssert(theResultCode >= 0, @"tidySetInCharEncoding() should return 0");
+theResultCode = tidySetOutCharEncoding(theTidyDocument, encoding);
 NSAssert(theResultCode >= 0, @"tidySetOutCharEncoding() should return 0");
 
 // Create an error buffer
