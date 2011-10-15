@@ -45,7 +45,7 @@
 return([[[self alloc] init] autorelease]);
 }
 
-- (NSData *)tidyData:(NSData *)inData inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat diagnostics:(NSString **)outDiagnostics error:(NSError **)outError
+- (NSData *)tidyData:(NSData *)inData inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat encoding:(const char*)encoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError
 {
 TidyDoc theTidyDocument = tidyCreate();
 
@@ -139,7 +139,7 @@ tidyRelease(theTidyDocument);
 return(theOutput);
 }
 
-- (NSString *)tidyString:(NSString *)inString inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat diagnostics:(NSString **)outDiagnostics error:(NSError **)outError
+- (NSString *)tidyString:(NSString *)inString inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat encoding:(const char*)encoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError
 {
 TidyDoc theTidyDocument = tidyCreate();
 
