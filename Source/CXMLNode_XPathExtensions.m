@@ -32,6 +32,7 @@
 #import "CXMLNode_XPathExtensions.h"
 
 #import "CXMLDocument.h"
+#import "CXMLDocument_PrivateExtensions.h"
 #import "CXMLNode_PrivateExtensions.h"
 
 #include <libxml/xpath.h>
@@ -65,8 +66,12 @@ else
 	int N;
 	for (N = 0; N < theXPathObject->nodesetval->nodeNr; N++)
 		{
-		xmlNodePtr theNode = theXPathObject->nodesetval->nodeTab[N];
-		[theArray addObject:[CXMLNode nodeWithLibXMLNode:theNode freeOnDealloc:NO]];
+		xmlNodePtr theLibXMLNode = theXPathObject->nodesetval->nodeTab[N];
+        
+        CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theLibXMLNode freeOnDealloc:YES];
+        [self.rootDocument.nodePool addObject:theNode];
+        
+		[theArray addObject:theNode];
 		}
 		
 	theResult = theArray;

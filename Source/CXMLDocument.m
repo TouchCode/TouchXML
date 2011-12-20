@@ -187,6 +187,11 @@
 
     NSAutoreleasePool *thePool = [[NSAutoreleasePool alloc] init];
 
+    for (CXMLNode *theNode in nodePool)
+        {
+        [theNode invalidate];
+        }
+
     [nodePool release];
     nodePool = NULL;
 
