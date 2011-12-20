@@ -100,4 +100,20 @@ return(theNode);
 return(_node);
 }
 
+- (void)invalidate;
+    {
+    if (_node)
+        {
+        if (_node->_private == (__bridge void *)self)
+            _node->_private = NULL;
+
+        if (_freeNodeOnRelease)
+            {
+            xmlFreeNode(_node);
+            }
+
+        _node = NULL;
+        }
+    }
+
 @end
