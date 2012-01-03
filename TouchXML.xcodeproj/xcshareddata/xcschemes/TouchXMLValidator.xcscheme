@@ -15,7 +15,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "451E6E301152EB4A0024ABA5"
                BuildableName = "Validator.app"
-               BlueprintName = "Validator"
+               BlueprintName = "TouchXMLValidator"
                ReferencedContainer = "container:TouchXML.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,7 +33,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "451E6E301152EB4A0024ABA5"
             BuildableName = "Validator.app"
-            BlueprintName = "Validator"
+            BlueprintName = "TouchXMLValidator"
             ReferencedContainer = "container:TouchXML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -51,7 +51,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "451E6E301152EB4A0024ABA5"
             BuildableName = "Validator.app"
-            BlueprintName = "Validator"
+            BlueprintName = "TouchXMLValidator"
             ReferencedContainer = "container:TouchXML.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -69,7 +69,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "451E6E301152EB4A0024ABA5"
             BuildableName = "Validator.app"
-            BlueprintName = "Validator"
+            BlueprintName = "TouchXMLValidator"
             ReferencedContainer = "container:TouchXML.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

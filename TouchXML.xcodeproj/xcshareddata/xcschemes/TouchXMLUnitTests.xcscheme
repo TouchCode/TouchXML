@@ -17,7 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "457940FE0D82217800EB2D22"
                BuildableName = "TouchXML_UnitTests.octest"
-               BlueprintName = "TouchXML_UnitTests"
+               BlueprintName = "TouchXMLUnitTests"
                ReferencedContainer = "container:TouchXML.xcodeproj">
             </BuildableReference>
          </TestableReference>
