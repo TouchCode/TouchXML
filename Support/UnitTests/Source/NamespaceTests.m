@@ -109,10 +109,10 @@ NSString *simpleDocument()
 	NSError *error = nil;
 	NSUInteger nsOptions = NSXMLNodePreserveAll;
 	
-	*txDoc = [[[CXMLDocument alloc] initWithXMLString:source options:nsOptions error:&error] autorelease];
+	*txDoc = [[CXMLDocument alloc] initWithXMLString:source options:nsOptions error:&error];
 	STAssertNil(error, @"Error building touch doc");
 	
-	*nsDoc = [[[NSXMLDocument alloc] initWithXMLString:source options:nsOptions error:&error] autorelease];
+	*nsDoc = [[NSXMLDocument alloc] initWithXMLString:source options:nsOptions error:&error];
 	STAssertNil(error, @"Error building nsXML doc");
 }
 

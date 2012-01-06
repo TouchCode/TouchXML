@@ -41,7 +41,7 @@
 {
 NSError *theError = NULL;
 NSString *theXML = @"<root attribute='bad'><anchor><node attribute='good'/></anchor></root>";
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError];
 STAssertNotNil(theXMLDocument, NULL);
 
 NSArray *theNodes = NULL;
@@ -55,7 +55,7 @@ STAssertTrue([theNodes count] == 2, NULL);
 NSError *theError = NULL;
 NSString *theXML = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><FindItemsResponse xmlns=\"urn:ebay:apis:eBLBaseComponents\"><Timestamp>2008-03-26T23:23:13.175Z</Timestamp></FindItemsResponse>";
 
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError];
 STAssertNotNil(theXMLDocument, NULL);
 
 NSArray *theNodes = NULL;
@@ -73,7 +73,7 @@ STAssertTrue([theNodes count] == 1, NULL);
 NSError *theError = NULL;
 NSString *theXML = @"<root attribute='bad'><mid><node attribute='good'/></mid></root>";
 
-CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError] autorelease];
+CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError];
 STAssertNotNil(theXMLDocument, NULL);
 
 NSArray *theNodes = NULL;

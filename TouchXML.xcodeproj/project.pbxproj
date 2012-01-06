@@ -107,7 +107,7 @@
 		45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_Debugging.m; sourceTree = "<group>"; };
 		45045CA6121E47ED00BD4662 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45045CA7121E47ED00BD4662 /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
-		451E6E311152EB4A0024ABA5 /* Validator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Validator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		451E6E311152EB4A0024ABA5 /* TouchXMLValidator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchXMLValidator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		451E6E451152EB790024ABA5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		451E6E491152EB9F0024ABA5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		451E6E4B1152EBB60024ABA5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -125,7 +125,7 @@
 		457940F00D82214700EB2D22 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode.m; sourceTree = "<group>"; };
 		457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
 		457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
-		457940FF0D82217800EB2D22 /* TouchXML_UnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchXML_UnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		457940FF0D82217800EB2D22 /* TouchXMLUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchXMLUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		457941200D8222CD00EB2D22 /* BasicTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTests.h; sourceTree = "<group>"; };
 		457941210D8222CD00EB2D22 /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTests.m; sourceTree = "<group>"; };
 		457941580D8225FC00EB2D22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -183,8 +183,8 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				457940FF0D82217800EB2D22 /* TouchXML_UnitTests.octest */,
-				451E6E311152EB4A0024ABA5 /* Validator.app */,
+				457940FF0D82217800EB2D22 /* TouchXMLUnitTests.octest */,
+				451E6E311152EB4A0024ABA5 /* TouchXMLValidator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,9 +324,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		451E6E301152EB4A0024ABA5 /* Validator */ = {
+		451E6E301152EB4A0024ABA5 /* TouchXMLValidator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 451E6E391152EB4B0024ABA5 /* Build configuration list for PBXNativeTarget "Validator" */;
+			buildConfigurationList = 451E6E391152EB4B0024ABA5 /* Build configuration list for PBXNativeTarget "TouchXMLValidator" */;
 			buildPhases = (
 				451E6E2D1152EB4A0024ABA5 /* Resources */,
 				451E6E2E1152EB4A0024ABA5 /* Sources */,
@@ -336,14 +336,14 @@
 			);
 			dependencies = (
 			);
-			name = Validator;
+			name = TouchXMLValidator;
 			productName = Validator;
-			productReference = 451E6E311152EB4A0024ABA5 /* Validator.app */;
+			productReference = 451E6E311152EB4A0024ABA5 /* TouchXMLValidator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		456A848A0D81DB06000E29C9 /* TouchXML_Demo */ = {
+		456A848A0D81DB06000E29C9 /* TouchXMLDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXML_Demo" */;
+			buildConfigurationList = 456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXMLDemo" */;
 			buildPhases = (
 				456A84880D81DB06000E29C9 /* Sources */,
 				456A84890D81DB06000E29C9 /* Frameworks */,
@@ -352,13 +352,13 @@
 			);
 			dependencies = (
 			);
-			name = TouchXML_Demo;
+			name = TouchXMLDemo;
 			productName = "Mac OS X";
 			productType = "com.apple.product-type.tool";
 		};
-		457940FE0D82217800EB2D22 /* TouchXML_UnitTests */ = {
+		457940FE0D82217800EB2D22 /* TouchXMLUnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 457941030D82217800EB2D22 /* Build configuration list for PBXNativeTarget "TouchXML_UnitTests" */;
+			buildConfigurationList = 457941030D82217800EB2D22 /* Build configuration list for PBXNativeTarget "TouchXMLUnitTests" */;
 			buildPhases = (
 				457940FA0D82217800EB2D22 /* Resources */,
 				457940FB0D82217800EB2D22 /* Sources */,
@@ -369,9 +369,9 @@
 			);
 			dependencies = (
 			);
-			name = TouchXML_UnitTests;
+			name = TouchXMLUnitTests;
 			productName = TouchXML_UnitTests;
-			productReference = 457940FF0D82217800EB2D22 /* TouchXML_UnitTests.octest */;
+			productReference = 457940FF0D82217800EB2D22 /* TouchXMLUnitTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -397,9 +397,9 @@
 			projectRoot = "";
 			targets = (
 				457941040D82219400EB2D22 /* All */,
-				456A848A0D81DB06000E29C9 /* TouchXML_Demo */,
-				457940FE0D82217800EB2D22 /* TouchXML_UnitTests */,
-				451E6E301152EB4A0024ABA5 /* Validator */,
+				456A848A0D81DB06000E29C9 /* TouchXMLDemo */,
+				457940FE0D82217800EB2D22 /* TouchXMLUnitTests */,
+				451E6E301152EB4A0024ABA5 /* TouchXMLValidator */,
 			);
 		};
 /* End PBXProject section */
@@ -508,17 +508,17 @@
 /* Begin PBXTargetDependency section */
 		451E6F711152F68B0024ABA5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 451E6E301152EB4A0024ABA5 /* Validator */;
+			target = 451E6E301152EB4A0024ABA5 /* TouchXMLValidator */;
 			targetProxy = 451E6F701152F68B0024ABA5 /* PBXContainerItemProxy */;
 		};
 		457941080D82219E00EB2D22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 456A848A0D81DB06000E29C9 /* TouchXML_Demo */;
+			target = 456A848A0D81DB06000E29C9 /* TouchXMLDemo */;
 			targetProxy = 457941070D82219E00EB2D22 /* PBXContainerItemProxy */;
 		};
 		4579410A0D8221A100EB2D22 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 457940FE0D82217800EB2D22 /* TouchXML_UnitTests */;
+			target = 457940FE0D82217800EB2D22 /* TouchXMLUnitTests */;
 			targetProxy = 457941090D8221A100EB2D22 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -545,7 +545,7 @@
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = Validator;
+				PRODUCT_NAME = TouchXMLValidator;
 			};
 			name = Debug;
 		};
@@ -569,7 +569,7 @@
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = Validator;
+				PRODUCT_NAME = TouchXMLValidator;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -592,7 +592,7 @@
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = Validator;
+				PRODUCT_NAME = TouchXMLValidator;
 			};
 			name = Coverage;
 		};
@@ -606,8 +606,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lgcov";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -647,7 +649,7 @@
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = TouchXML_Demo;
+				PRODUCT_NAME = TouchXMLDemo;
 			};
 			name = Coverage;
 		};
@@ -655,10 +657,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -672,11 +676,13 @@
 				);
 				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = TouchXML_UnitTests;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				PRODUCT_NAME = TouchXMLUnitTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Coverage;
@@ -703,7 +709,7 @@
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = TouchXML_Demo;
+				PRODUCT_NAME = TouchXMLDemo;
 			};
 			name = Debug;
 		};
@@ -728,7 +734,7 @@
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = TouchXML_Demo;
+				PRODUCT_NAME = TouchXMLDemo;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -737,10 +743,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -754,11 +762,13 @@
 				);
 				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = TouchXML_UnitTests;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				PRODUCT_NAME = TouchXMLUnitTests;
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -767,11 +777,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(NATIVE_ARCH)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -783,11 +795,13 @@
 				);
 				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ltidy",
 				);
-				PRODUCT_NAME = TouchXML_UnitTests;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				PRODUCT_NAME = TouchXMLUnitTests;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -821,8 +835,10 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = "";
@@ -834,6 +850,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = "";
 			};
@@ -842,7 +860,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		451E6E391152EB4B0024ABA5 /* Build configuration list for PBXNativeTarget "Validator" */ = {
+		451E6E391152EB4B0024ABA5 /* Build configuration list for PBXNativeTarget "TouchXMLValidator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				451E6E361152EB4B0024ABA5 /* Debug */,
@@ -852,7 +870,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXML_Demo" */ = {
+		456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXMLDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				456A848B0D81DB06000E29C9 /* Debug */,
@@ -862,7 +880,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		457941030D82217800EB2D22 /* Build configuration list for PBXNativeTarget "TouchXML_UnitTests" */ = {
+		457941030D82217800EB2D22 /* Build configuration list for PBXNativeTarget "TouchXMLUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				457941010D82217800EB2D22 /* Debug */,

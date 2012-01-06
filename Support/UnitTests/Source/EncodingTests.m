@@ -47,13 +47,10 @@ static NSString *xmlUTF8Str = @"\n\
 - (void)test_initWithDataReturnsNilWhenInvalidEncoding
 {
     NSError *error;
-    
     NSData *nonUTF8Data = [xmlUTF8Str dataUsingEncoding:NSWindowsCP1251StringEncoding];
-
-    CXMLDocument *doc = [[CXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
-//    STAssertNil(doc, NULL);
-//    STAssertNotNil(error, NULL);
-    [doc release];
+    //CXMLDocument *doc = [[CXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
+    //STAssertNil(doc, NULL);
+    //STAssertNotNil(error, NULL);
     
     /* TODO: Unlike NSXMLDocument, CXMLDocument isn't failing parsing when given data with 
              non UTF-8 encoding, thus the above assertions are commented. */
@@ -62,7 +59,6 @@ static NSString *xmlUTF8Str = @"\n\
     NSXMLDocument *nsdoc = [[NSXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
     STAssertNil(nsdoc, NULL);
     STAssertNotNil(error, NULL);
-    [nsdoc release];
 }
 
 
@@ -91,13 +87,11 @@ static NSString *xmlUTF8Str = @"\n\
     NSString *result = [node stringValue];
     STAssertEqualObjects(result, @"Новости и аналитика", nil);
     
-    [doc release];   
 
     /* Extra: check NSXMLDocument compatibility — like CXMLDocument, expects failure */
     NSXMLDocument *nsdoc = [[NSXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
     STAssertNil(nsdoc, NULL);
     STAssertNotNil(error, NULL);
-    [nsdoc release];
     /* enough, parse went ok */
 }
 
@@ -123,17 +117,11 @@ static NSString *xmlUTF8Str = @"\n\
     NSString *result = [node stringValue];
     STAssertEqualObjects(result, @"Новости и аналитика", nil);
 
-    [doc release];
-
-
     /* Extra: check NSXMLDocument compatibility — like CXMLDocument, expects correct parsing */
     NSXMLDocument *nsdoc = [[NSXMLDocument alloc] initWithXMLString:nonUTF8Str options:0 error:&error];
     STAssertNotNil(nsdoc, NULL);
     STAssertNil(error, NULL);
-    [nsdoc release];
     /* enough, parse went ok */
-
-    [nonUTF8Str release];
 }
 
 @end
