@@ -72,11 +72,11 @@
             {
             xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
             
+                NSString* message = [NSString stringWithUTF8String:
+                                     (theLastErrorPtr ? theLastErrorPtr->message : "Unknown error")];
+            
             NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                [NSString stringWithUTF8String:theLastErrorPtr->message], NSLocalizedDescriptionKey,
-                NULL];
-            
-            
+                                         message, NSLocalizedDescriptionKey, NULL];
             theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
             
             xmlResetLastError();
