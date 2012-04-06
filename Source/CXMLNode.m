@@ -3,31 +3,29 @@
 //  TouchCode
 //
 //  Created by Jonathan Wight on 03/07/08.
-//  Copyright 2011 toxicsoftware.com. All rights reserved.
+//  Copyright 2008 toxicsoftware.com. All rights reserved.
 //
-//  Redistribution and use in source and binary forms, with or without modification, are
-//  permitted provided that the following conditions are met:
+//  Permission is hereby granted, free of charge, to any person
+//  obtaining a copy of this software and associated documentation
+//  files (the "Software"), to deal in the Software without
+//  restriction, including without limitation the rights to use,
+//  copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following
+//  conditions:
 //
-//     1. Redistributions of source code must retain the above copyright notice, this list of
-//        conditions and the following disclaimer.
+//  The above copyright notice and this permission notice shall be
+//  included in all copies or substantial portions of the Software.
 //
-//     2. Redistributions in binary form must reproduce the above copyright notice, this list
-//        of conditions and the following disclaimer in the documentation and/or other materials
-//        provided with the distribution.
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+//  EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+//  OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+//  NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+//  HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+//  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+//  OTHER DEALINGS IN THE SOFTWARE.
 //
-//  THIS SOFTWARE IS PROVIDED BY TOXICSOFTWARE.COM ``AS IS'' AND ANY EXPRESS OR IMPLIED
-//  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
-//  FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL TOXICSOFTWARE.COM OR
-//  CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-//  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-//  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
-//  ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-//  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-//  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//  The views and conclusions contained in the software and documentation are those of the
-//  authors and should not be interpreted as representing official policies, either expressed
-//  or implied, of toxicsoftware.com.
 
 #import "CXMLNode.h"
 
@@ -48,7 +46,18 @@ static int MyXmlOutputCloseCallback(void * context);
 
 - (void)dealloc
 {
-[self invalidate];
+if (_node)
+	{
+	if (_node->_private == self)
+		_node->_private = NULL;
+
+	if (_freeNodeOnRelease)
+		{
+		xmlFreeNode(_node);
+		}
+
+	_node = NULL;
+	}
 //
 [super dealloc];
 }
@@ -56,18 +65,18 @@ static int MyXmlOutputCloseCallback(void * context);
 - (id)copyWithZone:(NSZone *)zone;
 {
 #pragma unused (zone)
-xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
-CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnDealloc:YES];
-theNewNode->_private = theNode;
-return(theNode);
+	xmlNodePtr theNewNode = xmlCopyNode(_node, 1);
+	CXMLNode *theNode = [[[self class] alloc] initWithLibXMLNode:theNewNode freeOnDealloc:YES];
+	theNewNode->_private = theNode;
+	return(theNode);
 }
 
 #pragma mark -
 
 - (CXMLNodeKind)kind
 {
-NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
-return((CXMLNodeKind)_node->type); // TODO this isn't 100% accurate!
+	NSAssert(_node != NULL, @"CXMLNode does not have attached libxml2 _node.");
+	return((CXMLNodeKind)_node->type); // TODO this isn't 100% accurate!
 }
 
 - (NSString *)name
