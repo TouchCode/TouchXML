@@ -75,6 +75,14 @@ STAssertNil(theXMLDocument, NULL);
 STAssertNotNil(theError, NULL);
 }
 
+- (void)test_nilXMLTest
+{
+    NSError *theError = NULL;
+    CXMLDocument *theXMLDocument = [[[CXMLDocument alloc] initWithXMLString:nil options:0 error:&theError] autorelease];
+    STAssertNil(theXMLDocument, NULL);
+    STAssertNotNil(theError, NULL);
+}
+
 - (void)test_badXMLTestFromData
 {
 	NSError *theError = NULL;
