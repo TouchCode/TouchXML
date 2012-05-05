@@ -109,6 +109,7 @@ return(_node);
 
         if (_freeNodeOnRelease)
             {
+            xmlUnlinkNode(_node);
             xmlFreeNode(_node);
             }
 

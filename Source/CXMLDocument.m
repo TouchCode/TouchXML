@@ -192,9 +192,9 @@
         
     }
     //
+    xmlUnlinkNode(_node);
     xmlFreeDoc((xmlDocPtr)_node);
     _node = NULL;
-    //
 }
 
 //- (NSString *)characterEncoding;
