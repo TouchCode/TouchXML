@@ -197,11 +197,10 @@
 
     [thePool release];
     //
+    xmlUnlinkNode(_node);
     xmlFreeDoc((xmlDocPtr)_node);
     _node = NULL;
-    //
-    [super dealloc];
-    }
+}
 
 //- (NSString *)characterEncoding;
 //- (NSString *)version;
