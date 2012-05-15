@@ -37,7 +37,7 @@
 #include <libxml/xpath.h>
 #include <libxml/xpathInternals.h>
 
-@implementation CXMLNode (CXMLNode_NamespaceExtensions)
+@implementation CXMLNode (CXMLNode_XPathExtensions)
 
 - (NSArray *)nodesForXPath:(NSString *)xpath namespaceMappings:(NSDictionary *)inNamespaceMappings error:(NSError **)error;
 {
@@ -76,6 +76,11 @@ xmlXPathFreeObject(theXPathObject);
 
 xmlXPathFreeContext(theXPathContext);
 return(theResult);
+}
+
+- (CXMLNode *)nodeForXPath:(NSString *)xpath namespaceMappings:(NSDictionary *)inNamespaceMappings error:(NSError **)error
+{
+    return [[self nodesForXPath:xpath namespaceMappings:inNamespaceMappings error:error] lastObject];
 }
 
 - (CXMLNode *)nodeForXPath:(NSString *)xpath error:(NSError **)outError
