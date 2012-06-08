@@ -44,52 +44,61 @@
 
 - (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError
 {
+#if !TOUCHXMLUSETIDY
 #pragma unused (inOptions)
+#endif
     
-    if ((self = [super init]) != NULL)
-    {        
+    self = [super init];
+    if (self) {                
+        NSError *theError = NULL;
+        
 #if TOUCHXMLUSETIDY
+        const char *tidyEncodingCString = [[CTidy tidyEncodingFromStringEncoding:NSUTF8StringEncoding] UTF8String];
+        
         if (inOptions & CXMLDocumentTidyHTML)
         {
-            inString = [[CTidy tidy] tidyString:inString inputFormat:TidyFormat_HTML outputFormat:TidyFormat_XHTML diagnostics:NULL error:&theError];
+            CTidy *tidy = [[CTidy alloc] init];
+            inString = [tidy tidyString:inString inputFormat:TidyFormat_HTML outputFormat:TidyFormat_XHTML encoding:tidyEncodingCString diagnostics:NULL error:&theError];
         }
         else if (inOptions & CXMLDocumentTidyXML)
         {
-            inString = [[CTidy tidy] tidyString:inString inputFormat:TidyFormat_XML outputFormat:TidyFormat_XML diagnostics:NULL error:&theError];
+            CTidy *tidy = [[CTidy alloc] init];
+            inString = [tidy tidyString:inString inputFormat:TidyFormat_XML outputFormat:TidyFormat_XML encoding:tidyEncodingCString diagnostics:NULL error:&theError];
         }
 #endif
-        NSError *theError = NULL;
-
-        xmlDocPtr theDoc = xmlParseDoc((xmlChar *)[inString UTF8String]);
-        if (theDoc != NULL)
-        {
-            _node = (xmlNodePtr)theDoc;
-            NSAssert(_node->_private == NULL, @"TODO");
-            _node->_private = (__bridge void *)self; // Note. NOT retained (TODO think more about _private usage)
-        }
-        else
-        {
-            NSDictionary *theUserInfo = nil;
-            
-            xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
-            if (theLastErrorPtr) {
-                theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                               [NSString stringWithUTF8String:theLastErrorPtr->message], NSLocalizedDescriptionKey,
-                               NULL];
+        
+        if (theError == NULL) {
+            xmlDocPtr theDoc = xmlParseDoc((xmlChar *)[inString UTF8String]);
+            if (theDoc != NULL)
+            {
+                _node = (xmlNodePtr)theDoc;
+                NSAssert(_node->_private == NULL, @"TODO");
+                _node->_private = (__bridge void *)self; // Note. NOT retained (TODO think more about _private usage)
             }
-            theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
+            else
+            {
+                NSDictionary *theUserInfo = nil;
+                
+                xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
+                if (theLastErrorPtr) {
+                    theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [NSString stringWithUTF8String:theLastErrorPtr->message], NSLocalizedDescriptionKey,
+                                   NULL];
+                }
+                theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
+                
+                xmlResetLastError();
+            }
             
-            xmlResetLastError();
-        }
-        
-        if (outError)
-        {
-            *outError = theError;
-        }
-        
-        if (theError != NULL)
-        {
-            self = NULL;
+            if (outError)
+            {
+                *outError = theError;
+            }
+            
+            if (theError != NULL)
+            {
+                self = NULL;
+            }
         }
     }
     
@@ -103,22 +112,31 @@
 
 - (id)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError
 {
+#if !TOUCHXMLUSETIDY
 #pragma unused (inOptions)
-    if ((self = [super init]) != NULL)
-    {
+#endif
+    
+    self = [super init];
+    if (self) {
         NSError *theError = NULL;
         
 #if TOUCHXMLUSETIDY
+        NSString *tidyEncoding = [CTidy tidyEncodingFromStringEncoding:encoding];
+        tidyEncoding = (tidyEncoding ?: [CTidy tidyEncodingFromStringEncoding:NSUTF8StringEncoding]);
+        const char *tidyEncodingCString = [tidyEncoding UTF8String];
+        
         if (inOptions & CXMLDocumentTidyHTML)
         {
-            inData = [[CTidy tidy] tidyData:inData inputFormat:TidyFormat_HTML outputFormat:TidyFormat_XHTML diagnostics:NULL error:&theError];
+            CTidy *tidy = [[CTidy alloc] init];
+            inData = [tidy tidyData:inData inputFormat:TidyFormat_HTML outputFormat:TidyFormat_XHTML encoding:tidyEncodingCString diagnostics:NULL error:&theError];
         }
         else if (inOptions & CXMLDocumentTidyXML)
         {
-            inData = [[CTidy tidy] tidyData:inData inputFormat:TidyFormat_XML outputFormat:TidyFormat_XML diagnostics:NULL error:&theError];
+            CTidy *tidy = [[CTidy alloc] init];
+            inData = [tidy tidyData:inData inputFormat:TidyFormat_XML outputFormat:TidyFormat_XML encoding:tidyEncodingCString diagnostics:NULL error:&theError];
         }
 #endif
-        
+    
         if (theError == NULL)
         {
             xmlDocPtr theDoc = NULL;
@@ -147,7 +165,7 @@
                 xmlResetLastError();
             }
         }
-        
+                
         if (outError)
             *outError = theError;
         
