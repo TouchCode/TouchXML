@@ -42,14 +42,12 @@ typedef enum {
 	TidyFormat_XHTML,
 } CTidyFormat;
 
-@interface CTidy : NSObject {
-}
-
-+ (CTidy *)tidy;
+@interface CTidy : NSObject
++ (NSString *)tidyEncodingFromStringEncoding:(NSStringEncoding)encoding;
 
 - (NSData *)tidyData:(NSData *)inData inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat encoding:(const char *)encoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError;
-- (NSString *)tidyString:(NSString *)inString inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat encoding:(const char *)encoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError;
 
+- (NSString *)tidyString:(NSString *)inString inputFormat:(CTidyFormat)inInputFormat outputFormat:(CTidyFormat)inOutputFormat encoding:(const char *)encoding diagnostics:(NSString **)outDiagnostics error:(NSError **)outError;
 @end
 
 #endif /* TOUCHXMLUSETIDY */
