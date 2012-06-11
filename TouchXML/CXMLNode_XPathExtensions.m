@@ -51,10 +51,10 @@ NSArray *theResult = NULL;
 xmlXPathContextPtr theXPathContext = xmlXPathNewContext(_node->doc);
 theXPathContext->node = _node;
 
-for (NSString *thePrefix in inNamespaceMappings)
-	{
-	xmlXPathRegisterNs(theXPathContext, (xmlChar *)[thePrefix UTF8String], (xmlChar *)[[inNamespaceMappings objectForKey:thePrefix] UTF8String]);
-	}
+    [ inNamespaceMappings enumerateKeysAndObjectsUsingBlock: ^( id thePrefix, id ns_uri, BOOL *stop_ )
+    {
+        xmlXPathRegisterNs(theXPathContext, (xmlChar *)[thePrefix UTF8String], (xmlChar *)[ns_uri UTF8String]);
+    } ];
 
 // TODO considering putting xmlChar <-> UTF8 into a NSString category
 xmlXPathObjectPtr theXPathObject = xmlXPathEvalExpression((const xmlChar *)[xpath UTF8String], theXPathContext);
