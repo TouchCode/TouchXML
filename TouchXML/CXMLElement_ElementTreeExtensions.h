@@ -29,7 +29,7 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "CXMLElement.h"
+#import <TouchXML/CXMLElement.h>
 
 
 @interface CXMLElement (CXMLElement_ElementTreeExtensions)

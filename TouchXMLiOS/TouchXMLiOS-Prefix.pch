@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'TouchXMLiOS' target in the 'TouchXMLiOS' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

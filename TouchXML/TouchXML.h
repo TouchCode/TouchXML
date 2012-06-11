@@ -1,8 +1,8 @@
 //
-//  CXMLNamespaceNode.h
-//  TouchXML
+//  TouchXML.h
+//  TouchCode
 //
-//  Created by Jonathan Wight on 1/1/2000.
+//  Created by Jonathan Wight on 07/11/08.
 //  Copyright 2011 toxicsoftware.com. All rights reserved.
 //
 //  Redistribution and use in source and binary forms, with or without modification, are
@@ -29,17 +29,11 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import <Foundation/Foundation.h>
-#import "CXMLNode.h"
-#import "CXMLElement.h"
-
-@interface CXMLNamespaceNode : CXMLNode {
-
-	NSString *_prefix;
-	NSString *_uri;
-	CXMLElement *_parent;
-}
-
-- (id) initWithPrefix:(NSString *)prefix URI:(NSString *)uri parentElement:(CXMLElement *)parent;
-
-@end
+#import <TouchXML/CXMLDocument.h>
+#import <TouchXML/Creation/CXMLDocument_CreationExtensions.h>
+#import <TouchXML/CXMLElement.h>
+#import <TouchXML/CXMLElement_CreationExtensions.h>
+#import <TouchXML/CXMLElement_ElementTreeExtensions.h>
+#import <TouchXML/CXMLNode.h>
+#import <TouchXML/Creation/CXMLNode_CreationExtensions.h>
+#import <TouchXML/CXMLNode_XPathExtensions.h>

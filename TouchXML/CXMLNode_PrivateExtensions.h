@@ -1,5 +1,5 @@
 //
-//  CXHTMLDocument.h
+//  CXMLNode_PrivateExtensions.h
 //  TouchCode
 //
 //  Created by Jonathan Wight on 03/07/08.
@@ -29,14 +29,16 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "CXMLDocument.h"
+#import <TouchXML/CXMLNode.h>
 
+@interface CXMLNode (CXMLNode_PrivateExtensions)
 
-@interface CXHTMLDocument : CXMLDocument {
+@property (readonly, nonatomic, assign) xmlNodePtr node;
 
-}
+- (id)initWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc;
 
-- (id)initWithXHTMLData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithXHTMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
++ (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc;
+
+- (void)invalidate;
 
 @end

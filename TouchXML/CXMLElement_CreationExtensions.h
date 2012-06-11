@@ -1,8 +1,8 @@
 //
-//  TouchXML.h
+//  CXMLElement_CreationExtensions.h
 //  TouchCode
 //
-//  Created by Jonathan Wight on 07/11/08.
+//  Created by Jonathan Wight on 04/01/08.
 //  Copyright 2011 toxicsoftware.com. All rights reserved.
 //
 //  Redistribution and use in source and binary forms, with or without modification, are
@@ -29,11 +29,12 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "CXMLDocument.h"
-#import "CXMLDocument_CreationExtensions.h"
-#import "CXMLElement.h"
-#import "CXMLElement_CreationExtensions.h"
-#import "CXMLElement_ElementTreeExtensions.h"
-#import "CXMLNode.h"
-#import "CXMLNode_CreationExtensions.h"
-#import "CXMLNode_XPathExtensions.h"
+#import <TouchXML/CXMLElement.h>
+
+@interface CXMLElement (CXMLElement_CreationExtensions)
+
+- (void)addChild:(CXMLNode *)inNode;
+
+- (void)addNamespace:(CXMLNode *)inNamespace;
+
+@end

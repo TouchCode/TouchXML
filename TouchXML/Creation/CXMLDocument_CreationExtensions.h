@@ -29,7 +29,7 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "CXMLDocument.h"
+#import <TouchXML/CXMLDocument.h>
 
 @interface CXMLDocument (CXMLDocument_CreationExtensions)
 

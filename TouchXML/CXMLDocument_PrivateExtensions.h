@@ -1,5 +1,5 @@
 //
-//  CXMLDocument.h
+//  CXMLDocument_PrivateExtensions.h
 //  TouchCode
 //
 //  Created by Jonathan Wight on 03/07/08.
@@ -29,41 +29,14 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "CXMLNode.h"
+#import <TouchXML/CXMLDocument.h>
 
-enum {
-	CXMLDocumentTidyHTML = 1 << 9, // Based on NSXMLDocumentTidyHTML
-	CXMLDocumentTidyXML = 1 << 10, // Based on NSXMLDocumentTidyXML
-};
+#include <libxml/parser.h>
 
-@class CXMLElement;
+@interface CXMLDocument (CXMLDocument_PrivateExtensions)
 
-@interface CXMLDocument : CXMLNode {
-	NSMutableSet *nodePool;
-}
+//- (id)initWithLibXmlParserContext:(xmlParserCtxtPtr)inContext options:(NSUInteger)inOptions error:(NSError **)outError;
 
-- (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError;
-- (id)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
-
-//- (NSString *)characterEncoding;
-//- (NSString *)version;
-//- (BOOL)isStandalone;
-//- (CXMLDocumentContentKind)documentContentKind;
-//- (NSString *)MIMEType;
-//- (CXMLDTD *)DTD;
-
-- (CXMLElement *)rootElement;
-
-- (NSData *)XMLData;
-- (NSData *)XMLDataWithOptions:(NSUInteger)options;
-
-//- (id)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
-//- (id)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
-//- (id)objectByApplyingXSLTAtURL:(NSURL *)xsltURL arguments:(NSDictionary *)argument error:(NSError **)error;
-
-- (id)XMLStringWithOptions:(NSUInteger)options;
+- (NSMutableSet *)nodePool;
 
 @end
