@@ -143,6 +143,7 @@
     // Create an input buffer and copy input to it (TODO uses 2X memory == bad!)
     TidyBuffer theInputBuffer;
     tidyBufAlloc(&theInputBuffer, [inData length]);
+    theInputBuffer.bp = NULL; // Without this line following memcpy crashes compiling with LLVM 4
     memcpy(theInputBuffer.bp, [inData bytes], [inData length]);
     theInputBuffer.size = [inData length];
 
