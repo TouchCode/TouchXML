@@ -34,8 +34,7 @@
 /*
  Tidy is disabled by default. In order to enable it correctly you need to:
  1) set preprocessor macros TOUCHXMLUSETIDY=1
- 2) add "/usr/include/tidy" to Header Search Paths
- 3) link libtidy.a
+ 2) download and build libtidy into your app (you cannot link against system provided build, because you would use Apple private APIs)
  */
 enum {
 	CXMLDocumentTidyHTML = 1 << 9, // Based on NSXMLDocumentTidyHTML
