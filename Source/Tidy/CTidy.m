@@ -142,8 +142,12 @@
 
     // Create an input buffer and copy input to it (TODO uses 2X memory == bad!)
     TidyBuffer theInputBuffer;
+    /*
+     Without this line following memcpy crashes compiling with LLVM 4, because
+     realloc does not find a NULL pointer to malloc in tidyBufAlloc() call
+     */
+    theInputBuffer.bp = NULL;
     tidyBufAlloc(&theInputBuffer, [inData length]);
-    theInputBuffer.bp = NULL; // Without this line following memcpy crashes compiling with LLVM 4
     memcpy(theInputBuffer.bp, [inData bytes], [inData length]);
     theInputBuffer.size = [inData length];
 
