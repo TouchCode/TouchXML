@@ -33,6 +33,7 @@
 
 #import "CXMLElement.h"
 #import "CXMLDocument_PrivateExtensions.h"
+#import "CXMLUnsupportedNode.h"
 
 @implementation CXMLNode (CXMLNode_PrivateExtensions)
 
@@ -51,48 +52,53 @@ return(self);
 
 + (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc
 {
-// TODO more checking.
-if (inLibXMLNode == NULL)
-	return nil;
+    // TODO more checking.
+    if (inLibXMLNode == NULL)
+        return nil;
 
-if (inLibXMLNode->_private)
-	return((__bridge id)inLibXMLNode->_private);
+    if (inLibXMLNode->_private)
+        return((__bridge id)inLibXMLNode->_private);
 
-Class theClass = [CXMLNode class];
-switch (inLibXMLNode->type)
+        Class theClass = [self nodeClassForLibXMLNode:inLibXMLNode];
+
+    CXMLNode *theNode = [[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDealloc:infreeOnDealloc];
+
+
+    if (inLibXMLNode->doc != NULL) {
+        CXMLDocument *theXMLDocument = (__bridge CXMLDocument *)inLibXMLNode->doc->_private;
+        if (theXMLDocument != NULL) {
+            NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
+
+            [[theXMLDocument nodePool] addObject:theNode];
+
+            theNode->_node->_private = (__bridge void *)theNode;
+        }
+    }
+    return(theNode);
+}
+
++ (Class)nodeClassForLibXMLNode:(xmlNodePtr)inLibXMLNode {
+    Class theClass;
+    
+    switch (inLibXMLNode->type)
 	{
-	case XML_ELEMENT_NODE:
-		theClass = [CXMLElement class];
-		break;
-	case XML_DOCUMENT_NODE:
-		theClass = [CXMLDocument class];
-		break;
-	case XML_ATTRIBUTE_NODE:
-	case XML_TEXT_NODE:
-	case XML_CDATA_SECTION_NODE:
-	case XML_COMMENT_NODE:
-		break;
-	default:
-		NSAssert1(NO, @"TODO Unhandled type (%d).", inLibXMLNode->type);
-		return(NULL);
+        case XML_ELEMENT_NODE:
+            theClass = [CXMLElement class];
+            break;
+        case XML_DOCUMENT_NODE:
+            theClass = [CXMLDocument class];
+            break;
+        case XML_ATTRIBUTE_NODE:
+        case XML_TEXT_NODE:
+        case XML_CDATA_SECTION_NODE:
+        case XML_COMMENT_NODE:
+            theClass = [CXMLNode class];
+            break;
+        default:
+            theClass = [CXMLUnsupportedNode class];
 	}
-
-CXMLNode *theNode = [[theClass alloc] initWithLibXMLNode:inLibXMLNode freeOnDealloc:infreeOnDealloc];
-
-
-if (inLibXMLNode->doc != NULL)
-	{
-	CXMLDocument *theXMLDocument = (__bridge CXMLDocument *)inLibXMLNode->doc->_private;
-	if (theXMLDocument != NULL)
-		{
-		NSAssert([theXMLDocument isKindOfClass:[CXMLDocument class]] == YES, @"TODO");
-
-		[[theXMLDocument nodePool] addObject:theNode];
-
-		theNode->_node->_private = (__bridge void *)theNode;
-		}
-	}
-return(theNode);
+    
+    return theClass;
 }
 
 - (xmlNodePtr)node

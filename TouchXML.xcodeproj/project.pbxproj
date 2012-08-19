@@ -27,6 +27,9 @@
 		030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
 		030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
 		030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
+		06F4F0F715E0D2C1003FB9B6 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
+		06F4F0F815E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
+		06F4F0F915E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
 		45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */; };
 		45045CA9121E47ED00BD4662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45045CA6121E47ED00BD4662 /* main.m */; };
 		451E6E4A1152EB9F0024ABA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6E491152EB9F0024ABA5 /* main.m */; };
@@ -102,6 +105,8 @@
 		030E2697120115B3008B53A4 /* NamespaceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamespaceTests.m; sourceTree = "<group>"; };
 		030E27C71202762F008B53A4 /* CXMLNamespaceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNamespaceNode.h; sourceTree = "<group>"; };
 		030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNamespaceNode.m; sourceTree = "<group>"; };
+		06F4F0F415E0D2B9003FB9B6 /* CXMLUnsupportedNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLUnsupportedNode.h; sourceTree = "<group>"; };
+		06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLUnsupportedNode.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		45045CA4121E47ED00BD4662 /* CXMLNode_Debugging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_Debugging.h; sourceTree = "<group>"; };
 		45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_Debugging.m; sourceTree = "<group>"; };
@@ -280,6 +285,8 @@
 				45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */,
 				457940EF0D82214700EB2D22 /* CXMLNode.h */,
 				457940F00D82214700EB2D22 /* CXMLNode.m */,
+				06F4F0F415E0D2B9003FB9B6 /* CXMLUnsupportedNode.h */,
+				06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */,
 				457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */,
 				457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */,
 				45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */,
@@ -456,6 +463,7 @@
 				451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */,
 				030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 				5FBDFF4912B6042800923CD7 /* CXHTMLDocument.m in Sources */,
+				06F4F0F915E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +485,7 @@
 				45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */,
 				45045CA9121E47ED00BD4662 /* main.m in Sources */,
 				5FBDFF4712B6042800923CD7 /* CXHTMLDocument.m in Sources */,
+				06F4F0F715E0D2C1003FB9B6 /* CXMLUnsupportedNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +509,7 @@
 				030E2698120115B3008B53A4 /* NamespaceTests.m in Sources */,
 				030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
 				5FBDFF4812B6042800923CD7 /* CXHTMLDocument.m in Sources */,
+				06F4F0F815E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
