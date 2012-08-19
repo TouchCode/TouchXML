@@ -2,8 +2,4 @@
 
 @implementation CXMLUnsupportedNode
 
-- (CXMLNodeKind)kind {
-    return CXMLInvalidKind;
-}
-
 @end
