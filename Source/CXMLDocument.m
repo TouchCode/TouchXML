@@ -188,6 +188,11 @@
     
     @autoreleasepool {
         
+        for (CXMLNode *theNode in nodePool)
+        {
+            [theNode invalidate];
+        }
+        
         nodePool = NULL;
         
     }
