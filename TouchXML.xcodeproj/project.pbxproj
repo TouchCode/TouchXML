@@ -149,6 +149,8 @@
 		45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLElement_CreationExtensions.m; sourceTree = "<group>"; };
 		5FBDFF4512B6042800923CD7 /* CXHTMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXHTMLDocument.h; sourceTree = "<group>"; };
 		5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXHTMLDocument.m; sourceTree = "<group>"; };
+		BBDB524E13059621005696AC /* CXMLNode_FilteredAttributesExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_FilteredAttributesExtensions.h; sourceTree = "<group>"; };
+		BBDB524F13059621005696AC /* CXMLNode_FilteredAttributesExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_FilteredAttributesExtensions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,8 @@
 				457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */,
 				45AA86A40DAB1D08008827B0 /* CXMLNode_XPathExtensions.h */,
 				45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */,
+				BBDB524E13059621005696AC /* CXMLNode_FilteredAttributesExtensions.h */,
+				BBDB524F13059621005696AC /* CXMLNode_FilteredAttributesExtensions.m */,
 				458CE9C40F9C12BB009EF591 /* Creation */,
 				458CE9C90F9C12BB009EF591 /* Tidy */,
 				030E27C71202762F008B53A4 /* CXMLNamespaceNode.h */,
