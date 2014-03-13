@@ -1,0 +1,4 @@
+#before_script: cd 'Cocoa Examples'
+language: objective-c
+xcode_project: 'TouchXML.xcodeproj'
+xcode_scheme: All
