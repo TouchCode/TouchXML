@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0F283AD6-3885-4EF6-ABC4-AA78A924E2F8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TouchXML</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2D53FF4D-50F1-409B-AB15-74C070B6D9D8</key>
+		<string>https://github.com/TouchCode/TouchXML.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TouchXML.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2D53FF4D-50F1-409B-AB15-74C070B6D9D8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/TouchCode/TouchXML.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2D53FF4D-50F1-409B-AB15-74C070B6D9D8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2D53FF4D-50F1-409B-AB15-74C070B6D9D8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TouchXML</string>
+		</dict>
+	</array>
+</dict>
+</plist>
