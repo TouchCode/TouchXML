@@ -31,6 +31,11 @@
 
 #import "CXMLNode.h"
 
+/*
+ Tidy is disabled by default. In order to enable it correctly you need to:
+ 1) set preprocessor macros TOUCHXMLUSETIDY=1
+ 2) download and build libtidy into your app (you cannot link against system provided build, because you would use Apple private APIs)
+ */
 enum {
 	CXMLDocumentTidyHTML = 1 << 9, // Based on NSXMLDocumentTidyHTML
 	CXMLDocumentTidyXML = 1 << 10, // Based on NSXMLDocumentTidyXML
@@ -42,6 +47,32 @@ enum {
 	NSMutableSet *nodePool;
 }
 
+/*
+ Please note that, if you use tidy to repair your HTML/XML source, your node
+ graph may change.
+ 
+ For example CTidy adds XHTML namespace to your HTML by default:
+ 
+ An HTML source like this:
+    <html>
+        <head>
+            <title>My Title</title>
+    ...
+ 
+ becomes:
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+            <meta name="generator" content=
+                "HTML Tidy for Mac OS X (vers 31 October 2006 - Apple Inc. build 15.4), see www.w3.org" />
+            <title>My Title</title>
+    ...
+ 
+ This affects the way you will query this document with XPath, because you will
+ need to pass namespace mappings dictionary and to add "xmlns" to your queries
+ (e.g: "//xmlns:title" to reach "<title>" element).
+ */
 - (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;
 - (id)initWithData:(NSData *)inData encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
 - (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;

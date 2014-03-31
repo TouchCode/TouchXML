@@ -46,6 +46,7 @@ typedef enum {
 	CXMLAttributeDeclarationKind =  XML_ATTRIBUTE_DECL,
 	CXMLEntityDeclarationKind = XML_ENTITY_DECL,
 	CXMLNamespaceKind = XML_NAMESPACE_DECL,
+    CXMLEntityReferenceKind = XML_ENTITY_REF_NODE
 } CXMLNodeKind;
 
 @class CXMLDocument;

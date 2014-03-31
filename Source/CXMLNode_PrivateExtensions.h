@@ -39,6 +39,8 @@
 
 + (id)nodeWithLibXMLNode:(xmlNodePtr)inLibXMLNode freeOnDealloc:(BOOL)infreeOnDealloc;
 
++ (Class)nodeClassForLibXMLNode:(xmlNodePtr)inLibXMLNode;
+
 - (void)invalidate;
 
 @end
