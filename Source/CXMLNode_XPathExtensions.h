@@ -34,6 +34,7 @@
 @interface CXMLNode (CXMLNode_XPathExtensions)
 
 - (NSArray *)nodesForXPath:(NSString *)xpath namespaceMappings:(NSDictionary *)inNamespaceMappings error:(NSError **)error;
+- (CXMLNode *)nodeForXPath:(NSString *)xpath namespaceMappings:(NSDictionary *)inNamespaceMappings error:(NSError **)error;
 - (CXMLNode *)nodeForXPath:(NSString *)xpath error:(NSError **)outError;
 
 @end
