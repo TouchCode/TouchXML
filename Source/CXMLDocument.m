@@ -177,6 +177,7 @@
         }
     else
         {
+        [self release];
         self = NULL;
         }
         
