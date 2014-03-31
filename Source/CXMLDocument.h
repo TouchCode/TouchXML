@@ -31,6 +31,8 @@
 
 #import "CXMLNode.h"
 
+#include <tree.h>
+
 enum {
 	CXMLDocumentTidyHTML = 1 << 9, // Based on NSXMLDocumentTidyHTML
 	CXMLDocumentTidyXML = 1 << 10, // Based on NSXMLDocumentTidyXML
@@ -40,6 +42,8 @@ enum {
 
 @interface CXMLDocument : CXMLNode {
 	NSMutableSet *nodePool;
+@public
+    xmlParserCtxtPtr xmlCtxt;
 }
 
 - (id)initWithData:(NSData *)inData options:(NSUInteger)inOptions error:(NSError **)outError;

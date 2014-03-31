@@ -105,7 +105,9 @@
     if ((self = [super init]) != NULL)
         {
         NSError *theError = NULL;
-        
+
+        self->xmlCtxt = xmlNewParserCtxt();
+
         #if TOUCHXMLUSETIDY
         if (inOptions & CXMLDocumentTidyHTML)
             {
@@ -125,7 +127,7 @@
                 CFStringEncoding cfenc = CFStringConvertNSStringEncodingToEncoding(encoding);
                 CFStringRef cfencstr = CFStringConvertEncodingToIANACharSetName(cfenc);
                 const char *enc = CFStringGetCStringPtr(cfencstr, 0);
-                theDoc = xmlReadMemory([inData bytes], [inData length], NULL, enc, XML_PARSE_RECOVER | XML_PARSE_NOWARNING);
+                theDoc = xmlCtxtReadMemory( self->xmlCtxt, [inData bytes], [inData length], NULL, enc, XML_PARSE_RECOVER | XML_PARSE_NOWARNING);
                 }
             
             if (theDoc != NULL && xmlDocGetRootElement(theDoc) != NULL)
@@ -135,14 +137,14 @@
                 }
             else
                 {
-                xmlErrorPtr	theLastErrorPtr = xmlGetLastError();
+                xmlErrorPtr	theLastErrorPtr = xmlCtxtGetLastError( self->xmlCtxt );
                 NSString* message = [NSString stringWithUTF8String:
                                      (theLastErrorPtr ? theLastErrorPtr->message : "Unknown error")];
                 NSDictionary *theUserInfo = [NSDictionary dictionaryWithObjectsAndKeys:
                                              message, NSLocalizedDescriptionKey, NULL];
                 theError = [NSError errorWithDomain:@"CXMLErrorDomain" code:1 userInfo:theUserInfo];
-                                     
-                xmlResetLastError();
+
+                xmlCtxtResetLastError( self->xmlCtxt );
                 }
             }
 
@@ -200,6 +202,10 @@
     xmlUnlinkNode(_node);
     xmlFreeDoc((xmlDocPtr)_node);
     _node = NULL;
+    //
+    xmlFreeParserCtxt( self->xmlCtxt );
+    self->xmlCtxt = NULL;
+    //
     [super dealloc];
 }
 
