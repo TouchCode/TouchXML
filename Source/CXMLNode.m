@@ -170,7 +170,9 @@ else
 		while (theCurrentNode != NULL)
 		{
 			CXMLNode *theNode = [CXMLNode nodeWithLibXMLNode:theCurrentNode freeOnDealloc:NO];
-			[theChildren addObject:theNode];
+			if (theNode) {
+				[theChildren addObject:theNode];
+			}
 			theCurrentNode = theCurrentNode->next;
 		}
 	}
