@@ -31,7 +31,7 @@
 
 #import "CXMLNode.h"
 
-#include <tree.h>
+#include <libxml/tree.h>
 
 enum {
 	CXMLDocumentTidyHTML = 1 << 9, // Based on NSXMLDocumentTidyHTML
