@@ -110,10 +110,10 @@ NSString *simpleDocument()
 	NSUInteger nsOptions = NSXMLNodePreserveAll;
 	
 	*txDoc = [[CXMLDocument alloc] initWithXMLString:source options:nsOptions error:&error];
-	STAssertNil(error, @"Error building touch doc");
+	XCTAssertNil(error, @"Error building touch doc");
 	
 	*nsDoc = [[NSXMLDocument alloc] initWithXMLString:source options:nsOptions error:&error];
-	STAssertNil(error, @"Error building nsXML doc");
+	XCTAssertNil(error, @"Error building nsXML doc");
 }
 
 //--------------------------------------------------------------------------
@@ -169,16 +169,16 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 {
 	if (txNode == nil && nsNode == nil) return; // Equal
 	
-	STAssertNotNil(txNode, @"Running \"%@\" touch node nil, nsNode is %@", nsNode); 
-	STAssertNotNil(txNode, @"Running \"%@\" nsXML node nil, touch node is %@", txNode); 
+	XCTAssertNotNil(txNode, @"Running \"%@\" touch node nil, nsNode is %@", desc, nsNode);
+	XCTAssertNotNil(txNode, @"Running \"%@\" nsXML node nil, touch node is %@", desc, txNode);
 	
-	STAssertEqualObjects(stringValueOfCXMLNodeKind([txNode kind]),
+	XCTAssertEqualObjects(stringValueOfCXMLNodeKind([txNode kind]),
 						 stringValueOfNSXMLNodeKind([nsNode kind]),
 						 @"Running \"%@\" - For kind, touch gave me %@, nsxml gave me %@", desc,
 						 stringValueOfCXMLNodeKind([txNode kind]),
 						 stringValueOfNSXMLNodeKind([nsNode kind]));
 	
-	STAssertEqualObjects([txNode name], 
+	XCTAssertEqualObjects([txNode name], 
 						 [nsNode name],
 						 @"Running \"%@\" - For name, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode name], 
@@ -188,42 +188,42 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	{
 		// Bug in cocoa's -localName impl means we can't run this on namespace nodes.
 		
-		STAssertEqualObjects([txNode localName], 
+		XCTAssertEqualObjects([txNode localName], 
 							 [nsNode localName],
 							 @"Running \"%@\" - For localName, touch gave me %@, nsxml gave me %@", desc,
 							 [txNode localName], 
 							 [nsNode localName]);
 	}
 	
-	STAssertEqualObjects([txNode URI], 
+	XCTAssertEqualObjects([txNode URI], 
 						 [nsNode URI],
 						 @"Running \"%@\" - For URI, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode URI], 
 						 [nsNode URI]);
 	
-	STAssertEqualObjects([txNode prefix], 
+	XCTAssertEqualObjects([txNode prefix], 
 						 [nsNode prefix],
 						 @"Running \"%@\" - For prefix, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode prefix], 
 						 [nsNode prefix]);
 	
-	STAssertEqualObjects([txNode stringValue], 
+	XCTAssertEqualObjects([txNode stringValue], 
 						 [nsNode stringValue],
 						 @"Running \"%@\" - For stringValue, touch gave me %@, nsxml gave me %@", desc,
 						 [txNode stringValue], 
 						 [nsNode stringValue]);
 	
-	STAssertEquals([txNode childCount],
+	XCTAssertEqual([txNode childCount],
 				   [nsNode childCount],
-				   @"Running \"%@\" - For childCount, touch gave me %d, nsxml gave me %d", desc,
-				   [txNode childCount],
-				   [nsNode childCount]);
+                   @"Running \"%@\" - For childCount, touch gave me %lu, nsxml gave me %lu", desc,
+                   (unsigned long)[txNode childCount],
+				   (unsigned long)[nsNode childCount]);
 
-	STAssertEquals([[txNode children] count],
+	XCTAssertEqual([[txNode children] count],
 				   [[nsNode children] count],
-				   @"Running \"%@\" - For [children count], touch gave me %d, nsxml gave me %d", desc,
-				   [[txNode children] count],
-				   [[nsNode children] count]);
+				   @"Running \"%@\" - For [children count], touch gave me %lu, nsxml gave me %lu", desc,
+                   (unsigned long)[[txNode children] count],
+				   (unsigned long)[[nsNode children] count]);
 }
 
 - (void) assertTouchElement:(CXMLElement *)txElement matchesNSXMLElement:(NSXMLElement *)nsElement describedAs:(NSString *)desc
@@ -233,11 +233,11 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	NSArray *txNamespaces = [txElement namespaces];
 	NSArray *nsNamespaces = [nsElement namespaces];
 	
-	STAssertEquals([txNamespaces count],
+	XCTAssertEqual([txNamespaces count],
 				   [nsNamespaces count],
-				   @"Running \"%@\" - For [namespaces count], touch gave me %d, nsxml gave me %d", desc,
-				   [txNamespaces count],
-				   [nsNamespaces count]);
+                   @"Running \"%@\" - For [namespaces count], touch gave me %lu, nsxml gave me %lu", desc,
+                   (unsigned long)[txNamespaces count],
+                   (unsigned long)[nsNamespaces count]);
 
 	CXMLNode *txNamespaceNode;
 	NSXMLNode *nsNamespaceNode;
@@ -304,8 +304,8 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	// Assertions
 	
-	STAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
-	STAssertNotNil(txDoc, @"Couldn't build touch doc");
+	XCTAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
+	XCTAssertNotNil(txDoc, @"Couldn't build touch doc");
 	
 	[self assertTouchElement:[txDoc rootElement] 
 		 matchesNSXMLElement:[nsDoc rootElement]];	
@@ -324,8 +324,8 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	// Assertions
 	
-	STAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
-	STAssertNotNil(txDoc, @"Couldn't build touch doc");
+	XCTAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
+	XCTAssertNotNil(txDoc, @"Couldn't build touch doc");
 	
 	[self assertTouchElement:[txDoc rootElement] 
 		 matchesNSXMLElement:[nsDoc rootElement]];
@@ -344,8 +344,8 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	// Assertions
 	
-	STAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
-	STAssertNotNil(txDoc, @"Couldn't build touch doc");
+	XCTAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
+	XCTAssertNotNil(txDoc, @"Couldn't build touch doc");
 	
 	[self assertTouchElement:[txDoc rootElement] 
 		 matchesNSXMLElement:[nsDoc rootElement]];
@@ -367,8 +367,8 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	// Assertions
 	
-	STAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
-	STAssertNotNil(txDoc, @"Couldn't build touch doc");
+	XCTAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
+	XCTAssertNotNil(txDoc, @"Couldn't build touch doc");
 
 	[self assertTouchNode:txNode matchesNSXMLNode:nsNode];
 }
@@ -389,8 +389,8 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	// Assertions
 	
-	STAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
-	STAssertNotNil(txDoc, @"Couldn't build touch doc");
+	XCTAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
+	XCTAssertNotNil(txDoc, @"Couldn't build touch doc");
 	
 	[self assertTouchNode:txNode matchesNSXMLNode:nsNode];
 }
@@ -411,11 +411,11 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	
 	// Assertions
 	
-	STAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
-	STAssertNotNil(txDoc, @"Couldn't build touch doc");
-	STAssertEquals([txAttribs count], [nsAttribs count],
-				   @"Attribute count differs. Touch gives %d, nsXML gives %d",
-				   [txAttribs count], [nsAttribs count]);
+	XCTAssertNotNil(nsDoc, @"Couldn't build nsXML doc");
+	XCTAssertNotNil(txDoc, @"Couldn't build touch doc");
+	XCTAssertEqual([txAttribs count], [nsAttribs count],
+                   @"Attribute count differs. Touch gives %lu, nsXML gives %lu",
+                   (unsigned long)[txAttribs count], (unsigned long)[nsAttribs count]);
 	
 	for (int i = 0; i < [txAttribs count]; i++)
 	{
@@ -473,11 +473,11 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	NSArray *txChildren = [txElement elementsForLocalName:@"childElement" URI:(NSString *)NS1];
 	NSArray *nsChildren = [nsElement elementsForLocalName:@"childElement" URI:(NSString *)NS1];
 
-	STAssertEquals([txChildren count],
+	XCTAssertEqual([txChildren count],
 				   [nsChildren count],
-				   @"Comparing list selected with URI, [txChildren count] is %d, [nsChildren count] is %d", 
-				   [txChildren count],
-				   [nsChildren count]);
+                   @"Comparing list selected with URI, [txChildren count] is %lu, [nsChildr count] is %lu",
+                   (unsigned long)[txChildren count],
+                   (unsigned long)[nsChildren count]);
 	
 	for (int i = 0; i < [txChildren count]; i++)
 	{
@@ -489,11 +489,11 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	txChildren = [txElement elementsForLocalName:@"ns2:childElement" URI:nil];
 	nsChildren = [nsElement elementsForLocalName:@"ns2:childElement" URI:nil];
 	
-	STAssertEquals([txChildren count],
+	XCTAssertEqual([txChildren count],
 				   [nsChildren count],
-				   @"Comparing list selected with nil URI but prefixed name, [txChildren count] is %d, [nsChildren count] is %d", 
-				   [txChildren count],
-				   [nsChildren count]);
+                   @"Comparing list selected with nil URI but prefixed name, [txChildren count] is %lu, [nsChildr count] is %lu",
+                   (unsigned long)[txChildren count],
+                   (unsigned long)[nsChildren count]);
 	
 	for (int i = 0; i < [txChildren count]; i++)
 	{
@@ -560,7 +560,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	NSString *txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
 	NSString *nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
 	
-	STAssertEqualObjects(txURI,
+	XCTAssertEqualObjects(txURI,
 						 nsURI,
 						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS1,
 						 txURI,
@@ -569,7 +569,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
 	nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
 	
-	STAssertEqualObjects(txURI,
+	XCTAssertEqualObjects(txURI,
 						 nsURI,
 						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS2,
 						 txURI,
@@ -580,7 +580,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	txURI = [txRootElement resolvePrefixForNamespaceURI:unusedNamespace];
 	nsURI = [nsRootElement resolvePrefixForNamespaceURI:unusedNamespace];
 	
-	STAssertEqualObjects(txURI,
+	XCTAssertEqualObjects(txURI,
 						 nsURI,
 						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", unusedNamespace,
 						 txURI,
@@ -607,7 +607,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	NSString *txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
 	NSString *nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS1];
 	
-	STAssertEqualObjects(txURI,
+	XCTAssertEqualObjects(txURI,
 						 nsURI,
 						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS1,
 						 txURI,
@@ -616,7 +616,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	txURI = [txRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
 	nsURI = [nsRootElement resolvePrefixForNamespaceURI:(NSString *)NS2];
 	
-	STAssertEqualObjects(txURI,
+	XCTAssertEqualObjects(txURI,
 						 nsURI,
 						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", NS2,
 						 txURI,
@@ -627,7 +627,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	txURI = [txRootElement resolvePrefixForNamespaceURI:unusedNamespace];
 	nsURI = [nsRootElement resolvePrefixForNamespaceURI:unusedNamespace];
 	
-	STAssertEqualObjects(txURI,
+	XCTAssertEqualObjects(txURI,
 						 nsURI,
 						 @"Resolving prefix for \"%@\", touch gave me %@ but nsxml gave me %@", unusedNamespace,
 						 txURI,
@@ -647,7 +647,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	NSString *str1 = [CXMLNode prefixForName:name1];
 	NSString *str2 = [NSXMLNode prefixForName:name1];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing prefix for name1, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -656,7 +656,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode localNameForName:name1];
 	str2 = [NSXMLNode localNameForName:name1];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing localName for name1, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -667,7 +667,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode prefixForName:name2];
 	str2 = [NSXMLNode prefixForName:name2];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing prefix for name2, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -676,7 +676,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode localNameForName:name2];
 	str2 = [NSXMLNode localNameForName:name2];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing localName for name2, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -687,7 +687,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode prefixForName:name3];
 	str2 = [NSXMLNode prefixForName:name3];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing prefix for name3, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -696,7 +696,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode localNameForName:name3];
 	str2 = [NSXMLNode localNameForName:name3];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing localName for name3, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -707,7 +707,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode prefixForName:name4];
 	str2 = [NSXMLNode prefixForName:name4];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing prefix for name4, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -716,7 +716,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode localNameForName:name4];
 	str2 = [NSXMLNode localNameForName:name4];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing localName for name4, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -727,7 +727,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode prefixForName:name5];
 	str2 = [NSXMLNode prefixForName:name5];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing prefix for name5, touch gave me %@, nsxml gave me %@",
 						 str1, 
@@ -736,7 +736,7 @@ NSString *stringValueOfNSXMLNodeKind(NSXMLNodeKind kind)
 	str1 = [CXMLNode localNameForName:name5];
 	str2 = [NSXMLNode localNameForName:name5];
 	
-	STAssertEqualObjects(str1, 
+	XCTAssertEqualObjects(str1, 
 						 str2,
 						 @"Comparing localName for name5, touch gave me %@, nsxml gave me %@",
 						 str1, 

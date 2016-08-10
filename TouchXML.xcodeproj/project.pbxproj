@@ -6,52 +6,44 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		457941040D82219400EB2D22 /* All */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 4579410B0D8221C000EB2D22 /* Build configuration list for PBXAggregateTarget "All" */;
-			buildPhases = (
-			);
-			dependencies = (
-				457941080D82219E00EB2D22 /* PBXTargetDependency */,
-				4579410A0D8221A100EB2D22 /* PBXTargetDependency */,
-				451E6F711152F68B0024ABA5 /* PBXTargetDependency */,
-			);
-			name = All;
-			productName = All;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		030E2698120115B3008B53A4 /* NamespaceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E2697120115B3008B53A4 /* NamespaceTests.m */; };
 		030E27C91202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
-		030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
-		030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
-		06F4F0F715E0D2C1003FB9B6 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
 		06F4F0F815E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
-		06F4F0F915E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
-		45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */ = {isa = PBXBuildFile; fileRef = 45045CA5121E47ED00BD4662 /* CXMLNode_Debugging.m */; };
-		45045CA9121E47ED00BD4662 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45045CA6121E47ED00BD4662 /* main.m */; };
 		451E6E4A1152EB9F0024ABA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6E491152EB9F0024ABA5 /* main.m */; };
 		451E6E4C1152EBB60024ABA5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451E6E4B1152EBB60024ABA5 /* Cocoa.framework */; };
 		451E6EE31152EBF70024ABA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 451E6EE21152EBF70024ABA5 /* MainMenu.xib */; };
 		451E6EFD1152EC5B0024ABA5 /* CMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 451E6EFC1152EC5B0024ABA5 /* CMainController.m */; };
-		451E6F2A1152ED870024ABA5 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
-		451E6F2B1152ED880024ABA5 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
-		451E6F2C1152ED890024ABA5 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
-		451E6F2D1152ED890024ABA5 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
-		451E6F2E1152ED8B0024ABA5 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
-		451E6F2F1152ED8C0024ABA5 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
-		451E6F301152ED8C0024ABA5 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
-		451E6F311152ED8E0024ABA5 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
-		451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
 		4526F4B40FBB52C200781DD8 /* EncodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4526F4B30FBB52C200781DD8 /* EncodingTests.m */; };
-		456A5ED10D9F4E4800D1D9CE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */; };
-		456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		457940F40D82214700EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
-		457940F50D82214700EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
-		457940F60D82214700EB2D22 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
-		457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		4552E9E61D5AEA0F00B4F962 /* TouchXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4552E9E51D5AEA0F00B4F962 /* TouchXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4552E9EC1D5AEA3100B4F962 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
+		4552E9ED1D5AEA3100B4F962 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
+		4552E9EE1D5AEA3100B4F962 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
+		4552E9EF1D5AEA3100B4F962 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
+		4552E9F01D5AEA3100B4F962 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
+		4552E9F11D5AEA3100B4F962 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
+		4552E9F21D5AEA3100B4F962 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
+		4552E9F31D5AEA3100B4F962 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		4552E9F41D5AEA3100B4F962 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
+		4552E9F51D5AEA3600B4F962 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
+		4552E9F61D5AEA3600B4F962 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
+		4552E9F71D5AEA3C00B4F962 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9CB0F9C12BB009EF591 /* CTidy.m */; };
+		4552E9F81D5AEA4000B4F962 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
+		4552EA011D5B80F400B4F962 /* TouchXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 4552EA001D5B80F400B4F962 /* TouchXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4552EA051D5B80F400B4F962 /* TouchXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4552E9FE1D5B80F400B4F962 /* TouchXML.framework */; };
+		4552EA061D5B80F400B4F962 /* TouchXML.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4552E9FE1D5B80F400B4F962 /* TouchXML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4552EA0C1D5B811500B4F962 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
+		4552EA0D1D5B811500B4F962 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
+		4552EA0E1D5B811500B4F962 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
+		4552EA0F1D5B811500B4F962 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
+		4552EA101D5B811500B4F962 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
+		4552EA111D5B811500B4F962 /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F00D82214700EB2D22 /* CXMLNode.m */; };
+		4552EA121D5B811500B4F962 /* CXMLUnsupportedNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F4F0F515E0D2B9003FB9B6 /* CXMLUnsupportedNode.m */; };
+		4552EA131D5B811500B4F962 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
+		4552EA141D5B811500B4F962 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
+		4552EA151D5B811500B4F962 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
+		4552EA161D5B811500B4F962 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
+		4552EA171D5B841F00B4F962 /* CXMLNamespaceNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 030E27C81202762F008B53A4 /* CXMLNamespaceNode.m */; };
 		457941220D8222CD00EB2D22 /* BasicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457941210D8222CD00EB2D22 /* BasicTests.m */; };
 		457941270D82245700EB2D22 /* CXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EC0D82214700EB2D22 /* CXMLDocument.m */; };
 		457941280D82245800EB2D22 /* CXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940EE0D82214700EB2D22 /* CXMLElement.m */; };
@@ -59,46 +51,38 @@
 		4579412A0D82245900EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */; };
 		457941650D82264700EB2D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		457942380D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
-		457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 457942370D822FEB00EB2D22 /* CXMLDocument_PrivateExtensions.m */; };
 		457943950D8248DC00EB2D22 /* XPath_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457943940D8248DC00EB2D22 /* XPath_Tests.m */; };
 		458CE9CC0F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
 		458CE9CD0F9C12BB009EF591 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
 		458CE9CE0F9C12BB009EF591 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9CB0F9C12BB009EF591 /* CTidy.m */; };
-		458CE9D10F9C12CD009EF591 /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9CB0F9C12BB009EF591 /* CTidy.m */; };
-		458CE9D20F9C12CE009EF591 /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C80F9C12BB009EF591 /* CXMLNode_CreationExtensions.m */; };
-		458CE9D30F9C12CE009EF591 /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 458CE9C60F9C12BB009EF591 /* CXMLDocument_CreationExtensions.m */; };
 		45AA86A60DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
-		45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AA86A50DAB1D08008827B0 /* CXMLNode_XPathExtensions.m */; };
 		45D113840EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
-		45D113860EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D113810EC9E906005193F9 /* CXMLElement_CreationExtensions.m */; };
-		5FBDFF4712B6042800923CD7 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
 		5FBDFF4812B6042800923CD7 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
-		5FBDFF4912B6042800923CD7 /* CXHTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBDFF4612B6042800923CD7 /* CXHTMLDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		451E6F701152F68B0024ABA5 /* PBXContainerItemProxy */ = {
+		4552EA031D5B80F400B4F962 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 451E6E301152EB4A0024ABA5;
-			remoteInfo = Validator;
-		};
-		457941070D82219E00EB2D22 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 456A848A0D81DB06000E29C9;
-			remoteInfo = TouchXML_Demo;
-		};
-		457941090D8221A100EB2D22 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 457940FE0D82217800EB2D22;
-			remoteInfo = TouchXML_UnitTests;
+			remoteGlobalIDString = 4552E9FD1D5B80F400B4F962;
+			remoteInfo = TouchXML;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4552EA0B1D5B80F400B4F962 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4552EA061D5B80F400B4F962 /* TouchXML.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		030E2696120115B3008B53A4 /* NamespaceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamespaceTests.h; sourceTree = "<group>"; };
@@ -121,7 +105,12 @@
 		451E6EFC1152EC5B0024ABA5 /* CMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMainController.m; sourceTree = "<group>"; };
 		4526F4B20FBB52C200781DD8 /* EncodingTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingTests.h; sourceTree = "<group>"; };
 		4526F4B30FBB52C200781DD8 /* EncodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingTests.m; sourceTree = "<group>"; };
-		456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4552E9E31D5AEA0F00B4F962 /* TouchXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4552E9E51D5AEA0F00B4F962 /* TouchXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		4552E9E71D5AEA0F00B4F962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4552E9FE1D5B80F400B4F962 /* TouchXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4552EA001D5B80F400B4F962 /* TouchXML.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		4552EA021D5B80F400B4F962 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		457940EB0D82214700EB2D22 /* CXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument.h; sourceTree = "<group>"; };
 		457940EC0D82214700EB2D22 /* CXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument.m; sourceTree = "<group>"; };
 		457940ED0D82214700EB2D22 /* CXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLElement.h; sourceTree = "<group>"; };
@@ -130,7 +119,7 @@
 		457940F00D82214700EB2D22 /* CXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode.m; sourceTree = "<group>"; };
 		457940F10D82214700EB2D22 /* CXMLNode_PrivateExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLNode_PrivateExtensions.h; sourceTree = "<group>"; };
 		457940F20D82214700EB2D22 /* CXMLNode_PrivateExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLNode_PrivateExtensions.m; sourceTree = "<group>"; };
-		457940FF0D82217800EB2D22 /* TouchXMLUnitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchXMLUnitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		457940FF0D82217800EB2D22 /* TouchXMLUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchXMLUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		457941200D8222CD00EB2D22 /* BasicTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicTests.h; sourceTree = "<group>"; };
 		457941210D8222CD00EB2D22 /* BasicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicTests.m; sourceTree = "<group>"; };
 		457941580D8225FC00EB2D22 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -161,15 +150,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4552EA051D5B80F400B4F962 /* TouchXML.framework in Frameworks */,
 				451E6E4C1152EBB60024ABA5 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		456A84890D81DB06000E29C9 /* Frameworks */ = {
+		4552E9DF1D5AEA0F00B4F962 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456A848D0D81DB25000E29C9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4552E9FA1D5B80F400B4F962 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +174,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				457941650D82264700EB2D22 /* Foundation.framework in Frameworks */,
-				456A5ED10D9F4E4800D1D9CE /* SenTestingKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +183,10 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				457940FF0D82217800EB2D22 /* TouchXMLUnitTests.octest */,
+				457940FF0D82217800EB2D22 /* TouchXMLUnitTests.xctest */,
 				451E6E311152EB4A0024ABA5 /* TouchXMLValidator.app */,
+				4552E9E31D5AEA0F00B4F962 /* TouchXML.framework */,
+				4552E9FE1D5B80F400B4F962 /* TouchXML.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +197,8 @@
 				457940EA0D82214700EB2D22 /* Source */,
 				457940E70D82214700EB2D22 /* UnitTests */,
 				451E6E441152EB790024ABA5 /* Validator */,
+				4552E9E41D5AEA0F00B4F962 /* TouchXML */,
+				4552E9FF1D5B80F400B4F962 /* TouchXML */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -211,7 +210,6 @@
 			children = (
 				451E6E4B1152EBB60024ABA5 /* Cocoa.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
-				456A5ED00D9F4E4800D1D9CE /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -239,6 +237,24 @@
 			);
 			name = Validator;
 			path = Support/Validator;
+			sourceTree = "<group>";
+		};
+		4552E9E41D5AEA0F00B4F962 /* TouchXML */ = {
+			isa = PBXGroup;
+			children = (
+				4552E9E51D5AEA0F00B4F962 /* TouchXML.h */,
+				4552E9E71D5AEA0F00B4F962 /* Info.plist */,
+			);
+			path = TouchXML;
+			sourceTree = "<group>";
+		};
+		4552E9FF1D5B80F400B4F962 /* TouchXML */ = {
+			isa = PBXGroup;
+			children = (
+				4552EA001D5B80F400B4F962 /* TouchXML.h */,
+				4552EA021D5B80F400B4F962 /* Info.plist */,
+			);
+			path = TouchXML;
 			sourceTree = "<group>";
 		};
 		457940E70D82214700EB2D22 /* UnitTests */ = {
@@ -330,6 +346,25 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		4552E9E01D5AEA0F00B4F962 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4552E9E61D5AEA0F00B4F962 /* TouchXML.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4552E9FB1D5B80F400B4F962 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4552EA011D5B80F400B4F962 /* TouchXML.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		451E6E301152EB4A0024ABA5 /* TouchXMLValidator */ = {
 			isa = PBXNativeTarget;
@@ -338,30 +373,53 @@
 				451E6E2D1152EB4A0024ABA5 /* Resources */,
 				451E6E2E1152EB4A0024ABA5 /* Sources */,
 				451E6E2F1152EB4A0024ABA5 /* Frameworks */,
+				4552EA0B1D5B80F400B4F962 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4552EA041D5B80F400B4F962 /* PBXTargetDependency */,
 			);
 			name = TouchXMLValidator;
 			productName = Validator;
 			productReference = 451E6E311152EB4A0024ABA5 /* TouchXMLValidator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		456A848A0D81DB06000E29C9 /* TouchXMLDemo */ = {
+		4552E9E21D5AEA0F00B4F962 /* TouchXML_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXMLDemo" */;
+			buildConfigurationList = 4552E9EB1D5AEA0F00B4F962 /* Build configuration list for PBXNativeTarget "TouchXML_iOS" */;
 			buildPhases = (
-				456A84880D81DB06000E29C9 /* Sources */,
-				456A84890D81DB06000E29C9 /* Frameworks */,
+				4552E9DE1D5AEA0F00B4F962 /* Sources */,
+				4552E9DF1D5AEA0F00B4F962 /* Frameworks */,
+				4552E9E01D5AEA0F00B4F962 /* Headers */,
+				4552E9E11D5AEA0F00B4F962 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = TouchXMLDemo;
-			productName = "Mac OS X";
-			productType = "com.apple.product-type.tool";
+			name = TouchXML_iOS;
+			productName = TouchXML;
+			productReference = 4552E9E31D5AEA0F00B4F962 /* TouchXML.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4552E9FD1D5B80F400B4F962 /* TouchXML_Mac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4552EA071D5B80F400B4F962 /* Build configuration list for PBXNativeTarget "TouchXML_Mac" */;
+			buildPhases = (
+				4552E9F91D5B80F400B4F962 /* Sources */,
+				4552E9FA1D5B80F400B4F962 /* Frameworks */,
+				4552E9FB1D5B80F400B4F962 /* Headers */,
+				4552E9FC1D5B80F400B4F962 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TouchXML_Mac;
+			productName = TouchXML;
+			productReference = 4552E9FE1D5B80F400B4F962 /* TouchXML.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		457940FE0D82217800EB2D22 /* TouchXMLUnitTests */ = {
 			isa = PBXNativeTarget;
@@ -370,7 +428,6 @@
 				457940FA0D82217800EB2D22 /* Resources */,
 				457940FB0D82217800EB2D22 /* Sources */,
 				457940FC0D82217800EB2D22 /* Frameworks */,
-				457940FD0D82217800EB2D22 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -378,8 +435,8 @@
 			);
 			name = TouchXMLUnitTests;
 			productName = TouchXML_UnitTests;
-			productReference = 457940FF0D82217800EB2D22 /* TouchXMLUnitTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 457940FF0D82217800EB2D22 /* TouchXMLUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -388,6 +445,14 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				TargetAttributes = {
+					4552E9E21D5AEA0F00B4F962 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					4552E9FD1D5B80F400B4F962 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TouchXML" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -403,10 +468,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				457941040D82219400EB2D22 /* All */,
-				456A848A0D81DB06000E29C9 /* TouchXMLDemo */,
-				457940FE0D82217800EB2D22 /* TouchXMLUnitTests */,
+				4552E9E21D5AEA0F00B4F962 /* TouchXML_iOS */,
+				4552E9FD1D5B80F400B4F962 /* TouchXML_Mac */,
 				451E6E301152EB4A0024ABA5 /* TouchXMLValidator */,
+				457940FE0D82217800EB2D22 /* TouchXMLUnitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -420,6 +485,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4552E9E11D5AEA0F00B4F962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4552E9FC1D5B80F400B4F962 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		457940FA0D82217800EB2D22 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -429,22 +508,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		457940FD0D82217800EB2D22 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n\n # Run gcov on the framework getting tested\nif [ \"${CONFIGURATION}\" = 'Coverage' ]; then\n\techo '##########################################################################'\n\tCOVERAGE_OUTPUT_DIR=${SRCROOT}/Coverage\n\techo \"${COVERAGE_OUTPUT_DIR}\"\n\tmkdir -p \"${COVERAGE_OUTPUT_DIR}\"\n\tpushd \"${OBJECT_FILE_DIR_normal}/${CURRENT_ARCH}\"\n\tpwd\n\tfind . -name '*.gcda' -exec gcov {} \\;\n\tfind . -name '*.gcov' -exec mv {} \"${COVERAGE_OUTPUT_DIR}\" \\;\n\tpopd\n\techo '##########################################################################'\nfi \n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		451E6E2E1152EB4A0024ABA5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -452,40 +515,45 @@
 			files = (
 				451E6E4A1152EB9F0024ABA5 /* main.m in Sources */,
 				451E6EFD1152EC5B0024ABA5 /* CMainController.m in Sources */,
-				451E6F2A1152ED870024ABA5 /* CXMLDocument.m in Sources */,
-				451E6F2B1152ED880024ABA5 /* CXMLDocument_PrivateExtensions.m in Sources */,
-				451E6F2C1152ED890024ABA5 /* CXMLElement.m in Sources */,
-				451E6F2D1152ED890024ABA5 /* CXMLElement_CreationExtensions.m in Sources */,
-				451E6F2E1152ED8B0024ABA5 /* CXMLNode.m in Sources */,
-				451E6F2F1152ED8C0024ABA5 /* CXMLNode_PrivateExtensions.m in Sources */,
-				451E6F301152ED8C0024ABA5 /* CXMLNode_XPathExtensions.m in Sources */,
-				451E6F311152ED8E0024ABA5 /* CXMLDocument_CreationExtensions.m in Sources */,
-				451E6F321152ED8F0024ABA5 /* CXMLNode_CreationExtensions.m in Sources */,
-				030E27CB1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
-				5FBDFF4912B6042800923CD7 /* CXHTMLDocument.m in Sources */,
-				06F4F0F915E0D2C2003FB9B6 /* CXMLUnsupportedNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		456A84880D81DB06000E29C9 /* Sources */ = {
+		4552E9DE1D5AEA0F00B4F962 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				457940F40D82214700EB2D22 /* CXMLDocument.m in Sources */,
-				457940F50D82214700EB2D22 /* CXMLElement.m in Sources */,
-				457940F60D82214700EB2D22 /* CXMLNode.m in Sources */,
-				457940F70D82214700EB2D22 /* CXMLNode_PrivateExtensions.m in Sources */,
-				457943670D82473400EB2D22 /* CXMLDocument_PrivateExtensions.m in Sources */,
-				45AA86A70DAB1D08008827B0 /* CXMLNode_XPathExtensions.m in Sources */,
-				45D113860EC9E906005193F9 /* CXMLElement_CreationExtensions.m in Sources */,
-				458CE9D10F9C12CD009EF591 /* CTidy.m in Sources */,
-				458CE9D20F9C12CE009EF591 /* CXMLNode_CreationExtensions.m in Sources */,
-				458CE9D30F9C12CE009EF591 /* CXMLDocument_CreationExtensions.m in Sources */,
-				030E27CA1202762F008B53A4 /* CXMLNamespaceNode.m in Sources */,
-				45045CA8121E47ED00BD4662 /* CXMLNode_Debugging.m in Sources */,
-				45045CA9121E47ED00BD4662 /* main.m in Sources */,
-				5FBDFF4712B6042800923CD7 /* CXHTMLDocument.m in Sources */,
-				06F4F0F715E0D2C1003FB9B6 /* CXMLUnsupportedNode.m in Sources */,
+				4552E9ED1D5AEA3100B4F962 /* CXHTMLDocument.m in Sources */,
+				4552E9F51D5AEA3600B4F962 /* CXMLDocument_CreationExtensions.m in Sources */,
+				4552E9EE1D5AEA3100B4F962 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				4552E9F71D5AEA3C00B4F962 /* CTidy.m in Sources */,
+				4552E9F41D5AEA3100B4F962 /* CXMLNode_XPathExtensions.m in Sources */,
+				4552E9EF1D5AEA3100B4F962 /* CXMLElement.m in Sources */,
+				4552E9F31D5AEA3100B4F962 /* CXMLNode_PrivateExtensions.m in Sources */,
+				4552E9F01D5AEA3100B4F962 /* CXMLElement_CreationExtensions.m in Sources */,
+				4552E9F61D5AEA3600B4F962 /* CXMLNode_CreationExtensions.m in Sources */,
+				4552E9F81D5AEA4000B4F962 /* CXMLNamespaceNode.m in Sources */,
+				4552E9EC1D5AEA3100B4F962 /* CXMLDocument.m in Sources */,
+				4552E9F21D5AEA3100B4F962 /* CXMLUnsupportedNode.m in Sources */,
+				4552E9F11D5AEA3100B4F962 /* CXMLNode.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4552E9F91D5B80F400B4F962 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4552EA0D1D5B811500B4F962 /* CXHTMLDocument.m in Sources */,
+				4552EA151D5B811500B4F962 /* CXMLDocument_CreationExtensions.m in Sources */,
+				4552EA0E1D5B811500B4F962 /* CXMLDocument_PrivateExtensions.m in Sources */,
+				4552EA141D5B811500B4F962 /* CXMLNode_XPathExtensions.m in Sources */,
+				4552EA0F1D5B811500B4F962 /* CXMLElement.m in Sources */,
+				4552EA171D5B841F00B4F962 /* CXMLNamespaceNode.m in Sources */,
+				4552EA131D5B811500B4F962 /* CXMLNode_PrivateExtensions.m in Sources */,
+				4552EA101D5B811500B4F962 /* CXMLElement_CreationExtensions.m in Sources */,
+				4552EA161D5B811500B4F962 /* CXMLNode_CreationExtensions.m in Sources */,
+				4552EA0C1D5B811500B4F962 /* CXMLDocument.m in Sources */,
+				4552EA121D5B811500B4F962 /* CXMLUnsupportedNode.m in Sources */,
+				4552EA111D5B811500B4F962 /* CXMLNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,20 +584,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		451E6F711152F68B0024ABA5 /* PBXTargetDependency */ = {
+		4552EA041D5B80F400B4F962 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 451E6E301152EB4A0024ABA5 /* TouchXMLValidator */;
-			targetProxy = 451E6F701152F68B0024ABA5 /* PBXContainerItemProxy */;
-		};
-		457941080D82219E00EB2D22 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 456A848A0D81DB06000E29C9 /* TouchXMLDemo */;
-			targetProxy = 457941070D82219E00EB2D22 /* PBXContainerItemProxy */;
-		};
-		4579410A0D8221A100EB2D22 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 457940FE0D82217800EB2D22 /* TouchXMLUnitTests */;
-			targetProxy = 457941090D8221A100EB2D22 /* PBXContainerItemProxy */;
+			target = 4552E9FD1D5B80F400B4F962 /* TouchXML_Mac */;
+			targetProxy = 4552EA031D5B80F400B4F962 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -538,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -551,6 +610,7 @@
 				);
 				INFOPLIST_FILE = Support/Validator/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ltidy",
@@ -563,6 +623,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
@@ -575,6 +636,7 @@
 				);
 				INFOPLIST_FILE = Support/Validator/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ltidy",
@@ -584,168 +646,95 @@
 			};
 			name = Release;
 		};
-		451E6E381152EB4B0024ABA5 /* Coverage */ = {
+		4552E9E81D5AEA0F00B4F962 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/tidy,
-					/usr/include/libxml2,
-				);
-				INFOPLIST_FILE = Support/Validator/Info.plist;
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-ltidy",
-				);
-				PRODUCT_NAME = TouchXMLValidator;
-			};
-			name = Coverage;
-		};
-		4533AB090DA4203C0028B909 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lgcov";
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = "";
-			};
-			name = Coverage;
-		};
-		4533AB0A0DA4203C0028B909 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = All;
-			};
-			name = Coverage;
-		};
-		4533AB0B0DA4203C0028B909 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/tidy,
-					/usr/include/libxml2,
-				);
-				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-ltidy",
-				);
-				PRODUCT_NAME = TouchXMLDemo;
-			};
-			name = Coverage;
-		};
-		4533AB0C0DA4203C0028B909 /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_OBJCPP_ARC_ABI = YES;
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/tidy,
-					/usr/include/libxml2,
-				);
-				INFOPLIST_FILE = Support/UnitTests/Resources/Info.plist;
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-ltidy",
-				);
-				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
-				PRODUCT_NAME = TouchXMLUnitTests;
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Coverage;
-		};
-		456A848B0D81DB06000E29C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/tidy,
-					/usr/include/libxml2,
-				);
-				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-ltidy",
-				);
-				PRODUCT_NAME = TouchXMLDemo;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = TouchXML/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = io.schwa.TouchXML;
+				PRODUCT_NAME = TouchXML;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		456A848C0D81DB06000E29C9 /* Release */ = {
+		4552E9E91D5AEA0F00B4F962 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Foundation.framework/Headers/Foundation.h";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					/usr/include/tidy,
-					/usr/include/libxml2,
-				);
-				INSTALL_PATH = /usr/local/bin;
-				OTHER_LDFLAGS = (
-					"-lxml2",
-					"-ltidy",
-				);
-				PRODUCT_NAME = TouchXMLDemo;
-				ZERO_LINK = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = TouchXML/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = io.schwa.TouchXML;
+				PRODUCT_NAME = TouchXML;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4552EA081D5B80F400B4F962 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = TouchXML/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = io.schwa.TouchXML;
+				PRODUCT_NAME = TouchXML;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4552EA091D5B80F400B4F962 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				INFOPLIST_FILE = TouchXML/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = "-lxml2";
+				PRODUCT_BUNDLE_IDENTIFIER = io.schwa.TouchXML;
+				PRODUCT_NAME = TouchXML;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -757,7 +746,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -779,7 +768,6 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = TouchXMLUnitTests;
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -792,7 +780,7 @@
 				CLANG_WARN_OBJCPP_ARC_ABI = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -812,27 +800,6 @@
 				);
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				PRODUCT_NAME = TouchXMLUnitTests;
-				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		457941050D82219400EB2D22 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = All;
-			};
-			name = Debug;
-		};
-		457941060D82219400EB2D22 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				PRODUCT_NAME = All;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -840,15 +807,32 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=aspen*]" = "iPhone Developer";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = "";
@@ -858,12 +842,32 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = fast;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = "";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -875,50 +879,45 @@
 			buildConfigurations = (
 				451E6E361152EB4B0024ABA5 /* Debug */,
 				451E6E371152EB4B0024ABA5 /* Release */,
-				451E6E381152EB4B0024ABA5 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
-		456A84D90D81DB2E000E29C9 /* Build configuration list for PBXNativeTarget "TouchXMLDemo" */ = {
+		4552E9EB1D5AEA0F00B4F962 /* Build configuration list for PBXNativeTarget "TouchXML_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				456A848B0D81DB06000E29C9 /* Debug */,
-				456A848C0D81DB06000E29C9 /* Release */,
-				4533AB0B0DA4203C0028B909 /* Coverage */,
+				4552E9E81D5AEA0F00B4F962 /* Debug */,
+				4552E9E91D5AEA0F00B4F962 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
+		};
+		4552EA071D5B80F400B4F962 /* Build configuration list for PBXNativeTarget "TouchXML_Mac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4552EA081D5B80F400B4F962 /* Debug */,
+				4552EA091D5B80F400B4F962 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		457941030D82217800EB2D22 /* Build configuration list for PBXNativeTarget "TouchXMLUnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				457941010D82217800EB2D22 /* Debug */,
 				457941020D82217800EB2D22 /* Release */,
-				4533AB0C0DA4203C0028B909 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		4579410B0D8221C000EB2D22 /* Build configuration list for PBXAggregateTarget "All" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				457941050D82219400EB2D22 /* Debug */,
-				457941060D82219400EB2D22 /* Release */,
-				4533AB0A0DA4203C0028B909 /* Coverage */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "TouchXML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-				4533AB090DA4203C0028B909 /* Coverage */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

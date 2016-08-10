@@ -42,12 +42,12 @@
 NSError *theError = NULL;
 NSString *theXML = @"<root attribute='bad'><anchor><node attribute='good'/></anchor></root>";
 CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError];
-STAssertNotNil(theXMLDocument, NULL);
+XCTAssertNotNil(theXMLDocument);
 
 NSArray *theNodes = NULL;
 
 theNodes = [theXMLDocument nodesForXPath:@"//@attribute" error:&theError];
-STAssertTrue([theNodes count] == 2, NULL);
+XCTAssertTrue([theNodes count] == 2);
 }
 
 - (void)test_xmlns
@@ -56,7 +56,7 @@ NSError *theError = NULL;
 NSString *theXML = @"<?xml version=\"1.0\" encoding=\"UTF-8\"?><FindItemsResponse xmlns=\"urn:ebay:apis:eBLBaseComponents\"><Timestamp>2008-03-26T23:23:13.175Z</Timestamp></FindItemsResponse>";
 
 CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError];
-STAssertNotNil(theXMLDocument, NULL);
+XCTAssertNotNil(theXMLDocument);
 
 NSArray *theNodes = NULL;
 
@@ -65,7 +65,7 @@ NSDictionary *theMappings = [NSDictionary dictionaryWithObjectsAndKeys:
 	NULL];
 
 theNodes = [theXMLDocument nodesForXPath:@"//ebay:Timestamp" namespaceMappings:theMappings error:&theError];
-STAssertTrue([theNodes count] == 1, NULL);
+XCTAssertTrue([theNodes count] == 1);
 }
 
 - (void)test_relative_paths
@@ -74,16 +74,16 @@ NSError *theError = NULL;
 NSString *theXML = @"<root attribute='bad'><mid><node attribute='good'/></mid></root>";
 
 CXMLDocument *theXMLDocument = [[CXMLDocument alloc] initWithXMLString:theXML options:0 error:&theError];
-STAssertNotNil(theXMLDocument, NULL);
+XCTAssertNotNil(theXMLDocument);
 
 NSArray *theNodes = NULL;
 
 theNodes = [theXMLDocument nodesForXPath:@"//mid" error:&theError];
-STAssertTrue([theNodes count] == 1, NULL);
+XCTAssertTrue([theNodes count] == 1);
 for (CXMLElement *theElement in theNodes)
 	{
 	theNodes = [theElement nodesForXPath:@"./node" error:NULL];
-	STAssertTrue([theNodes count] == 1, NULL);
+	XCTAssertTrue([theNodes count] == 1);
 	}
 }
 

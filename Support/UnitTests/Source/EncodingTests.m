@@ -57,8 +57,8 @@ static NSString *xmlUTF8Str = @"\n\
     
     /* Extra: check NSXMLDocument compatibility — like CXMLDocument, expects failure */
     NSXMLDocument *nsdoc = [[NSXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
-    STAssertNil(nsdoc, NULL);
-    STAssertNotNil(error, NULL);
+    XCTAssertNil(nsdoc);
+    XCTAssertNotNil(error);
 }
 
 
@@ -78,20 +78,20 @@ static NSString *xmlUTF8Str = @"\n\
                                          error:&error]
           : [[CXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
 
-    STAssertNotNil(doc, NULL);
-    STAssertNil(error, NULL);
+    XCTAssertNotNil(doc);
+    XCTAssertNil(error);
 
     NSString *path = @"/html/head/title";
     NSArray *nodes = [doc nodesForXPath:path error:&error];
     CXMLNode *node = [nodes objectAtIndex:0];
     NSString *result = [node stringValue];
-    STAssertEqualObjects(result, @"Новости и аналитика", nil);
+    XCTAssertEqualObjects(result, @"Новости и аналитика");
     
 
     /* Extra: check NSXMLDocument compatibility — like CXMLDocument, expects failure */
     NSXMLDocument *nsdoc = [[NSXMLDocument alloc] initWithData:nonUTF8Data options:0 error:&error];
-    STAssertNil(nsdoc, NULL);
-    STAssertNotNil(error, NULL);
+    XCTAssertNil(nsdoc);
+    XCTAssertNotNil(error);
     /* enough, parse went ok */
 }
 
@@ -101,26 +101,26 @@ static NSString *xmlUTF8Str = @"\n\
     NSError *error;
 
     /* sanity check */
-    STAssertTrue([xmlUTF8Str canBeConvertedToEncoding:NSWindowsCP1251StringEncoding], 
+    XCTAssertTrue([xmlUTF8Str canBeConvertedToEncoding:NSWindowsCP1251StringEncoding], 
                  @"XML cannot be converted to windows-1251 without losing data.", nil);
         
     NSData *nonUTF8Data = [xmlUTF8Str dataUsingEncoding:NSWindowsCP1251StringEncoding];
     NSString *nonUTF8Str = [[NSString alloc] initWithData:nonUTF8Data encoding:NSWindowsCP1251StringEncoding];
     
     CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:nonUTF8Str options:0 error:&error];
-    STAssertNotNil(doc, NULL);
-    STAssertNil(error, NULL);
+    XCTAssertNotNil(doc);
+    XCTAssertNil(error);
 
     NSString *path = @"/html/head/title";
     NSArray *nodes = [doc nodesForXPath:path error:&error];
     CXMLNode *node = [nodes objectAtIndex:0];
     NSString *result = [node stringValue];
-    STAssertEqualObjects(result, @"Новости и аналитика", nil);
+    XCTAssertEqualObjects(result, @"Новости и аналитика");
 
     /* Extra: check NSXMLDocument compatibility — like CXMLDocument, expects correct parsing */
     NSXMLDocument *nsdoc = [[NSXMLDocument alloc] initWithXMLString:nonUTF8Str options:0 error:&error];
-    STAssertNotNil(nsdoc, NULL);
-    STAssertNil(error, NULL);
+    XCTAssertNotNil(nsdoc);
+    XCTAssertNil(error);
     /* enough, parse went ok */
 }
 

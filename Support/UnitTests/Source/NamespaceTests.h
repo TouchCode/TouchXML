@@ -31,8 +31,8 @@
 
 #define USE_APPLICATION_UNIT_TEST 1
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface NamespaceTests : SenTestCase 
+@interface NamespaceTests : XCTestCase 
 
 @end

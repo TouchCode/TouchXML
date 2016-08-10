@@ -29,9 +29,9 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of Unsolicited Feedback.
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface EncodingTests : SenTestCase {
+@interface EncodingTests : XCTestCase {
 
 }
 

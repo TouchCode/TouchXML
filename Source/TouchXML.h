@@ -29,12 +29,20 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import "CXMLDocument.h"
-#import "CXMLDocument_CreationExtensions.h"
-#import "CXMLElement.h"
-#import "CXMLElement_CreationExtensions.h"
-#import "CXMLElement_ElementTreeExtensions.h"
-#import "CXMLNode.h"
-#import "CXMLNode_CreationExtensions.h"
-#import "CXMLNode_XPathExtensions.h"
-#import "CXMLUnsupportedNode.h"
+//! Project version number for TouchXML.
+FOUNDATION_EXPORT double TouchXMLVersionNumber;
+
+//! Project version string for TouchXML.
+FOUNDATION_EXPORT const unsigned char TouchXMLVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <TouchXML/PublicHeader.h>
+
+#import <TouchXML/CXMLDocument.h>
+#import <TouchXML/CXMLDocument_CreationExtensions.h>
+#import <TouchXML/CXMLElement.h>
+#import <TouchXML/CXMLElement_CreationExtensions.h>
+#import <TouchXML/CXMLElement_ElementTreeExtensions.h>
+#import <TouchXML/CXMLNode.h>
+#import <TouchXML/CXMLNode_CreationExtensions.h>
+#import <TouchXML/CXMLNode_XPathExtensions.h>
+#import <TouchXML/CXMLUnsupportedNode.h>

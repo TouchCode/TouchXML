@@ -29,10 +29,10 @@
 //  authors and should not be interpreted as representing official policies, either expressed
 //  or implied, of toxicsoftware.com.
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
 
-@interface XPath_Tests : SenTestCase {
+@interface XPath_Tests : XCTestCase {
 
 }
 
