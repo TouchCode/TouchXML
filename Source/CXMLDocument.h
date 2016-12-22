@@ -78,6 +78,7 @@ enum {
 - (id)initWithXMLString:(NSString *)inString options:(NSUInteger)inOptions error:(NSError **)outError;
 - (id)initWithContentsOfURL:(NSURL *)inURL options:(NSUInteger)inOptions error:(NSError **)outError;
 - (id)initWithContentsOfURL:(NSURL *)inURL encoding:(NSStringEncoding)encoding options:(NSUInteger)inOptions error:(NSError **)outError;
+- (id)XMLStringWithOptions:(NSUInteger)options;
 
 //- (NSString *)characterEncoding;
 //- (NSString *)version;
